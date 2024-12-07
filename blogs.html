@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Learn more about ni18, a forward-thinking technology company dedicated to delivering innovative digital solutions and empowering businesses.">
+    <title>About Us - NI18</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2ecc71;
+            --dark-color: #2c3e50;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--dark-color);
+            line-height: 1.6;
+        }
+        .gradient-overlay {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+        }
+        .hero-section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        .section-title {
+            font-weight: 700;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 60px;
+            height: 3px;
+            background: var(--primary-color);
+            transform: translateX(-50%);
+        }
+        .tech-icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        .table-responsive {
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="mainNavbar" class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: rgba(0,0,0,0.7);">
+        <div class="container">
+            <a class="navbar-brand" href="/">NI18</a>
+            <button class="navbar-toggler" type="button" aria-label="Menu" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="https://forms.gle/Jr7RxbKNDjLzCLQ8A">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- About Section -->
+    <section id="about" class="bg-light py-5">
+        <div class="container">
+            <h2 class="text-center section-title mb-5">Blogs</h2>
+
+            <div class="container">
+                <h1>All Blogs</h1>
+                <ul id="blog-list">
+                    <!-- Blogs will be dynamically loaded here -->
+                </ul>
+            </div>
+        
+            <script>
+                // JavaScript
+                const blogs = [
+                    { title: "How to Choose the Right Technology Stack for Your Project", file: "blogs/How-to-Choose-the-Right-Technology-Stack-for-Your-Project.html" }
+                ];
+        
+                const blogList = document.getElementById('blog-list');
+        
+                blogs.forEach(blog => {
+                    const listItem = document.createElement('li');
+                    listItem.innerHTML = `<a href="${blog.file}" target="_blank">${blog.title}</a>`;
+                    blogList.appendChild(listItem);
+                });
+            </script>
+
+        </div>
+    </section>
+
+
+    
+
+    <!-- Contact Section -->
+
+    <section id="contact" class="py-5 gradient-overlay">
+        <div class="container">
+            <!-- Blog Posts Section -->
+            <div class="mt-5 text-center">
+                <h3 class="text-white mb-4">Also, check out our latest blog posts:</h3>
+                <div id="blogList" class="table-responsive"></div>
+            </div>
+        </div>
+    </section>
+    
+    <script type="text/javascript">
+        var postItems = [];
+    
+        function bloggersitemap(a) {
+            function extractPostData(entry) {
+                var postData = {
+                    title: entry.title.$t,
+                    url: '',
+                    label: '',
+                    recent: false
+                };
+    
+                for (var i = 0; i < entry.link.length; i++) {
+                    if (entry.link[i].rel === 'alternate') {
+                        postData.url = entry.link[i].href;
+                        break;
+                    }
+                }
+    
+                if ('category' in entry) {
+                    postData.label = entry.category[0].term.replace(/;.*$/, ''); // Remove everything after the last semicolon
+                }
+    
+                return postData;
+            }
+    
+            if ("entry" in a.feed) {
+                postItems = a.feed.entry.map(extractPostData);
+                postItems.forEach(function (post, index) {
+                    post.recent = index < 10;
+                });
+            }
+    
+            sortPosts("titledesc");
+            sortlabel();
+            displayToc();
+        }
+    
+        function sortPosts(sortType) {
+            postItems.sort(function (a, b) {
+                var comparison = 0;
+                switch (sortType) {
+                    case "titleasc":
+                        comparison = a.title.localeCompare(b.title);
+                        break;
+                    case "titledesc":
+                        comparison = b.title.localeCompare(a.title);
+                        break;
+                    case "orderlabel":
+                        comparison = a.label.localeCompare(b.label);
+                        break;
+                }
+                return comparison;
+            });
+        }
+    
+        function sortlabel() {
+            sortPosts("orderlabel");
+        }
+    
+        function displayToc() {
+            var blogListDiv = document.getElementById('blogList');
+            var currentLabel = null;
+    
+            var table = '<table class="table table-dark table-bordered table-striped">';
+            postItems.forEach(function (post, index) {
+                if (post.label !== currentLabel) {
+                    if (currentLabel !== null) {
+                        table += "</td></tr>";
+                    }
+                    table += '<tr><th colspan="2"><h4 class="text-white">' + post.label + '</h4></th></tr><tr><td colspan="2"><div class="ct-columns">';
+                    currentLabel = post.label;
+                }
+    
+                table += "<tr><td>";
+                table += '<a href="' + post.url + '" class="text-light">' + post.title + "</a>";
+                if (post.recent) {
+                    table += ' - <strong class="text-warning">New!</strong>';
+                }
+                table += "</td></tr>";
+            });
+    
+            if (currentLabel !== null) {
+                table += "</div></td></tr>";
+            }
+    
+            table += '</table>';
+            blogListDiv.innerHTML = table;
+        }
+    </script>
+    
+    <script src="https://blog.ni18.in/feeds/posts/summary?alt=json-in-script&amp;max-results=9999&amp;callback=bloggersitemap" type="text/javascript"></script>
+     
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-4">
+        <div class="container">
+            <p>&copy; 2024 <a href="https://blog.ni18.in/" class="text-white text-decoration-none">ni18</a></p>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/company/ni18" aria-label="linkedin ni18 social media link" class="text-white mx-2 text-decoration-none"><i class="ri-linkedin-fill"></i></a>
+                <a href="https://x.com/ni18_in" aria-label="twitter ni18 social media link" class="text-white mx-2 text-decoration-none"><i class="ri-twitter-fill"></i></a>
+                <a href="https://github.com/ni18-in" aria-label="github ni18 social media link" class="text-white mx-2 text-decoration-none"><i class="ri-github-fill"></i></a>
+                <a href="https://www.facebook.com/ni18.in" aria-label="facebook ni18 social media link" class="text-white mx-2 text-decoration-none"><i class="ri-facebook-fill"></i></a>
+                <a href="https://www.instagram.com/ni18.in/" aria-label="instagram ni18 social media link" class="text-white mx-2 text-decoration-none"><i class="ri-instagram-fill"></i></a>
+                <a href="https://www.youtube.com/@ni18_in" aria-label="youtube ni18 social media link" class="text-white mx-2 text-decoration-none"><i class="ri-youtube-fill"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

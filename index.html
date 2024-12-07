@@ -71,14 +71,15 @@
     <!-- Navigation -->
     <nav id="mainNavbar" class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: rgba(0,0,0,0.7);">
         <div class="container">
-            <a class="navbar-brand" href="#">NI18</a>
+            <a class="navbar-brand" href="/">NI18</a>
             <button class="navbar-toggler" type="button" aria-label="Menu" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/blogs.html">Blogs</a></li>
                     <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
                     <li class="nav-item"><a class="nav-link" href="https://forms.gle/Jr7RxbKNDjLzCLQ8A">Contact</a></li>
                 </ul>
@@ -149,117 +150,10 @@
             </div>
         </div>
         <div class="mt-4 text-center">
-            <a href="#services" class="btn btn-primary">Explore Our Services</a>
+            <a href="/about.html" class="btn btn-primary">Know More About Us</a>
         </div>
     </div>
-</section>
-
-
-    <!-- Contact Section -->
-
-    <section id="contact" class="py-5 gradient-overlay">
-        <div class="container">
-            <!-- Blog Posts Section -->
-            <div class="mt-5 text-center">
-                <h3 class="text-white mb-4">Also, check out our latest blog posts:</h3>
-                <div id="blogList" class="table-responsive"></div>
-            </div>
-        </div>
-    </section>
-    
-    <script type="text/javascript">
-        var postItems = [];
-    
-        function bloggersitemap(a) {
-            function extractPostData(entry) {
-                var postData = {
-                    title: entry.title.$t,
-                    url: '',
-                    label: '',
-                    recent: false
-                };
-    
-                for (var i = 0; i < entry.link.length; i++) {
-                    if (entry.link[i].rel === 'alternate') {
-                        postData.url = entry.link[i].href;
-                        break;
-                    }
-                }
-    
-                if ('category' in entry) {
-                    postData.label = entry.category[0].term.replace(/;.*$/, ''); // Remove everything after the last semicolon
-                }
-    
-                return postData;
-            }
-    
-            if ("entry" in a.feed) {
-                postItems = a.feed.entry.map(extractPostData);
-                postItems.forEach(function (post, index) {
-                    post.recent = index < 10;
-                });
-            }
-    
-            sortPosts("titledesc");
-            sortlabel();
-            displayToc();
-        }
-    
-        function sortPosts(sortType) {
-            postItems.sort(function (a, b) {
-                var comparison = 0;
-                switch (sortType) {
-                    case "titleasc":
-                        comparison = a.title.localeCompare(b.title);
-                        break;
-                    case "titledesc":
-                        comparison = b.title.localeCompare(a.title);
-                        break;
-                    case "orderlabel":
-                        comparison = a.label.localeCompare(b.label);
-                        break;
-                }
-                return comparison;
-            });
-        }
-    
-        function sortlabel() {
-            sortPosts("orderlabel");
-        }
-    
-        function displayToc() {
-            var blogListDiv = document.getElementById('blogList');
-            var currentLabel = null;
-    
-            var table = '<table class="table table-dark table-bordered table-striped">';
-            postItems.forEach(function (post, index) {
-                if (post.label !== currentLabel) {
-                    if (currentLabel !== null) {
-                        table += "</td></tr>";
-                    }
-                    table += '<tr><th colspan="2"><h4 class="text-white">' + post.label + '</h4></th></tr><tr><td colspan="2"><div class="ct-columns">';
-                    currentLabel = post.label;
-                }
-    
-                table += "<tr><td>";
-                table += '<a href="' + post.url + '" class="text-light">' + post.title + "</a>";
-                if (post.recent) {
-                    table += ' - <strong class="text-warning">New!</strong>';
-                }
-                table += "</td></tr>";
-            });
-    
-            if (currentLabel !== null) {
-                table += "</div></td></tr>";
-            }
-    
-            table += '</table>';
-            blogListDiv.innerHTML = table;
-        }
-    </script>
-    
-    <script src="https://blog.ni18.in/feeds/posts/summary?alt=json-in-script&amp;max-results=9999&amp;callback=bloggersitemap" type="text/javascript"></script>
-      
+</section> 
 
 <!-- Footer -->
 <footer class="bg-dark text-white text-center py-4">
