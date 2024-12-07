@@ -97,7 +97,7 @@
         
                 blogs.forEach(blog => {
                     const listItem = document.createElement('li');
-                    listItem.innerHTML = `<a href="${blog.file}" target="_blank">${blog.title}</a>`;
+                    listItem.innerHTML = `<h2><a href="${blog.file}" target="_blank">${blog.title}</a></h2>`;
                     blogList.appendChild(listItem);
                 });
             </script>
@@ -114,7 +114,6 @@
         <div class="container">
             <!-- Blog Posts Section -->
             <div class="mt-5 text-center">
-                <h3 class="text-white mb-4">Also, check out our latest blog posts:</h3>
                 <div id="blogList" class="table-responsive"></div>
             </div>
         </div>
