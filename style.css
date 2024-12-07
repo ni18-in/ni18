@@ -1,64 +1,96 @@
-/* Reset and base styles */
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-}
-.container {
-    width: 90%;
-    max-width: 1200px;
-    margin: auto;
-}
-h1, h2, h3 {
-    color: #333;
+:root {
+    --primary-color: #0066cc;
+    --secondary-color: #333;
+    --background-color: #f4f4f4;
 }
 
-/* Header Styles */
-.main-header {
-    background: #333;
-    color: #fff;
-    padding: 1rem 0;
-}
-.main-header .logo {
-    font-size: 1.5rem;
+* {
     margin: 0;
-}
-.nav-links {
-    list-style: none;
     padding: 0;
-    display: flex;
-    justify-content: space-around;
+    box-sizing: border-box;
 }
-.nav-links a {
-    color: #fff;
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: var(--secondary-color);
+}
+
+header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 1rem;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 1rem;
+}
+
+nav ul li a {
+    color: white;
     text-decoration: none;
 }
 
-/* Hero Section */
-.hero-section {
-    background: url('assets/hero.jpg') no-repeat center center/cover;
-    color: #fff;
+.hero {
     text-align: center;
-    padding: 4rem 0;
+    padding: 4rem 1rem;
+    background-color: var(--background-color);
 }
 
-/* Sections */
-section {
-    padding: 2rem 0;
+.features {
+    display: flex;
+    justify-content: space-around;
+    padding: 2rem;
 }
 
-/* Footer */
-.main-footer {
-    background: #222;
-    color: #fff;
+.feature {
     text-align: center;
-    padding: 1rem 0;
+    max-width: 300px;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .nav-links {
+.cta-button {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+footer {
+    background-color: var(--secondary-color);
+    color: white;
+    text-align: center;
+    padding: 1rem;
+}
+
+@media screen and (max-width: 768px) {
+    nav ul {
+        display: none;
+    }
+
+    .mobile-menu-toggle {
+        display: block;
+        cursor: pointer;
+    }
+
+    .features {
         flex-direction: column;
-        text-align: center;
+        align-items: center;
+    }
+
+    .feature {
+        margin-bottom: 1rem;
     }
 }

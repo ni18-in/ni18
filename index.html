@@ -2,89 +2,281 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="ni18 - Your Partner in Digital Solutions, providing top-notch services in web development, eCommerce, and digital marketing.">
-    <meta name="keywords" content="ni18, digital solutions, web development, eCommerce, digital marketing, SEO">
-    <meta name="author" content="ni18">
-    <title>ni18 - Digital Solutions</title>
-    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>NI18 - Innovative Technology Solutions</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2ecc71;
+            --dark-color: #2c3e50;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--dark-color);
+            line-height: 1.6;
+        }
+        .gradient-overlay {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+        }
+        .hero-section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        .service-card {
+            transition: all 0.3s ease;
+            border: none;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        }
+        .section-title {
+            font-weight: 700;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 60px;
+            height: 3px;
+            background: var(--primary-color);
+            transform: translateX(-50%);
+        }
+        .tech-icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        .table-responsive{
+            text-align: left;
+        }
+    </style>
 </head>
-<body>
-    <header class="main-header">
+<body data-bs-spy="scroll" data-bs-target="#mainNavbar">
+    <!-- Navigation -->
+    <nav id="mainNavbar" class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: rgba(0,0,0,0.7);">
         <div class="container">
-            <h1 class="logo">ni18</h1>
-            <nav>
-                <ul class="nav-links">
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#portfolio">Portfolio</a></li>
-                    <li><a href="#contact">Contact</a></li>
+            <a class="navbar-brand" href="#">NI18</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="https://forms.gle/Jr7RxbKNDjLzCLQ8A">Contact</a></li>
                 </ul>
-            </nav>
+            </div>
         </div>
-    </header>
+    </nav>
 
-    <section id="hero" class="hero-section">
-        <div class="container">
-            <h2>Welcome to ni18</h2>
-            <p>Your Partner in Digital Excellence</p>
-            <a href="#services" class="btn">Explore Services</a>
-        </div>
-    </section>
-
-    <section id="about" class="about-section">
-        <div class="container">
-            <h2>About Us</h2>
-            <p>ni18 is a leader in digital solutions, offering cutting-edge web development, eCommerce, and digital marketing services. We strive to bring innovation and growth to your business.</p>
+    <!-- Hero Section -->
+    <section id="home" class="hero-section gradient-overlay text-center">
+        <div class="container hero-content">
+            <h1 class="display-4 fw-bold mb-4">Transforming Ideas into Digital Solutions</h1>
+            <p class="lead mb-5">Innovative Technology. Exceptional Results.</p>
+            <a href="https://forms.gle/Jr7RxbKNDjLzCLQ8A" class="btn btn-light btn-lg px-5 py-3 rounded-pill">Get Started</a>
         </div>
     </section>
 
-    <section id="services" class="services-section">
+    <!-- Services Section -->
+    <section id="services" class="py-5">
         <div class="container">
-            <h2>Our Services</h2>
-            <div class="services-list">
-                <div class="service-item">
-                    <h3>Web Development</h3>
-                    <p>Creating responsive, fast, and secure websites tailored to your needs.</p>
+            <h2 class="text-center section-title mb-5">Our Services</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card service-card h-100 text-center p-4">
+                        <i class="ri-code-s-slash-line tech-icon"></i>
+                        <h4 class="mb-3">Software Development</h4>
+                        <p>We deliver cutting-edge software solutions designed to meet the unique needs of your business. From custom applications to enterprise-grade systems, our expertise ensures seamless integration, scalability, and performance. Whether it's web, mobile, or cloud-based software, we focus on innovation, user experience, and results-driven development to help you achieve your business goals efficiently.</p>
+                    </div>
                 </div>
-                <div class="service-item">
-                    <h3>eCommerce Solutions</h3>
-                    <p>End-to-end eCommerce services to drive online sales.</p>
+                <div class="col-md-4 mb-4">
+                    <div class="card service-card h-100 text-center p-4">
+                        <i class="ri-cloud-line tech-icon"></i>
+                        <h4 class="mb-3">Salesforce Commerce Cloud Solutions</h4>
+                        <p>Salesforce Commerce Cloud is a leading eCommerce platform designed to unify the shopping experience across all channels. It provides businesses with tools to create personalized, AI-driven customer journeys, seamless integrations, and robust scalability for enterprise-level needs.
+                        </p>
+                    </div>
                 </div>
-                <div class="service-item">
-                    <h3>Digital Marketing</h3>
-                    <p>Boost your brand's visibility with our expert SEO and social media marketing.</p>
+                <div class="col-md-4 mb-4">
+                    <div class="card service-card h-100 text-center p-4">
+                        <i class="ri-search-eye-line tech-icon" aria-hidden="true"></i>
+                        <h4 class="mb-3">SEO Services to Boost Your Online Presence</h4>
+                        <p>
+                            Drive organic traffic and improve your search engine rankings with our expert SEO services. From keyword research and on-page optimization to link building and analytics, we create tailored strategies that enhance visibility, attract the right audience, and increase conversions for your business.
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="portfolio" class="portfolio-section">
+<!-- About Section -->
+<section id="about" class="bg-light py-5">
+    <div class="container">
+        <h2 class="text-center section-title mb-5">About ni18</h2>
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <p class="lead">
+                    At ni18, we are a forward-thinking technology company committed to delivering innovative digital solutions that empower businesses to thrive in a competitive landscape.
+                </p>
+                <p>
+                    Our team of skilled technologists, designers, and strategists work collaboratively to turn ideas into reality, offering expertise in eCommerce development, cloud solutions, custom software, and digital marketing strategies. With a focus on scalability and innovation, we craft tailored solutions to meet your unique business needs.
+                </p>
+                <p>
+                    At the core of ni18 lies our dedication to client success, driven by values of innovation, integrity, and excellence. We believe in creating impactful digital experiences that deliver measurable results.
+                </p>
+            </div>
+            <div class="col-md-6">
+                <img src="images/ni18.png" alt="The ni18 Team at Work" class="img-fluid rounded shadow">
+            </div>
+        </div>
+        <div class="mt-4 text-center">
+            <a href="#services" class="btn btn-primary">Explore Our Services</a>
+        </div>
+    </div>
+</section>
+
+
+    <!-- Contact Section -->
+
+    <section id="contact" class="py-5 gradient-overlay">
         <div class="container">
-            <h2>Our Portfolio</h2>
-            <p>Check out some of our latest projects showcasing our expertise.</p>
+            <!-- Blog Posts Section -->
+            <div class="mt-5 text-center">
+                <h5 class="text-white mb-4">Also, check out our latest blog posts:</h5>
+                <div id="blogList" class="table-responsive"></div>
+            </div>
         </div>
     </section>
+    
+    <script type="text/javascript">
+        var postItems = [];
+    
+        function bloggersitemap(a) {
+            function extractPostData(entry) {
+                var postData = {
+                    title: entry.title.$t,
+                    url: '',
+                    label: '',
+                    recent: false
+                };
+    
+                for (var i = 0; i < entry.link.length; i++) {
+                    if (entry.link[i].rel === 'alternate') {
+                        postData.url = entry.link[i].href;
+                        break;
+                    }
+                }
+    
+                if ('category' in entry) {
+                    postData.label = entry.category[0].term.replace(/;.*$/, ''); // Remove everything after the last semicolon
+                }
+    
+                return postData;
+            }
+    
+            if ("entry" in a.feed) {
+                postItems = a.feed.entry.map(extractPostData);
+                postItems.forEach(function (post, index) {
+                    post.recent = index < 10;
+                });
+            }
+    
+            sortPosts("titledesc");
+            sortlabel();
+            displayToc();
+        }
+    
+        function sortPosts(sortType) {
+            postItems.sort(function (a, b) {
+                var comparison = 0;
+                switch (sortType) {
+                    case "titleasc":
+                        comparison = a.title.localeCompare(b.title);
+                        break;
+                    case "titledesc":
+                        comparison = b.title.localeCompare(a.title);
+                        break;
+                    case "orderlabel":
+                        comparison = a.label.localeCompare(b.label);
+                        break;
+                }
+                return comparison;
+            });
+        }
+    
+        function sortlabel() {
+            sortPosts("orderlabel");
+        }
+    
+        function displayToc() {
+            var blogListDiv = document.getElementById('blogList');
+            var currentLabel = null;
+    
+            var table = '<table class="table table-dark table-bordered table-striped">';
+            postItems.forEach(function (post, index) {
+                if (post.label !== currentLabel) {
+                    if (currentLabel !== null) {
+                        table += "</td></tr>";
+                    }
+                    table += '<tr><th colspan="2"><h4 class="text-white">' + post.label + '</h4></th></tr><tr><td colspan="2"><div class="ct-columns">';
+                    currentLabel = post.label;
+                }
+    
+                table += "<tr><td>";
+                table += '<a href="' + post.url + '" class="text-light">' + post.title + "</a>";
+                if (post.recent) {
+                    table += ' - <strong class="text-warning">New!</strong>';
+                }
+                table += "</td></tr>";
+            });
+    
+            if (currentLabel !== null) {
+                table += "</div></td></tr>";
+            }
+    
+            table += '</table>';
+            blogListDiv.innerHTML = table;
+        }
+    </script>
+    
+    <script src="https://blog.ni18.in/feeds/posts/summary?alt=json-in-script&amp;max-results=9999&amp;callback=bloggersitemap" type="text/javascript"></script>
+      
 
-    <section id="contact" class="contact-section">
-        <div class="container">
-            <h2>Contact Us</h2>
-            <p>We’d love to hear from you. Let’s build something amazing together.</p>
-            <form>
-                <input type="text" name="name" placeholder="Your Name" required>
-                <input type="email" name="email" placeholder="Your Email" required>
-                <textarea name="message" placeholder="Your Message" required></textarea>
-                <button type="submit" class="btn">Send Message</button>
-            </form>
+<!-- Footer -->
+<footer class="bg-dark text-white text-center py-4">
+    <div class="container">
+        <p>&copy; 2024 <a href="https://blog.ni18.in/" class="text-white text-decoration-none">ni18</a></p>
+        <div class="social-links">
+            <a href="https://www.linkedin.com/company/ni18" class="text-white mx-2 text-decoration-none"><i class="ri-linkedin-fill"></i></a>
+            <a href="https://x.com/ni18_in" class="text-white mx-2 text-decoration-none"><i class="ri-twitter-fill"></i></a>
+            <a href="https://github.com/ni18-in" class="text-white mx-2 text-decoration-none"><i class="ri-github-fill"></i></a>
+            <a href="https://www.facebook.com/ni18.in" class="text-white mx-2 text-decoration-none"><i class="ri-facebook-fill"></i></a>
+            <a href="https://www.instagram.com/ni18.in/" class="text-white mx-2 text-decoration-none"><i class="ri-instagram-fill"></i></a>
+            <a href="https://www.youtube.com/@ni18_in" class="text-white mx-2 text-decoration-none"><i class="ri-youtube-fill"></i></a>
         </div>
-    </section>
+    </div>
+</footer>
 
-    <footer class="main-footer">
-        <div class="container">
-            <p>&copy; 2024 ni18. All Rights Reserved.</p>
-        </div>
-    </footer>
 
-    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
 </body>
 </html>
