@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Find the nearest C-DAC training centers with ease using the C-DAC Center Finder. Get details on location, courses, and contact information for your convenience.">
+    <title>C-DAC Center Finder</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .result-card {
+            margin-top: 20px;
+        }
+
+        .loader {
+            display: none;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">C-DAC Center Finder</h1>
+        <div class="card p-4">
+            <form id="searchForm">
+                <div class="mb-3">
+                    <label for="centerName" class="form-label">Search C-DAC Center</label>
+                    <input type="text" class="form-control" id="centerName"
+                        placeholder="Enter center name (e.g., C-DAC Pune)">
+                </div>
+                <button type="submit" class="btn btn-primary">Search</button>
+            </form>
+        </div>
+        <div class="loader mt-4">
+            <div class="spinner-border text-primary" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
+        <div id="results" class="row mt-4"></div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            const mockData = {
+                "C-DAC ACTS Pune": {
+                    "cutoff": "DAC: Under 600-650, DESD: Under 250-400, DITISS: Under 1400-2000, IOT: Under 2800-3200, DBDA: Under 500-750",
+                    "placement": "Approximately 90% to 96% across all courses"
+                },
+                "Sunbeam Pune": {
+                    "cutoff": "DAC: Under 900-1000, DESD: Under 700-800, DITISS: Under 2400-3000, DMC: Under 3200-3500, DBDA: Under 1800-2000",
+                    "placement": "Approximately 82% to 90% across all courses"
+                },
+                "IACSD Akurdi Pune": {
+                    "cutoff": "DAC: Under 1600-1800, DITISS: Under 3500-4000, DBDA: Under 2300-2500",
+                    "placement": "Approximately 80% to 85% across all courses"
+                },
+                "Sunbeam Karad": {
+                    "cutoff": "DAC: Under 2000-2500",
+                    "placement": "Approximately 85% to 90%"
+                },
+                "Know IT Pune": {
+                    "cutoff": "DAC: Under 2100",
+                    "placement": "Approximately 70%"
+                },
+                "IET Pune": {
+                    "cutoff": "DAC: Under 2800",
+                    "placement": "Approximately 65%"
+                },
+                "Infoway Pune": {
+                    "cutoff": "DAC: Under 3200",
+                    "placement": "Approximately 60%"
+                },
+                "C-DAC Knowledge Park Bengaluru": {
+                    "cutoff": "DAC: Under 1300-1500, IOT: Under 3200-3500, DBDA: Under 2800-3000",
+                    "placement": "Approximately 80% to 85% across all courses"
+                },
+                "C-DAC E-City Bengaluru": {
+                    "cutoff": "DAC: Under 2200-2500, DESD: Under 2500-3000",
+                    "placement": "Approximately 70% to 80% across all courses"
+                },
+                "C-DAC Hyderabad": {
+                    "cutoff": "DAC: Under 2500-3000, DESD: Under 650-700",
+                    "placement": "Approximately 80% to 90% across all courses"
+                },
+                "C-DAC Noida": {
+                    "cutoff": "DAC: Under 6100",
+                    "placement": "Approximately 78%"
+                },
+                "VITA Mumbai": {
+                    "cutoff": "DAC: Under 1600-2000, DBDA: Under 3000-3500",
+                    "placement": "DAC: 95% to 99%, DBDA: 88% to 92%"
+                },
+                "C-DAC Kharghar Navi Mumbai": {
+                    "cutoff": "DAC: Under 2000-2300",
+                    "placement": "Approximately 80% to 85%"
+                },
+                "C-DAC JUHU Mumbai": {
+                    "cutoff": "DAC: Under 2500-3500",
+                    "placement": "Approximately 80%"
+                },
+                "YCP Mumbai": {
+                    "cutoff": "DAC: Under 4500",
+                    "placement": "Approximately 75%"
+                },
+                "MET Mumbai": {
+                    "cutoff": "DAC: Under 3400",
+                    "placement": "Approximately 78%"
+                }
+            }
+
+
+
+
+            const displayCenters = (centers) => {
+                $("#results").empty();
+                if (centers.length === 0) {
+                    $("#results").html('<p class="text-danger text-center">No data found for this center.</p>');
+                } else {
+                    centers.forEach(center => {
+                        const card = `
+              <div class="col-md-6 result-card">
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">${center.name}</h5>
+                    <p class="card-text">Cutoff Rank: <strong>${center.data.cutoff}</strong></p>
+                    <p class="card-text">Placement Percentage: <strong>${center.data.placement}</strong></p>
+                  </div>
+                </div>
+              </div>
+            `;
+                        $("#results").append(card);
+                    });
+                }
+            };
+
+            const fetchCenterData = (centerName) => {
+                return new Promise((resolve) => {
+                    setTimeout(() => {
+                        const data = mockData[centerName];
+                        resolve(data ? [{ name: centerName, data }] : []);
+                    }, 500);
+                });
+            };
+
+            const fetchAllCenters = () => {
+                return new Promise((resolve) => {
+                    setTimeout(() => {
+                        const allCenters = Object.keys(mockData).map(name => ({ name, data: mockData[name] }));
+                        resolve(allCenters);
+                    }, 500);
+                });
+            };
+
+            // Display all centers initially
+            $(".loader").show();
+            fetchAllCenters().then((centers) => {
+                $(".loader").hide();
+                displayCenters(centers);
+            });
+
+            $("#searchForm").on("submit", function (event) {
+                event.preventDefault();
+                const centerName = $("#centerName").val().trim();
+                $(".loader").show();
+                if (centerName) {
+                    fetchCenterData(centerName).then((centers) => {
+                        $(".loader").hide();
+                        displayCenters(centers);
+                    });
+                } else {
+                    fetchAllCenters().then((centers) => {
+                        $(".loader").hide();
+                        displayCenters(centers);
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
