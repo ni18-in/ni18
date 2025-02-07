@@ -132,7 +132,8 @@
                         <p><strong>Variables and Data Types:</strong></p>
                         <ul>
                             <li>Understand how to declare variables using <code>var</code>, <code>let</code>, and
-                                <code>const</code>.</li>
+                                <code>const</code>.
+                            </li>
                             <li>Learn about different data types such as numbers, strings, booleans, arrays, and
                                 objects.</li>
                         </ul>
@@ -208,7 +209,8 @@
                         <p><strong>Error Handling:</strong></p>
                         <ul>
                             <li>Understand how to handle errors using <code>try</code>, <code>catch</code>, and
-                                <code>finally</code> blocks.</li>
+                                <code>finally</code> blocks.
+                            </li>
                             <li>Learn the importance of writing robust code that gracefully handles exceptions.</li>
                         </ul>
                     </li>
@@ -457,101 +459,6 @@
 
         </div>
     </section>
-
-    <script type="text/javascript">
-        var postItems = [];
-
-        function bloggersitemap(a) {
-            function extractPostData(entry) {
-                var postData = {
-                    title: entry.title.$t,
-                    url: '',
-                    label: '',
-                    recent: false
-                };
-
-                for (var i = 0; i < entry.link.length; i++) {
-                    if (entry.link[i].rel === 'alternate') {
-                        postData.url = entry.link[i].href;
-                        break;
-                    }
-                }
-
-                if ('category' in entry) {
-                    postData.label = entry.category[0].term.replace(/;.*$/, ''); // Remove everything after the last semicolon
-                }
-
-                return postData;
-            }
-
-            if ("entry" in a.feed) {
-                postItems = a.feed.entry.map(extractPostData);
-                postItems.forEach(function (post, index) {
-                    post.recent = index < 10;
-                });
-            }
-
-            sortPosts("titledesc");
-            sortlabel();
-            displayToc();
-        }
-
-        function sortPosts(sortType) {
-            postItems.sort(function (a, b) {
-                var comparison = 0;
-                switch (sortType) {
-                    case "titleasc":
-                        comparison = a.title.localeCompare(b.title);
-                        break;
-                    case "titledesc":
-                        comparison = b.title.localeCompare(a.title);
-                        break;
-                    case "orderlabel":
-                        comparison = a.label.localeCompare(b.label);
-                        break;
-                }
-                return comparison;
-            });
-        }
-
-        function sortlabel() {
-            sortPosts("orderlabel");
-        }
-
-        function displayToc() {
-            var blogListDiv = document.getElementById('blogList');
-            var currentLabel = null;
-
-            var table = '<table class="table table-dark table-bordered table-striped">';
-            postItems.forEach(function (post, index) {
-                if (post.label !== currentLabel) {
-                    if (currentLabel !== null) {
-                        table += "</td></tr>";
-                    }
-                    table += '<tr><th colspan="2"><h4 class="text-white">' + post.label + '</h4></th></tr><tr><td colspan="2"><div class="ct-columns">';
-                    currentLabel = post.label;
-                }
-
-                table += "<tr><td>";
-                table += '<a href="' + post.url + '" class="text-light">' + post.title + "</a>";
-                if (post.recent) {
-                    table += ' - <strong class="text-warning">New!</strong>';
-                }
-                table += "</td></tr>";
-            });
-
-            if (currentLabel !== null) {
-                table += "</div></td></tr>";
-            }
-
-            table += '</table>';
-            blogListDiv.innerHTML = table;
-        }
-    </script>
-
-    <script
-        src="https://blog.ni18.in/feeds/posts/summary?alt=json-in-script&amp;max-results=9999&amp;callback=bloggersitemap"
-        type="text/javascript"></script>
 
 
     <!-- Footer -->
