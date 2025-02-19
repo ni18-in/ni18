@@ -88,58 +88,11 @@
         </div>
     </nav>
 
-    <!-- About Section -->
-    <section id="about" class="bg-light py-5">
-        <div class="container">
-            <h2 class="text-center section-title mb-5">Blogs</h2>
-
-            <div class="container">
-                <h1>All Blogs</h1>
-                <ul id="blog-list">
-                    <!-- Blogs will be dynamically loaded here -->
-                </ul>
-            </div>
-
-            <script>
-                // JavaScript
-                const blogs = [
-                    { title: "How to Choose the Right Technology Stack for Your Project", file: "blogs/How-to-Choose-the-Right-Technology-Stack-for-Your-Project.html" },
-                    { title: "BIBLE QUIZ APP", file: "blogs/bible-quiz-app.html" },
-                    { title: "TypeScript vs JavaScript: A Comprehensive Comparison", file: "blogs/TypeScript-vs-JavaScript-Comprehensive-Comparison.html" },
-                    { title: "Deepseek AI", file: "https://blog.ni18.in/deepseek-ai/" },
-                    { title: "Top 7 AI-Powered IDEs for Developers in 2025", file: "https://blog.ni18.in/top-7-ai-powered-ides-for-developers/" },
-                    { title: "Project Ideas for CDAC", file: "https://blog.ni18.in/project-ideas-for-cdac/" },
-                    { title: "CDAC Institutes Placement Overview: 2022 Statistics and Insights", file: "https://blog.ni18.in/cdac-institutes-placement-overview/" },
-                    { title: "Fix issues - ni18 Blog ", file: "https://blog.ni18.in/category/fix/" },
-                    { title: "Google Web Stories - ni18 Blog", file: "https://blog.ni18.in/web-stories/" },
-                    { title: "JavaScript Interview Topics and Common Questions", file: "https://blog.ni18.in/javascript-interview-topics-and-common-questions/" },
-                    { title: "PG DAC Syllabus", file: "https://blog.ni18.in/pg-dac-syllabus/" },
-                    { title: "JavaScript Road Map", file: "blogs/javascript-roadmap.html" },
-                    { title: "Top Topic: Your Gateway to Insightful and Thought-Provoking Tech Content", file: "https://sites.google.com/view/toptopic/home" },
-                    { title: "How to Fix the 'npm error could not determine executable to run'", file: "https://blog.ni18.in/npm-error-could-not-determine-executable-to-run/" }
-
-                ];
-
-
-                const blogList = document.getElementById('blog-list');
-
-                blogs.forEach(blog => {
-                    const listItem = document.createElement('li');
-                    listItem.innerHTML = `<h2><a href="${blog.file}" target="_blank">${blog.title}</a></h2>`;
-                    blogList.appendChild(listItem);
-                });
-            </script>
-
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-
     <section id="contact" class="py-5 gradient-overlay">
         <div class="container">
             <!-- Blog Posts Section -->
 
-            <div class="mt-5 text-center">
+            <div class="mt-5">
                 <p>If you&apos;re looking to stay updated on the latest trends in technology, programming tutorials, or
                     career development advice, <strong>ni18&apos;s</strong> blog is the place to be. This platform
                     brings you a variety of content designed to help you navigate the world of tech, from
@@ -261,12 +214,61 @@
                     gain access to a wealth of knowledge that can help you grow professionally and stay ahead in the
                     ever-evolving tech world.</p>
             </div>
-            <div class="mt-5 text-center">
-                <div id="blogList" class="table-responsive"></div>
-            </div>
+
 
         </div>
     </section>
+
+    <!-- About Section -->
+    <section id="about" class="bg-light py-5">
+        <div class="container">
+            <h2 class="text-center section-title mb-5">Blogs</h2>
+
+            
+
+            <div class="container">
+                <h1>All Blogs</h1>
+                <ul id="blog-list">
+                    <!-- Blogs will be dynamically loaded here -->
+                </ul>
+            </div>
+
+            <script>
+                // JavaScript
+                const blogs = [
+                    { title: "How to Choose the Right Technology Stack for Your Project", file: "blogs/How-to-Choose-the-Right-Technology-Stack-for-Your-Project.html" },
+                    { title: "BIBLE QUIZ APP", file: "blogs/bible-quiz-app.html" },
+                    { title: "TypeScript vs JavaScript: A Comprehensive Comparison", file: "blogs/TypeScript-vs-JavaScript-Comprehensive-Comparison.html" },
+                    { title: "Deepseek AI", file: "https://blog.ni18.in/deepseek-ai/" },
+                    { title: "Top 7 AI-Powered IDEs for Developers in 2025", file: "https://blog.ni18.in/top-7-ai-powered-ides-for-developers/" },
+                    { title: "Project Ideas for CDAC", file: "https://blog.ni18.in/project-ideas-for-cdac/" },
+                    { title: "CDAC Institutes Placement Overview: 2022 Statistics and Insights", file: "https://blog.ni18.in/cdac-institutes-placement-overview/" },
+                    { title: "Fix issues - ni18 Blog ", file: "https://blog.ni18.in/category/fix/" },
+                    { title: "Google Web Stories - ni18 Blog", file: "https://blog.ni18.in/web-stories/" },
+                    { title: "JavaScript Interview Topics and Common Questions", file: "https://blog.ni18.in/javascript-interview-topics-and-common-questions/" },
+                    { title: "PG DAC Syllabus", file: "https://blog.ni18.in/pg-dac-syllabus/" },
+                    { title: "JavaScript Road Map", file: "blogs/javascript-roadmap.html" },
+                    { title: "Top Topic: Your Gateway to Insightful and Thought-Provoking Tech Content", file: "https://sites.google.com/view/toptopic/home" },
+                    { title: "How to Fix the 'npm error could not determine executable to run'", file: "https://blog.ni18.in/npm-error-could-not-determine-executable-to-run/" }
+
+                ];
+
+
+                const blogList = document.getElementById('blog-list');
+
+                blogs.forEach(blog => {
+                    const listItem = document.createElement('li');
+                    listItem.innerHTML = `<h2><a href="${blog.file}" target="_blank">${blog.title}</a></h2>`;
+                    blogList.appendChild(listItem);
+                });
+            </script>
+
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+
+
 
     <script type="text/javascript">
         var postItems = [];
