@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Simple JavaScript Compiler: A fast, lightweight online JS IDE with real-time execution, syntax highlighting, and no setup required.">
+    <meta name="keywords" content="javascript compiler, online javascript ide, js code editor, simple js tool, learn javascript, web-based compiler">
+    <meta name="author" content="xAI">
+    <meta name="robots" content="index, follow">
+    <title>Simple JavaScript Compiler | Online JS IDE</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- CodeMirror CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.7/codemirror.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.7/theme/dracula.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.7/theme/solarized.min.css">
+
+    <style>
+        :root {
+            --primary-color: #0d6efd;
+            --secondary-color: #6c757d;
+            --bg-color: #f8f9fa;
+            --editor-bg: #ffffff;
+        }
+
+        [data-theme="dark"] {
+            --primary-color: #66d9ef;
+            --secondary-color: #75715e;
+            --bg-color: #272822;
+            --editor-bg: #1e1e1e;
+        }
+
+        body {
+            min-height: 100vh;
+            background: var(--bg-color);
+            transition: all 0.3s ease;
+        }
+
+        .container-fluid {
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .toolbar {
+            padding: 10px 20px;
+            background: var(--editor-bg);
+            border-bottom: 1px solid var(--secondary-color);
+        }
+
+        .editor-container {
+            padding: 20px;
+            display: flex;
+            gap: 20px;
+        }
+
+        .editor-wrapper, .output-wrapper {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .CodeMirror {
+            height: 100% !important;
+            border-radius: 5px;
+            border: 1px solid var(--secondary-color);
+        }
+
+        .output-box {
+            flex-grow: 1;
+            min-height: 300px;
+            background: var(--editor-bg);
+            border: 1px solid var(--secondary-color);
+            border-radius: 5px;
+            padding: 15px;
+            font-family: 'Courier New', monospace;
+            white-space: pre-wrap;
+            overflow-y: auto;
+        }
+
+        .status-bar {
+            padding: 10px 20px;
+            background: var(--editor-bg);
+            border-top: 1px solid var(--secondary-color);
+        }
+
+        .details-section {
+            padding: 20px;
+            background: var(--editor-bg);
+            border-top: 1px solid var(--secondary-color);
+        }
+
+        .details-section pre {
+            background: #f8f9fa;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        [data-theme="dark"] .details-section pre {
+            background: #333;
+        }
+
+        @media (max-width: 768px) {
+            .editor-container {
+                flex-direction: column;
+                padding: 10px;
+            }
+            .toolbar .btn, .toolbar .form-select, .toolbar .form-check { 
+                margin: 2px; 
+            }
+            .details-section {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="toolbar">
+            <button class="btn btn-primary me-2" id="runBtn">Run (Ctrl+R)</button>
+            <button class="btn btn-secondary me-2" id="clearBtn">Clear</button>
+            <button class="btn btn-secondary me-2" id="downloadBtn">Download</button>
+            
+            <select class="form-select d-inline-block w-auto me-2" id="themeSelect">
+                <option value="solarized light">Light Theme</option>
+                <option value="dracula">Dark Theme</option>
+            </select>
+            
+            <select class="form-select d-inline-block w-auto" id="fontSize">
+                <option value="14">Font: 14px</option>
+                <option value="16">Font: 16px</option>
+                <option value="18">Font: 18px</option>
+            </select>
+            
+            <div class="form-check form-switch d-inline-block ms-2">
+                <input class="form-check-input" type="checkbox" id="autoRun">
+                <label class="form-check-label" for="autoRun">Auto-run</label>
+            </div>
+        </div>
+
+        <div class="editor-container">
+            <div class="editor-wrapper">
+                <h5 class="mb-2">JavaScript Editor</h5>
+                <div id="editor"></div>
+            </div>
+            
+            <div class="output-wrapper">
+                <h5 class="mb-2">Output</h5>
+                <div class="output-box"></div>
+            </div>
+        </div>
+
+        <div class="status-bar">
+            <span id="status">Ready</span>
+        </div>
+
+        <!-- Details Section (SEO-Optimized) -->
+        <div class="details-section collapse show" id="detailsSection">
+            <article>
+                <h1 class="fw-bold">Introducing Simple JavaScript Compiler: Effortless Coding at Your Fingertips</h1>
+                <p><time datetime="2025-03-02"><em>March 02, 2025</em></time></p>
+                <p>Are you ready to simplify your JavaScript coding experience? Say hello to <strong>Simple JavaScript Compiler</strong>, the ultimate lightweight tool designed to help developers, learners, and tinkerers write, test, and run JavaScript code with ease. No bloated setups, no steep learning curves—just a clean, fast, and powerful way to bring your ideas to life.</p>
+                <hr>
+                <h2 class="fw-bold">What is Simple JavaScript Compiler?</h2>
+                <p><strong>Simple JavaScript Compiler</strong> is a web-based solution that lets you compile and execute JavaScript code instantly in your browser. Whether you’re debugging a snippet, learning JS basics, or prototyping a project, this tool is your go-to companion for a <em>hassle-free coding experience</em>.</p>
+                <p>Here’s what makes <strong>Simple JavaScript Compiler</strong> stand out:</p>
+                <ul>
+                    <li><strong>Zero Setup</strong>: Start coding right away—no downloads or installations.</li>
+                    <li><strong>Lightning Fast</strong>: Lightweight design means quick load times and instant results.</li>
+                    <li><strong>Intuitive Design</strong>: A clean interface that keeps your focus on the code.</li>
+                    <li><strong>Real-Time Output</strong>: See your code in action the moment you hit “Run.”</li>
+                </ul>
+                <hr>
+                <h2 class="fw-bold">Why We Created Simple JavaScript Compiler</h2>
+                <p>JavaScript powers the modern web, but testing it often requires heavy tools or complicated setups. We built <strong>Simple JavaScript Compiler</strong> to cut through the noise, offering a <em>simple yet effective</em> way to experiment with JS. It’s the tool we wished we had—straightforward, accessible, and perfect for coders of all levels.</p>
+                <hr>
+                <h2 class="fw-bold">How to Use Simple JavaScript Compiler</h2>
+                <p>Getting started with <strong>Simple JavaScript Compiler</strong> is as easy as 1-2-3:</p>
+                <ol>
+                    <li><strong>Write Your Code</strong>: Type or paste your JavaScript into the editor window.</li>
+                    <li><strong>Run It</strong>: Click the “Run” button to compile and execute.</li>
+                    <li><strong>View Results</strong>: Watch your output appear instantly below.</li>
+                </ol>
+                <p>Try this quick example:</p>
+                <pre><code>console.log("Welcome to Simple JavaScript Compiler!");</code></pre>
+                <figure>
+                    <p><strong>[Image Placeholder: Screenshot of Simple JavaScript Compiler interface]</strong></p>
+                    <figcaption><em>See how easy it is to code with Simple JavaScript Compiler!</em></figcaption>
+                </figure>
+                <hr>
+                <h2 class="fw-bold">Who Can Benefit from Simple JavaScript Compiler?</h2>
+                <p>Here’s a quick breakdown:</p>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Audience</th>
+                            <th>Why They’ll Love It</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><em>Beginners</em></td>
+                            <td>Learn JavaScript without setup frustrations.</td>
+                        </tr>
+                        <tr>
+                            <td><em>Educators</em></td>
+                            <td>Teach coding with a distraction-free tool.</td>
+                        </tr>
+                        <tr>
+                            <td><em>Developers</em></td>
+                            <td>Test ideas quickly without a full dev environment.</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>No matter your skill level, <strong>Simple JavaScript Compiler</strong> adapts to your needs.</p>
+                <hr>
+                <h2 class="fw-bold">Features That Make Simple JavaScript Compiler Shine</h2>
+                <ul>
+                    <li><strong>Instant Feedback</strong>: Catch errors and refine your code in real time.</li>
+                    <li><strong>Browser-Based</strong>: Works on any device with a web browser.</li>
+                    <li><strong>Minimalist Power</strong>: All the essentials, none of the bloat.</li>
+                </ul>
+                <figure>
+                    <p><strong>[Image Placeholder: Close-up of running a sample script]</strong></p>
+                    <figcaption><em>Real-time results with just a click.</em></figcaption>
+                </figure>
+                <hr>
+                <h2 class="fw-bold">What’s Coming Next for Simple JavaScript Compiler?</h2>
+                <p>We’re committed to making <strong>Simple JavaScript Compiler</strong> even better. Here’s what’s on the horizon:</p>
+                <ul>
+                    <li><em>Syntax Highlighting</em>: Color-coded code for easier reading.</li>
+                    <li><em>Library Support</em>: Import popular JS libraries with a click.</li>
+                    <li><em>Code Sharing</em>: Share your creations with friends or collaborators.</li>
+                </ul>
+                <p>Got ideas? Let us know—we’re all ears!</p>
+                <hr>
+               <p>Happy coding,<br><em>The Simple JavaScript Compiler Team</em></p>
+            </article>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.7/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.7/mode/javascript/javascript.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            // Initialize CodeMirror
+            const editor = CodeMirror(document.getElementById('editor'), {
+                mode: 'javascript',
+                theme: 'solarized light',
+                lineNumbers: true,
+                tabSize: 2,
+                value: '// Write your JavaScript code here\nconsole.log("Hello, World!");',
+                extraKeys: {
+                    'Ctrl-R': runCode,
+                    'Cmd-R': runCode
+                }
+            });
+
+            const $output = $('.output-box');
+            const $status = $('#status');
+            let autoRunTimeout;
+
+            // Override console.log
+            console.log = function(...args) {
+                $output.append(args.join(' ') + '\n');
+                $output.scrollTop($output[0].scrollHeight);
+            };
+
+            // Run code function
+            function runCode() {
+                $output.text('');
+                $status.text('Running...');
+                try {
+                    const code = editor.getValue();
+                    new Function(code)();
+                    $status.text('Completed');
+                } catch (error) {
+                    $output.text('Error: ' + error.stack);
+                    $status.text('Error occurred');
+                }
+            }
+
+            // Event handlers
+            $('#runBtn').click(runCode);
+
+            $('#clearBtn').click(function() {
+                editor.setValue('');
+                $output.text('');
+                $status.text('Cleared');
+            });
+
+            $('#downloadBtn').click(function() {
+                const blob = new Blob([editor.getValue()], { type: 'text/javascript' });
+                const url = window.URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'code.js';
+                a.click();
+                window.URL.revokeObjectURL(url);
+            });
+
+            $('#themeSelect').change(function() {
+                const theme = $(this).val();
+                editor.setOption('theme', theme);
+                $('body').attr('data-theme', theme === 'dracula' ? 'dark' : 'light');
+            });
+
+            $('#fontSize').change(function() {
+                const size = $(this).val();
+                $('.CodeMirror').css('font-size', size + 'px');
+                editor.refresh();
+            });
+
+            $('#autoRun').change(function() {
+                if ($(this).is(':checked')) {
+                    editor.on('change', function() {
+                        clearTimeout(autoRunTimeout);
+                        autoRunTimeout = setTimeout(runCode, 1000);
+                    });
+                } else {
+                    editor.off('change');
+                }
+            });
+
+            // Initial setup
+            editor.setSize('100%', '100%');
+            $('.CodeMirror').css('font-size', '14px');
+        });
+    </script>
+</body>
+</html>
