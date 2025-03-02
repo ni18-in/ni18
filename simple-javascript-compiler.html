@@ -3,14 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Simple JavaScript Compiler: A fast, lightweight online JS IDE with real-time execution, syntax highlighting, and no setup required.">
-    <meta name="keywords" content="javascript compiler, online javascript ide, js code editor, simple js tool, learn javascript, web-based compiler">
+    <meta name="description" content="Simple JavaScript Compiler: A fast, lightweight online JS IDE with real-time execution, syntax highlighting, and no setup required. Code, test, and learn JavaScript effortlessly.">
+    <meta name="keywords" content="javascript compiler, online javascript ide, js code editor, simple js tool, learn javascript, web-based compiler, javascript playground, js debugging tool">
     <meta name="author" content="xAI">
     <meta name="robots" content="index, follow">
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Simple JavaScript Compiler | Online JS IDE">
+    <meta property="og:description" content="A lightweight, web-based JavaScript compiler with real-time execution and syntax highlighting. Perfect for learning, testing, and prototyping JS code.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ni18-in.github.io/ni18/simple-javascript-compiler.html">
+    <meta property="og:image" content="./images/js-compiler-preview.jpg">
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Simple JavaScript Compiler | Online JS IDE">
+    <meta name="twitter:description" content="Code JavaScript online with this fast, simple compiler. Features real-time output and no setup.">
+    <meta name="twitter:image" content="./images/js-compiler-preview.jpg">
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="./images/js-compiler-preview.svg">
     <title>Simple JavaScript Compiler | Online JS IDE</title>
 
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <!-- CodeMirror CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.7/codemirror.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.7/theme/dracula.min.css">
@@ -35,6 +48,7 @@
             min-height: 100vh;
             background: var(--bg-color);
             transition: all 0.3s ease;
+            font-family: system-ui, -apple-system, sans-serif;
         }
 
         .container-fluid {
@@ -95,6 +109,7 @@
             background: #f8f9fa;
             padding: 10px;
             border-radius: 5px;
+            overflow-x: auto;
         }
 
         [data-theme="dark"] .details-section pre {
@@ -121,20 +136,21 @@
             <button class="btn btn-primary me-2" id="runBtn">Run (Ctrl+R)</button>
             <button class="btn btn-secondary me-2" id="clearBtn">Clear</button>
             <button class="btn btn-secondary me-2" id="downloadBtn">Download</button>
+            <button class="btn btn-info me-2" type="button" data-bs-toggle="collapse" data-bs-target="#detailsSection" aria-expanded="true" aria-controls="detailsSection">About</button>
             
-            <select class="form-select d-inline-block w-auto me-2" id="themeSelect">
+            <select class="form-select d-inline-block w-auto me-2" id="themeSelect" aria-label="Theme selection">
                 <option value="solarized light">Light Theme</option>
                 <option value="dracula">Dark Theme</option>
             </select>
             
-            <select class="form-select d-inline-block w-auto" id="fontSize">
+            <select class="form-select d-inline-block w-auto" id="fontSize" aria-label="Font size selection">
                 <option value="14">Font: 14px</option>
                 <option value="16">Font: 16px</option>
                 <option value="18">Font: 18px</option>
             </select>
             
             <div class="form-check form-switch d-inline-block ms-2">
-                <input class="form-check-input" type="checkbox" id="autoRun">
+                <input class="form-check-input" type="checkbox" id="autoRun" aria-label="Toggle auto-run">
                 <label class="form-check-label" for="autoRun">Auto-run</label>
             </div>
         </div>
@@ -142,12 +158,12 @@
         <div class="editor-container">
             <div class="editor-wrapper">
                 <h5 class="mb-2">JavaScript Editor</h5>
-                <div id="editor"></div>
+                <div id="editor" aria-label="JavaScript code editor"></div>
             </div>
             
             <div class="output-wrapper">
                 <h5 class="mb-2">Output</h5>
-                <div class="output-box"></div>
+                <div class="output-box" aria-live="polite"></div>
             </div>
         </div>
 
@@ -157,10 +173,12 @@
 
         <!-- Details Section (SEO-Optimized) -->
         <div class="details-section collapse show" id="detailsSection">
-            <article>
-                <h1 class="fw-bold">Introducing Simple JavaScript Compiler: Effortless Coding at Your Fingertips</h1>
-                <p><time datetime="2025-03-02"><em>March 02, 2025</em></time></p>
-                <p>Are you ready to simplify your JavaScript coding experience? Say hello to <strong>Simple JavaScript Compiler</strong>, the ultimate lightweight tool designed to help developers, learners, and tinkerers write, test, and run JavaScript code with ease. No bloated setups, no steep learning curves—just a clean, fast, and powerful way to bring your ideas to life.</p>
+            <article itemscope itemtype="http://schema.org/SoftwareApplication">
+                <h1 class="fw-bold" itemprop="name">Introducing Simple JavaScript Compiler: Effortless Coding at Your Fingertips</h1>
+                <p><time datetime="2025-03-02" itemprop="datePublished"><em>March 02, 2025</em></time></p>
+                <p itemprop="description">Are you ready to simplify your JavaScript coding experience? Say hello to <strong>Simple JavaScript Compiler</strong>, the ultimate lightweight tool designed to help developers, learners, and tinkerers write, test, and run JavaScript code with ease. No bloated setups, no steep learning curves—just a clean, fast, and powerful way to bring your ideas to life.</p>
+                <meta itemprop="operatingSystem" content="Web-based">
+                <meta itemprop="applicationCategory" content="Developer Tools">
                 <hr>
                 <h2 class="fw-bold">What is Simple JavaScript Compiler?</h2>
                 <p><strong>Simple JavaScript Compiler</strong> is a web-based solution that lets you compile and execute JavaScript code instantly in your browser. Whether you’re debugging a snippet, learning JS basics, or prototyping a project, this tool is your go-to companion for a <em>hassle-free coding experience</em>.</p>
@@ -240,15 +258,46 @@
         </div>
     </div>
 
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Simple JavaScript Compiler",
+        "operatingSystem": "Web-based",
+        "applicationCategory": "Developer Tools",
+        "description": "A lightweight online JavaScript compiler with real-time execution, syntax highlighting, and no setup required.",
+        "author": {
+            "@type": "Organization",
+            "name": "xAI"
+        },
+        "datePublished": "2025-03-02",
+        "url": "[insert your site URL here]",
+        "image": "./images/js-compiler-preview.jpg",
+        "featureList": [
+            "Zero Setup",
+            "Lightning Fast",
+            "Intuitive Design",
+            "Real-Time Output"
+        ]
+    }
+    </script>
+
     <!-- Scripts -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.7/codemirror.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.7/mode/javascript/javascript.min.js"></script>
 
     <script>
         $(document).ready(function() {
-            // Initialize CodeMirror
+            // Check if CodeMirror is loaded before initializing
+            if (typeof CodeMirror === 'undefined') {
+                console.error('CodeMirror failed to load. Please check your network or CDN links.');
+                $('#status').text('Error: CodeMirror not loaded');
+                return;
+            }
+
             const editor = CodeMirror(document.getElementById('editor'), {
                 mode: 'javascript',
                 theme: 'solarized light',
@@ -265,13 +314,11 @@
             const $status = $('#status');
             let autoRunTimeout;
 
-            // Override console.log
             console.log = function(...args) {
                 $output.append(args.join(' ') + '\n');
                 $output.scrollTop($output[0].scrollHeight);
             };
 
-            // Run code function
             function runCode() {
                 $output.text('');
                 $status.text('Running...');
@@ -285,15 +332,12 @@
                 }
             }
 
-            // Event handlers
             $('#runBtn').click(runCode);
-
             $('#clearBtn').click(function() {
                 editor.setValue('');
                 $output.text('');
                 $status.text('Cleared');
             });
-
             $('#downloadBtn').click(function() {
                 const blob = new Blob([editor.getValue()], { type: 'text/javascript' });
                 const url = window.URL.createObjectURL(blob);
@@ -303,19 +347,16 @@
                 a.click();
                 window.URL.revokeObjectURL(url);
             });
-
             $('#themeSelect').change(function() {
                 const theme = $(this).val();
                 editor.setOption('theme', theme);
                 $('body').attr('data-theme', theme === 'dracula' ? 'dark' : 'light');
             });
-
             $('#fontSize').change(function() {
                 const size = $(this).val();
                 $('.CodeMirror').css('font-size', size + 'px');
                 editor.refresh();
             });
-
             $('#autoRun').change(function() {
                 if ($(this).is(':checked')) {
                     editor.on('change', function() {
@@ -327,7 +368,6 @@
                 }
             });
 
-            // Initial setup
             editor.setSize('100%', '100%');
             $('.CodeMirror').css('font-size', '14px');
         });
