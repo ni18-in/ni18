@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- === SEO and Page Meta - TO BE CUSTOMIZED PER ARTICLE === -->
+    <title>[ARTICLE_TITLE] - NI18 Blog</title>
+    <meta name="description" content="[BRIEF_ARTICLE_DESCRIPTION - Approx 155-160 characters]">
+    <meta name="keywords" content="[KEYWORD_1], [KEYWORD_2], [KEYWORD_3], NI18 blogs, [RELEVANT_TECHNOLOGY/TOPIC]">
+    <meta name="author" content="[AUTHOR_NAME_OR_NI18_TEAM]">
+    <link rel="canonical" href="[FULL_CANONICAL_URL_OF_THIS_ARTICLE]">
+
+    <!-- === Open Graph Meta Tags (for social sharing) - CUSTOMIZE PER ARTICLE === -->
+    <meta property="og:title" content="[ARTICLE_TITLE] - NI18 Blog">
+    <meta property="og:description" content="[BRIEF_ARTICLE_DESCRIPTION]">
+    <meta property="og:image" content="[FULL_URL_TO_ARTICLE_OG_IMAGE_1200x630.png]">
+    <meta property="og:url" content="[FULL_CANONICAL_URL_OF_THIS_ARTICLE]">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="NI18">
+    <meta property="article:published_time" content="[YYYY-MM-DDTHH:MM:SS+00:00]"> <!-- e.g., 2025-06-05T10:00:00+00:00 -->
+    <meta property="article:modified_time" content="[YYYY-MM-DDTHH:MM:SS+00:00]"> <!-- e.g., 2025-06-05T10:00:00+00:00 -->
+    <meta property="article:author" content="[LINK_TO_AUTHOR_PROFILE_OR_NI18_ABOUT_PAGE]">
+    <meta property="article:section" content="[ARTICLE_CATEGORY_E.G_Programming_Tutorials]"> <!-- e.g., Technology, Programming, AI -->
+    <meta property="article:tag" content="[TAG_1]">
+    <meta property="article:tag" content="[TAG_2]">
+    <meta property="article:tag" content="[TAG_3]">
+
+    <!-- === Twitter Card Meta Tags - CUSTOMIZE PER ARTICLE === -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="[ARTICLE_TITLE] - NI18 Blog">
+    <meta name="twitter:description" content="[BRIEF_ARTICLE_DESCRIPTION]">
+    <meta name="twitter:image" content="[FULL_URL_TO_ARTICLE_TWITTER_IMAGE.png]">
+    <meta name="twitter:site" content="@ni18_in"> <!-- Your site's Twitter handle -->
+
+    <!-- === Favicon (Consistent across site) === -->
+    <link rel="icon" href="https://ni18-in.github.io/ni18/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="https://ni18-in.github.io/ni18/apple-touch-icon.png">
+
+    <!-- === Stylesheets (Tailwind CSS & Remixicon) === -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet">
+
+    <!-- Custom Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3498db', // Default primary color
+                        secondary: '#2ecc71', // Default secondary color
+                        dark: '#2c3e50',
+                        light: '#ecf0f1',
+                        'light-bg': '#f8f9fa',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                },
+            },
+            plugins: [],
+        }
+    </script>
+
+    <!-- Custom Styles for Article Template -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #2c3e50; /* Tailwind dark color */
+            line-height: 1.7;
+        }
+        .gradient-article-hero-template { /* Customizable hero gradient */
+            background: linear-gradient(135deg, rgba(52, 152, 219, 0.85), rgba(46, 204, 113, 0.85)), url('https://placehold.co/1600x500/333333/ffffff?text=Article+Hero+Image') no-repeat center center;
+            background-size: cover;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        #mainNavbar {
+            transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+        .navbar-scrolled {
+            background-color: rgba(44, 62, 80, 0.95) !important; /* Tailwind dark color with opacity */
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        /* Basic prose styling for article content */
+        .article-content h2 { margin-top: 2.5em; margin-bottom: 1em; font-size: 2em; font-weight: 700; border-bottom: 2px solid var(--primary-color); padding-bottom: 0.3em; color: var(--dark-color);}
+        .article-content h3 { margin-top: 2em; margin-bottom: 0.75em; font-size: 1.5em; font-weight: 600; color: #1f2937;} /* Tailwind gray-800 */
+        .article-content h4 { margin-top: 1.5em; margin-bottom: 0.5em; font-size: 1.25em; font-weight: 600; color: #1f2937;}
+        .article-content p { margin-bottom: 1.25em; color: #374151; font-size: 1.05em; } /* Tailwind gray-700 */
+        .article-content ul, .article-content ol { list-style-position: outside; margin-left: 1.5em; margin-bottom: 1.25em; color: #374151; font-size: 1.05em;}
+        .article-content ul li, .article-content ol li { margin-bottom: 0.6em; padding-left: 0.5em; }
+        .article-content ul ul, .article-content ol ul, .article-content ol ol, .article-content ul ol { margin-top: 0.5em; margin-bottom: 0.5em;} /* Nested lists */
+        .article-content ul { list-style-type: disc; }
+        .article-content ol { list-style-type: decimal; }
+        .article-content a { color: var(--primary-color); text-decoration: underline; font-weight: 500; }
+        .article-content a:hover { color: #2980b9; } /* Darker primary color */
+        .article-content strong { font-weight: 700; color: #111827; } /* Tailwind gray-900 */
+        .article-content pre { background-color: #2d2d2d; color: #f8f8f2; padding: 1em; border-radius: 0.5em; overflow-x: auto; margin-bottom: 1.25em; font-family: 'Courier New', Courier, monospace; font-size: 0.9em; }
+        .article-content code { background-color: #eef1f3; padding: 0.2em 0.4em; margin: 0; font-size: 85%; border-radius: 3px; font-family: 'Courier New', Courier, monospace; }
+        .article-content pre code { background-color: transparent; padding: 0; font-size: inherit; } /* Reset for code inside pre */
+        .article-content hr { margin-top: 2.5em; margin-bottom: 2.5em; border-top-width: 1px; border-color: #d1d5db; } /* Tailwind gray-300 */
+        .article-content img.inline-article-image { max-width: 100%; height: auto; margin: 25px auto; display: block; border-radius: 12px; box-shadow: 0 6px 12px rgba(0,0,0,0.1); }
+        .article-content blockquote { border-left: 4px solid var(--primary-color); padding-left: 1rem; margin-left: 0; margin-right: 0; font-style: italic; color: #4b5563; } /* Tailwind gray-600 */
+    </style>
+
+    <!-- === JSON-LD Structured Data - CUSTOMIZE PER ARTICLE === -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "[ARTICLE_TITLE]",
+      "image": {
+        "@type": "ImageObject",
+        "url": "[FULL_URL_TO_ARTICLE_OG_IMAGE_1200x630.png]",
+        "width": 1200,
+        "height": 630
+      },
+      "author": {
+        "@type": "Person",
+        "name": "[AUTHOR_NAME_OR_NI18_TEAM]",
+        "url": "[LINK_TO_AUTHOR_PROFILE_OR_NI18_ABOUT_PAGE]"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "NI18", 
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://ni18-in.github.io/ni18/images/ni18_logo_512x512.png", /* Your site logo */
+          "width": 512,
+          "height": 512
+        }
+      },
+      "datePublished": "[YYYY-MM-DD]", /* e.g., 2025-06-05 */
+      "dateModified": "[YYYY-MM-DD]", /* e.g., 2025-06-05 */
+      "description": "[BRIEF_ARTICLE_DESCRIPTION]",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "[FULL_CANONICAL_URL_OF_THIS_ARTICLE]"
+      },
+      "articleBody": "[SHORT_SUMMARY_OF_ARTICLE_BODY_FOR_SCHEMA - Can be the first paragraph or a concise summary]"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://ni18-in.github.io/ni18/"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Blogs", /* Or your specific blog index page name */
+        "item": "https://ni18-in.github.io/ni18/blogs.html" /* URL to your blog index page */
+      },{
+        "@type": "ListItem",
+        "position": 3,
+        "name": "[ARTICLE_TITLE_FOR_BREADCRUMB]",
+        "item": "[FULL_CANONICAL_URL_OF_THIS_ARTICLE]"
+      }]
+    }
+    </script>
+</head>
+<body class="bg-light-bg antialiased">
+
+    <!-- === Header & Navigation (Consistent across site) === -->
+    <header>
+        <nav id="mainNavbar" class="fixed top-0 left-0 right-0 z-50 py-3 bg-dark/80 backdrop-blur-md">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex items-center justify-between h-16">
+                    <div class="flex-shrink-0">
+                        <a href="https://ni18-in.github.io/ni18/" class="text-2xl font-bold text-white hover:text-primary transition-colors">NI18</a>
+                    </div>
+                    <div class="hidden md:block">
+                        <ul class="ml-10 flex items-baseline space-x-4">
+                            <li><a href="https://ni18-in.github.io/ni18/" class="text-gray-200 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Home</a></li>
+                            <li><a href="https://ni18-in.github.io/ni18/#services" class="text-gray-200 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Services</a></li>
+                            <li><a href="https://ni18-in.github.io/ni18/blogs.html" class="text-gray-100 bg-gray-700 px-3 py-2 rounded-md text-sm font-medium transition-colors" aria-current="page">Blogs</a></li> <!-- Mark as active if on a blog page -->
+                            <li><a href="https://ni18-in.github.io/ni18/about-us.html" class="text-gray-200 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">About Us</a></li>
+                            <li><a href="https://forms.gle/Jr7RxbKNDjLzCLQ8A" class="text-gray-200 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors" target="_blank" rel="noopener noreferrer">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="md:hidden">
+                        <button id="mobileMenuButton" type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-controls="mobile-menu" aria-expanded="false" aria-label="Open main menu">
+                            <span class="sr-only">Open main menu</span>
+                            <i class="ri-menu-line text-2xl block" id="menuIconOpen"></i>
+                            <i class="ri-close-line text-2xl hidden" id="menuIconClose"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- Mobile menu -->
+            <div class="md:hidden hidden" id="mobile-menu">
+                <ul class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                    <li><a href="https://ni18-in.github.io/ni18/" class="text-gray-200 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium transition-colors">Home</a></li>
+                    <li><a href="https://ni18-in.github.io/ni18/#services" class="text-gray-200 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium transition-colors">Services</a></li>
+                    <li><a href="https://ni18-in.github.io/ni18/blogs.html" class="text-gray-100 bg-gray-700 block px-3 py-2 rounded-md text-base font-medium transition-colors" aria-current="page">Blogs</a></li>
+                    <li><a href="https://ni18-in.github.io/ni18/about-us.html" class="text-gray-200 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium transition-colors">About Us</a></li>
+                    <li><a href="https://forms.gle/Jr7RxbKNDjLzCLQ8A" class="text-gray-200 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium transition-colors" target="_blank" rel="noopener noreferrer">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main class="pt-16"> <!-- Adjust padding top to avoid overlap with fixed navbar -->
+        <!-- === Article Hero Section - CUSTOMIZE IMAGE/GRADIENT === -->
+        <section id="article-hero-banner" class="w-full py-20 sm:py-28 md:py-32 gradient-article-hero-template text-white text-center relative">
+            <!-- The background is set in CSS (.gradient-article-hero-template). You can customize it there or override with an inline style if needed per article -->
+            <div class="absolute inset-0 opacity-20"></div> <!-- Optional overlay for better text readability -->
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight mb-4">
+                    [ARTICLE_TITLE_DISPLAYED_IN_HERO]
+                </h1>
+                <p class="text-lg sm:text-xl md:text-2xl max-w-3xl mx-auto">
+                    [SHORT_SUBTITLE_OR_TAGLINE_FOR_ARTICLE]
+                </p>
+            </div>
+        </section>
+        
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 my-8 sm:my-12">
+            <article class="bg-white p-6 sm:p-8 md:p-10 rounded-xl shadow-2xl article-content max-w-4xl mx-auto">
+                <!-- === Article Header (Metadata) - CUSTOMIZE DATES/AUTHOR === -->
+                <header class="mb-10 text-center border-b pb-6 border-gray-200">
+                     <p class="text-gray-600 text-base">
+                        Published on: <time datetime="[YYYY-MM-DD]">[DISPLAY_PUBLISH_DATE_E.G_June_5_2025]</time>
+                        <span class="mx-2 text-gray-400">|</span> By <strong>[AUTHOR_NAME_DISPLAYED]</strong>
+                        <!-- Optional: Last Updated -->
+                        <!-- <span class="mx-2 text-gray-400">|</span> Last Updated: <time datetime="[YYYY-MM-DD]">[DISPLAY_MODIFIED_DATE]</time> -->
+                    </p>
+                </header>
+
+                <!-- === Main Article Content Goes Here === -->
+                <section>
+                    <h2>Introduction / Section 1 Title</h2>
+                    <p>This is where the main body of your article will go. Start with an engaging introduction that hooks the reader and clearly states what the article is about. Use paragraphs to break up text and make it easy to read.</p>
+                    <p>You can include <strong>bold text</strong> for emphasis, <em>italic text</em> for certain terms, and <a href="#">links to other relevant pages</a> or external resources.</p>
+                    
+                    <img src="https://placehold.co/800x450/cccccc/333333?text=Relevant+Article+Image+1" 
+                         onerror="this.onerror=null;this.src='https://placehold.co/800x450/cccccc/333333?text=Image+Placeholder';"
+                         alt="[DESCRIPTIVE_ALT_TEXT_FOR_IMAGE_1]" 
+                         class="inline-article-image mb-8">
+
+                    <h3>Subsection Title (H3)</h3>
+                    <p>Use H3 tags for subsections within a main H2 section. This helps organize your content logically.</p>
+                    <ul>
+                        <li>Unordered list item 1. Good for points that don't need a specific order.</li>
+                        <li>Unordered list item 2.
+                            <ul>
+                                <li>Nested list item 2.1</li>
+                                <li>Nested list item 2.2</li>
+                            </ul>
+                        </li>
+                        <li>Unordered list item 3.</li>
+                    </ul>
+
+                    <h4>Smaller Subsection or Point (H4)</h4>
+                    <p>H4 tags can be used for even finer-grained points if necessary, but use sparingly to avoid over-complicating the structure.</p>
+                    <ol>
+                        <li>Ordered list item 1. Use when sequence matters.</li>
+                        <li>Ordered list item 2.</li>
+                        <li>Ordered list item 3.</li>
+                    </ol>
+                </section>
+                <hr>
+
+                <section>
+                    <h2>Section 2 Title (e.g., Key Concepts)</h2>
+                    <p>Continue with more content. Explain concepts clearly and concisely.</p>
+                    <blockquote>
+                        This is a blockquote. Use it for highlighting important quotes or statements from other sources, or to emphasize a key takeaway.
+                    </blockquote>
+                    <p>You can also include code snippets if your article is technical:</p>
+                    <pre><code class="language-javascript">// Example JavaScript code snippet
+function greet(name) {
+  console.log(`Hello, ${name}!`);
+}
+greet('World');</code></pre>
+                    <p>Or for HTML:</p>
+                    <pre><code class="language-html">&lt;div class="example-class"&gt;
+  &lt;p&gt;This is an HTML snippet.&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+                </section>
+                <hr>
+                
+                <!-- Add more sections as needed -->
+
+                <section>
+                    <h2>Conclusion</h2>
+                    <p>Summarize the main points of your article here. Offer a final thought or a call to action if appropriate (e.g., encouraging comments, sharing, or visiting another page).</p>
+                </section>
+            
+                <!-- === Article Footer (Tags, Related Links) - CUSTOMIZE === -->
+                <footer class="mt-12 pt-8 border-t border-gray-300">
+                    <h3 class="text-xl font-semibold text-dark mb-3">Further Reading / Resources</h3>
+                     <ul class="list-none p-0 text-sm">
+                        <li class="mb-2"><i class="ri-link text-primary mr-2"></i><a href="[RELEVANT_INTERNAL_LINK_1]" class="hover:text-blue-700">[Link Title 1]</a></li>
+                        <li class="mb-2"><i class="ri-external-link-line text-primary mr-2"></i><a href="[RELEVANT_EXTERNAL_LINK_1]" target="_blank" rel="noopener noreferrer" class="hover:text-blue-700">[External Link Title 1]</a></li>
+                        <!-- Add more links as needed -->
+                     </ul>
+                    <div class="mt-6">
+                        <p class="text-sm text-gray-600">Tags: 
+                            <span class="inline-block bg-gray-200 text-gray-700 px-3 py-1 rounded-full text-xs font-semibold mr-2 mb-2">[TAG_1]</span>
+                            <span class="inline-block bg-gray-200 text-gray-700 px-3 py-1 rounded-full text-xs font-semibold mr-2 mb-2">[TAG_2]</span>
+                            <span class="inline-block bg-gray-200 text-gray-700 px-3 py-1 rounded-full text-xs font-semibold mr-2 mb-2">[TAG_3]</span>
+                            <span class="inline-block bg-gray-200 text-gray-700 px-3 py-1 rounded-full text-xs font-semibold mr-2 mb-2">NI18</span>
+                            <!-- Add more relevant tags -->
+                        </p>
+                    </div>
+                </footer>
+            </article>
+        </div>
+    </main>
+
+    <!-- === Footer (Consistent across site) === -->
+    <footer class="bg-dark text-gray-200 py-12">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-3 gap-8 mb-10">
+                <div>
+                    <h3 class="text-xl font-semibold text-white mb-4">NI18</h3>
+                    <p class="text-sm leading-relaxed">Innovative technology solutions for a digital-first world. We help businesses grow and succeed through cutting-edge software and strategic insights.</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold text-white mb-4">Quick Links</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="https://ni18-in.github.io/ni18/" class="hover:text-primary transition-colors">Home</a></li>
+                        <li><a href="https://ni18-in.github.io/ni18/#services" class="hover:text-primary transition-colors">Services</a></li>
+                        <li><a href="https://ni18-in.github.io/ni18/blogs.html" class="hover:text-primary transition-colors" aria-current="page">Blogs</a></li>
+                        <li><a href="https://ni18-in.github.io/ni18/about-us.html" class="hover:text-primary transition-colors">About Us</a></li>
+                        <li><a href="https://forms.gle/Jr7RxbKNDjLzCLQ8A" target="_blank" rel="noopener noreferrer" class="hover:text-primary transition-colors">Contact</a></li>
+                        <li><a href="https://ni18-in.github.io/ni18/privacy-policy.html" class="hover:text-primary transition-colors">Privacy Policy</a></li>
+                        <li><a href="https://ni18-in.github.io/ni18/terms-of-service.html" class="hover:text-primary transition-colors">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold text-white mb-4">Connect With Us</h3>
+                    <div class="flex space-x-4 mb-4">
+                        <a href="https://www.linkedin.com/company/ni18" aria-label="NI18 LinkedIn Profile" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-primary transition-colors"><i class="ri-linkedin-box-fill text-2xl"></i></a>
+                        <a href="https://x.com/ni18_in" aria-label="NI18 Twitter Profile" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-primary transition-colors"><i class="ri-twitter-x-fill text-2xl"></i></a>
+                        <a href="https://github.com/ni18-in" aria-label="NI18 GitHub Profile" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-primary transition-colors"><i class="ri-github-fill text-2xl"></i></a>
+                        <a href="https://www.facebook.com/ni18.in" aria-label="NI18 Facebook Page" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-primary transition-colors"><i class="ri-facebook-circle-fill text-2xl"></i></a>
+                        <a href="https://www.instagram.com/ni18.in/" aria-label="NI18 Instagram Profile" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-primary transition-colors"><i class="ri-instagram-line text-2xl"></i></a>
+                        <a href="https://www.youtube.com/@ni18_in" aria-label="NI18 YouTube Channel" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-primary transition-colors"><i class="ri-youtube-fill text-2xl"></i></a> <!-- Replace with actual YouTube channel -->
+                    </div>
+                    <p class="text-sm">Email: <a href="mailto:info@ni18.in" class="hover:text-primary">info@ni18.in</a></p> <!-- Replace with actual email -->
+                </div>
+            </div>
+            <div class="border-t border-gray-700 pt-8 text-center">
+                <p class="text-sm">© <span id="currentYear"></span> NI18. All Rights Reserved. Designed with <i class="ri-heart-fill text-red-500 align-middle"></i> by NI18.</p>
+                <p class="text-xs mt-2 text-gray-400">For optimal experience, please ensure JavaScript is enabled.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTopBtn" title="Go to top"
+            class="fixed bottom-6 right-6 p-3 rounded-full bg-primary text-white shadow-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50 transition-all duration-300 opacity-0 invisible z-50">
+        <i class="ri-arrow-up-s-line text-2xl"></i>
+    </button>
+
+    <!-- === Scripts (Consistent across site) === -->
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobileMenuButton');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIconOpen = document.getElementById('menuIconOpen');
+        const menuIconClose = document.getElementById('menuIconClose');
+
+        if (mobileMenuButton && mobileMenu && menuIconOpen && menuIconClose) {
+            mobileMenuButton.addEventListener('click', () => {
+                const expanded = mobileMenuButton.getAttribute('aria-expanded') === 'true' || false;
+                mobileMenuButton.setAttribute('aria-expanded', !expanded);
+                mobileMenu.classList.toggle('hidden');
+                menuIconOpen.classList.toggle('hidden');
+                menuIconClose.classList.toggle('hidden');
+            });
+        
+            document.querySelectorAll('#mobile-menu a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenuButton.setAttribute('aria-expanded', 'false');
+                    mobileMenu.classList.add('hidden');
+                    menuIconOpen.classList.remove('hidden');
+                    menuIconClose.classList.add('hidden');
+                });
+            });
+        }
+        
+        // Navbar scroll effect
+        const navbar = document.getElementById('mainNavbar');
+        const backToTopBtn = document.getElementById('backToTopBtn');
+        window.onscroll = function() {
+            if (navbar) {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('navbar-scrolled');
+                } else {
+                    navbar.classList.remove('navbar-scrolled');
+                }
+            }
+            if (backToTopBtn) {
+                if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+                    backToTopBtn.style.opacity = "1";
+                    backToTopBtn.style.visibility = "visible";
+                } else {
+                    backToTopBtn.style.opacity = "0";
+                    backToTopBtn.style.visibility = "hidden";
+                }
+            }
+        };
+
+        // Update current year in footer
+        const currentYearSpan = document.getElementById('currentYear');
+        if (currentYearSpan) {
+            currentYearSpan.textContent = new Date().getFullYear();
+        }
+        
+        // Back to Top Button functionality
+        if (backToTopBtn) {
+            backToTopBtn.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        }
+    </script>
+
+</body>
+</html>

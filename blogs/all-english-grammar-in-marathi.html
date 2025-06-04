@@ -2,257 +2,473 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Learning English grammar can be challenging, especially if your primary language is Hindi. That’s where the “All English Grammar in Hindi” app comes in. This app is designed to make English grammar simple, clear, and easy to understand by providing detailed explanations in Hindi. Whether you are a student, professional, or language enthusiast, this app is your go-to resource for mastering English grammar.">
-    <title>All English Grammar in Hindi</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
-    <style>
-        :root {
-            --primary-color: #3498db;
-            --secondary-color: #2ecc71;
-            --dark-color: #2c3e50;
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All English Grammar in Hindi App - Master Grammar Easily</title>
+    <meta name="description" content="Discover the 'All English Grammar in Hindi' app, designed to make learning English grammar simple and clear with detailed explanations in Hindi. Perfect for students and language enthusiasts.">
+    <meta name="keywords" content="English grammar in Hindi, learn English grammar, English learning app, Hindi to English grammar, NI18 app, grammar app, English tenses in Hindi, parts of speech in Hindi">
+    <meta name="author" content="NI18">
+    <!-- Adjust the canonical URL to the final path of this article page -->
+    <link rel="canonical" href="https://ni18-in.github.io/ni18/blogs/all-english-grammar-in-hindi-app.html">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="All English Grammar in Hindi App - Master Grammar Easily">
+    <meta property="og:description" content="The 'All English Grammar in Hindi' app simplifies English grammar learning with comprehensive lessons explained in Hindi.">
+    <!-- Replace with an actual, relevant image URL for this article -->
+    <meta property="og:image" content="https://ni18-in.github.io/ni18/images/og_english_grammar_app.png">
+    <meta property="og:url" content="https://ni18-in.github.io/ni18/blogs/all-english-grammar-in-hindi-app.html">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="NI18">
+    <meta property="article:published_time" content="2024-12-21T00:00:00+00:00"> <!-- Ensure date is correct -->
+    <meta property="article:author" content="https://ni18-in.github.io/ni18/"> <!-- Link to author's profile or website -->
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="All English Grammar in Hindi App - Master Grammar Easily">
+    <meta name="twitter:description" content="The 'All English Grammar in Hindi' app simplifies English grammar learning with comprehensive lessons explained in Hindi.">
+    <!-- Replace with an actual, relevant image URL for this article -->
+    <meta name="twitter:image" content="https://ni18-in.github.io/ni18/images/twitter_english_grammar_app.png">
+    <meta name="twitter:site" content="@ni18_in">
+
+    <!-- Favicon -->
+    <link rel="icon" href="https://ni18-in.github.io/ni18/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="https://ni18-in.github.io/ni18/apple-touch-icon.png">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Remixicon -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet">
+
+    <!-- Custom Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3498db',
+                        secondary: '#2ecc71',
+                        dark: '#2c3e50',
+                        light: '#ecf0f1',
+                        'light-bg': '#f8f9fa', // A light background for sections
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                },
+            },
+            plugins: [], // No plugins needed for this basic setup via CDN
         }
+    </script>
+
+    <!-- Custom Styles -->
+    <style>
         body {
             font-family: 'Inter', sans-serif;
-            color: var(--dark-color);
-            line-height: 1.6;
+            color: #2c3e50; /* dark color */
+            line-height: 1.7;
         }
-        .gradient-overlay {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: white;
+        .gradient-article-header { /* Specific for this page's article header */
+            background: linear-gradient(135deg, #3498db, #2ecc71); /* primary to secondary */
         }
-        .hero-section {
-            min-height: 50vh;
-            background: url('https://source.unsplash.com/random/1600x900') no-repeat center center;
-            background-size: cover;
-            color: white;
-            text-align: center;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .hero-section h1 {
-            font-size: 3rem;
-        }
-        .section-title {
-            font-weight: 700;
-            position: relative;
-            padding-bottom: 15px;
-        }
-        .section-title::after {
+        .section-title-underline::after {
             content: '';
             position: absolute;
-            bottom: 0;
+            bottom: -10px;
             left: 50%;
-            width: 60px;
-            height: 3px;
-            background: var(--primary-color);
+            width: 70px;
+            height: 4px;
+            background: #3498db; /* primary color */
             transform: translateX(-50%);
+            border-radius: 2px;
         }
-        .post-title {
-            font-size: 2.5rem;
-            font-weight: bold;
+        html {
+            scroll-behavior: smooth;
         }
-        .post-meta {
-            font-size: 0.9rem;
-            color: #7f8c8d;
+        #mainNavbar {
+            transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
         }
-        .content img {
-            max-width: 100%;
-            height: auto;
-            margin: 20px 0;
+        .navbar-scrolled {
+            background-color: rgba(44, 62, 80, 0.95) !important; /* Dark color with opacity */
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
-        .post-footer {
-            border-top: 1px solid #ccc;
-            margin-top: 30px;
-            padding-top: 20px;
-        }
-        .comments-section {
-            margin-top: 50px;
-        }
-        .comment {
-            margin-bottom: 30px;
-            border-bottom: 1px solid #f0f0f0;
-            padding-bottom: 15px;
-        }
-        .cover-img{
-            width: 100%;
-            height: auto;
-        }
+        /* Basic prose styling for article content */
+        .article-content h3 { margin-top: 2em; margin-bottom: 0.75em; font-size: 1.75em; font-weight: 600; border-bottom: 1px solid #e5e7eb; padding-bottom: 0.25em;}
+        .article-content h4 { margin-top: 1.5em; margin-bottom: 0.5em; font-size: 1.25em; font-weight: 600; color: #1f2937; }
+        .article-content p { margin-bottom: 1em; color: #374151; }
+        .article-content ul, .article-content ol { list-style-position: inside; margin-left: 0.5em; margin-bottom: 1em; color: #374151; }
+        .article-content ul li, .article-content ol li { margin-bottom: 0.5em; }
+        .article-content ul { list-style-type: disc; }
+        .article-content ol { list-style-type: decimal; }
+        .article-content a { color: #3498db; text-decoration: underline; }
+        .article-content a:hover { color: #2980b9; }
+        .article-content strong { font-weight: 600; color: #111827; }
+        .article-content hr { margin-top: 2em; margin-bottom: 2em; border-top-width: 2px; border-color: #e5e7eb; }
+        .article-content img.inline-article-image { max-width: 100%; height: auto; margin: 20px auto; display: block; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
     </style>
+
+    <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
-        {
-          "@context": "https://schema.org/",
-          "@type": "Article",
-          "headline": "Master English Grammar in Hindi: The Ultimate Learning Guide",
-          "image": {
-            "@type": "ImageObject",
-            "url": "https://ni18-in.github.io/ni18/images/ni18.png", 
-            "width": "1200",
-            "height": "630"
-          },
-          "author": {
-            "@type": "Person",
-            "name": "ni18"
-          },
-          "publisher": {
-            "@type": "Organization",
-            "name": "All English Grammar in Hindi",
-            "logo": {
-              "@type": "ImageObject",
-              "url": "https://ni18-in.github.io/ni18/images/ni18.png",
-              "width": "512",
-              "height": "512"
-            }
-          },
-          "datePublished": "2024-12-21",
-          "description": "The 'All English Grammar in Hindi' app simplifies English grammar learning by providing comprehensive lessons explained in Hindi. Ideal for students, professionals, and language enthusiasts.",
-          "articleBody": "Learning English grammar can be challenging, especially if your primary language is Hindi. The 'All English Grammar in Hindi' app is designed to make English grammar simple, clear, and easy to understand by providing detailed explanations in Hindi. Whether you are a student, professional, or language enthusiast, this app is your go-to resource for mastering English grammar. The app covers topics such as types of sentences, nouns and their types, adjectives and degrees of comparison, articles, verbs and tenses, and adverbs. Its user-friendly design and Hindi-based explanations make it a one-stop solution for Hindi speakers aiming to improve their English proficiency."
+    {
+      "@context": "https://schema.org/",
+      "@type": "Article",
+      "headline": "Master English Grammar in Hindi: The Ultimate Learning Guide",
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://ni18-in.github.io/ni18/images/article_english_grammar_app_1200x630.png", /* Replace with actual image URL (1200x630 for best OG display) */
+        "width": 1200,
+        "height": 630
+      },
+      "author": {
+        "@type": "Person",
+        "name": "NI18 Editorial Team", /* Or specific author name */
+        "url": "https://ni18-in.github.io/ni18/about-us.html" /* Link to author page or main site */
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "NI18",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://ni18-in.github.io/ni18/images/ni18_logo_512x512.png", /* Replace with actual logo URL (e.g., 512x512) */
+          "width": 512,
+          "height": 512
         }
-        </script>
-        
+      },
+      "datePublished": "2024-05-20", /* Update with actual publication date */
+      "dateModified": "2024-06-05", /* Update with last modification date */
+      "description": "The 'All English Grammar in Hindi' app simplifies English grammar learning by providing comprehensive lessons explained in Hindi. Ideal for students, professionals, and language enthusiasts.",
+      "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "https://ni18-in.github.io/ni18/blogs/all-english-grammar-in-hindi-app.html" /* Canonical URL of the article */
+      },
+      "articleBody": "Learning English grammar can be challenging, especially if your primary language is Hindi. The 'All English Grammar in Hindi' app is designed to make English grammar simple, clear, and easy to understand by providing detailed explanations in Hindi. Whether you are a student, professional, or language enthusiast, this app is your go-to resource for mastering English grammar. The app covers topics such as types of sentences, nouns and their types, adjectives and degrees of comparison, articles, verbs and tenses, and adverbs. Its user-friendly design and Hindi-based explanations make it a one-stop solution for Hindi speakers aiming to improve their English proficiency."
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://ni18-in.github.io/ni18/"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Blogs", /* Link to your main blog listing page */
+        "item": "https://ni18-in.github.io/ni18/blogs.html"
+      },{
+        "@type": "ListItem",
+        "position": 3,
+        "name": "All English Grammar in Hindi App Guide", /* Article Title */
+        "item": "https://ni18-in.github.io/ni18/blogs/all-english-grammar-in-hindi-app.html" /* Canonical URL */
+      }]
+    }
+    </script>
 </head>
-<body>
-    <!-- Navigation -->
-    <nav id="mainNavbar" class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: rgba(0,0,0,0.7);">
-        <div class="container">
-            <a class="navbar-brand" href="https://ni18-in.github.io/ni18/">NI18</a>
-            <button class="navbar-toggler" type="button" aria-label="Menu" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="https://ni18-in.github.io/ni18/">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="https://ni18-in.github.io/ni18/blogs.html">Blogs</a></li>
-                    <li class="nav-item"><a class="nav-link" href="https://forms.gle/Jr7RxbKNDjLzCLQ8A">Contact</a></li>
+<body class="bg-gray-100 antialiased">
+
+    <!-- Header & Navigation (Consistent with other pages) -->
+    <header>
+        <nav id="mainNavbar" class="fixed top-0 left-0 right-0 z-50 py-3 bg-dark/80 backdrop-blur-md">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex items-center justify-between h-16">
+                    <div class="flex-shrink-0">
+                        <a href="https://ni18-in.github.io/ni18/" class="text-2xl font-bold text-white hover:text-primary transition-colors">NI18</a>
+                    </div>
+                    <div class="hidden md:block">
+                        <ul class="ml-10 flex items-baseline space-x-4">
+                            <li><a href="https://ni18-in.github.io/ni18/" class="text-gray-200 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Home</a></li>
+                            <li><a href="https://ni18-in.github.io/ni18/#services" class="text-gray-200 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Services</a></li>
+                            <li><a href="https://ni18-in.github.io/ni18/blogs.html" class="text-gray-100 bg-gray-700 px-3 py-2 rounded-md text-sm font-medium transition-colors" aria-current="page">Blogs</a></li> <!-- Active link style for blog page -->
+                            <li><a href="https://ni18-in.github.io/ni18/about-us.html" class="text-gray-200 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">About Us</a></li>
+                            <li><a href="https://forms.gle/Jr7RxbKNDjLzCLQ8A" class="text-gray-200 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors" target="_blank" rel="noopener noreferrer">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="md:hidden">
+                        <button id="mobileMenuButton" type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-controls="mobile-menu" aria-expanded="false" aria-label="Open main menu">
+                            <span class="sr-only">Open main menu</span>
+                            <i class="ri-menu-line text-2xl block" id="menuIconOpen"></i>
+                            <i class="ri-close-line text-2xl hidden" id="menuIconClose"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- Mobile menu -->
+            <div class="md:hidden hidden" id="mobile-menu">
+                <ul class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                    <li><a href="https://ni18-in.github.io/ni18/" class="text-gray-200 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium transition-colors">Home</a></li>
+                    <li><a href="https://ni18-in.github.io/ni18/#services" class="text-gray-200 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium transition-colors">Services</a></li>
+                    <li><a href="https://ni18-in.github.io/ni18/blogs.html" class="text-gray-100 bg-gray-700 block px-3 py-2 rounded-md text-base font-medium transition-colors" aria-current="page">Blogs</a></li>
+                    <li><a href="https://ni18-in.github.io/ni18/about-us.html" class="text-gray-200 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium transition-colors">About Us</a></li>
+                    <li><a href="https://forms.gle/Jr7RxbKNDjLzCLQ8A" class="text-gray-200 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium transition-colors" target="_blank" rel="noopener noreferrer">Contact</a></li>
                 </ul>
             </div>
+        </nav>
+    </header>
+
+    <main class="pt-20"> <!-- Added padding top to avoid overlap with fixed navbar -->
+        <!-- Article Hero/Cover Image Section -->
+        <section id="article-hero" class="w-full h-64 sm:h-80 md:h-96 gradient-article-header flex items-center justify-center">
+            <!-- You can use a background image via CSS in gradient-article-header or an <img> tag here -->
+            <!-- For an <img> tag approach: -->
+            <img src="https://placehold.co/1200x400/3498db/ffffff?text=English+Grammar+App+Cover" 
+                 onerror="this.onerror=null;this.src='https://placehold.co/1200x400/cccccc/333333?text=Cover+Image';"
+                 alt="All English Grammar in Hindi App Cover Image" 
+                 class="w-full h-full object-cover opacity-50"> <!-- Adjust opacity or remove if using as main image -->
+            <!-- Or, if using as a background for text overlay:
+            <div class="absolute inset-0 bg-black opacity-40"></div>
+            <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white text-center relative z-10 px-4">
+                Master English Grammar in Hindi
+            </h1>
+            -->
+        </section>
+        
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 my-8 sm:my-12">
+            <article class="bg-white p-6 sm:p-8 md:p-10 rounded-xl shadow-xl article-content max-w-4xl mx-auto">
+                <header class="mb-8 text-center">
+                    <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-dark mb-3">
+                        Master English Grammar in Hindi: The Ultimate Learning Guide
+                    </h1>
+                    <p class="text-gray-500 text-sm">
+                        Published on: <time datetime="2024-05-20">May 20, 2024</time> <!-- Update with actual date -->
+                        <span class="mx-2">|</span> By NI18 Editorial Team
+                    </p>
+                </header>
+
+                <p>Learning English grammar can be challenging, especially if your primary language is Hindi. That’s where the “All English Grammar in Hindi” app comes in. This app is designed to make English grammar simple, clear, and easy to understand by providing detailed explanations in Hindi. Whether you are a student, professional, or language enthusiast, this app is your go-to resource for mastering English grammar.</p>
+                
+                <img src="https://placehold.co/800x450/2ecc71/ffffff?text=App+Screenshot+1" 
+                     onerror="this.onerror=null;this.src='https://placehold.co/800x450/cccccc/333333?text=App+Screenshot';"
+                     alt="Screenshot of All English Grammar in Hindi App Interface" 
+                     class="inline-article-image">
+
+                <h3>Key Features of the App</h3>
+                <p>This app covers all the essential topics in English grammar. Below are some of its key features:</p>
+                
+                <h4>1. Types of Sentences</h4>
+                <ul>
+                    <li><strong>Simple Sentences</strong>: Learn how to form and use basic sentences in English.</li>
+                    <li><strong>Affirmative Sentences</strong>: Understand how to structure positive statements effectively.</li>
+                    <li><strong>Negative Sentences</strong>: Discover how to frame negative sentences without errors.</li>
+                    <li><strong>Interrogative Sentences</strong>: Master the art of asking questions in English.</li>
+                    <li><strong>Imperative Sentences</strong>: Learn how to give commands or make polite requests.</li>
+                    <li><strong>Exclamatory Sentences</strong>: Express emotions and surprises confidently.</li>
+                    <li><strong>Conditional Sentences</strong>: Explore how to talk about possibilities, conditions, and imaginary situations.</li>
+                </ul>
+                
+                <h4>2. Nouns and Their Types</h4>
+                <ul>
+                    <li><strong>Proper Nouns</strong>: Understand how to use specific names for people, places, or things.</li>
+                    <li><strong>Common Nouns</strong>: Learn about general terms used for people, places, or objects.</li>
+                    <li><strong>Collective Nouns</strong>: Get familiar with words that represent groups or collections.</li>
+                    <li><strong>Material Nouns</strong>: Identify terms used for substances and materials.</li>
+                    <li><strong>Abstract Nouns</strong>: Understand words used for ideas, emotions, and qualities.</li>
+                    <li><strong>General Nouns</strong>: Gain a complete understanding of naming words and their usage.</li>
+                </ul>
+
+                <img src="https://placehold.co/800x450/3498db/ffffff?text=App+Screenshot+2" 
+                     onerror="this.onerror=null;this.src='https://placehold.co/800x450/cccccc/333333?text=App+Screenshot';"
+                     alt="Screenshot of Grammar Topics in the App" 
+                     class="inline-article-image">
+                
+                <h4>3. Adjectives and Degrees of Comparison</h4>
+                <ul>
+                    <li>Learn how adjectives describe nouns and how to compare them using positive, comparative, and superlative forms.</li>
+                </ul>
+                
+                <h4>4. Articles</h4>
+                <ul>
+                    <li>Master the use of articles (“a”, “an”, and “the”) and their correct placement in sentences.</li>
+                </ul>
+                
+                <h4>5. Verbs and Tenses</h4>
+                <ul>
+                    <li><strong>Verbs</strong>: Dive deep into action words and how they form the backbone of any sentence.</li>
+                    <li><strong>Primary and Modal Auxiliary Verbs</strong>: Understand helping verbs like “is,” “was,” “can,” “should,” etc.</li>
+                    <li><strong>Tenses</strong>: Learn the 12 tenses in English, covering past, present, and future scenarios.</li>
+                </ul>
+                
+                <h4>6. Adverbs</h4>
+                <ul>
+                    <li>Explore words that modify verbs, adjectives, and other adverbs for precise communication.</li>
+                </ul>
+                <hr>
+                
+                <h3>Why Choose the “All English Grammar in Hindi” App?</h3>
+                
+                <h4>Comprehensive and User-Friendly</h4>
+                <p>The app’s design is simple yet powerful. It breaks down complex English grammar rules into bite-sized lessons explained in Hindi. This makes learning intuitive and engaging.</p>
+                
+                <h4>Tailored for Hindi Speakers</h4>
+                <p>Unlike generic grammar apps, this one is specially designed for native Hindi speakers. All explanations, examples, and exercises are provided in Hindi, ensuring clarity and better understanding.</p>
+                
+                <h4>One-Stop Solution</h4>
+                <p>From sentence structures to advanced topics like conditional sentences and auxiliary verbs, this app covers everything you need to become proficient in English grammar.</p>
+                <hr>
+                
+                <h3>How to Use the App Effectively</h3>
+                <p>To make the most out of the “All English Grammar in Hindi” app, follow these simple steps:</p>
+                <ol>
+                    <li>
+                        <p><strong>Choose a Topic</strong></p>
+                        <ul><li>Open the app and select the grammar topic you want to focus on.</li></ul>
+                    </li>
+                    <li>
+                        <p><strong>Study the Material</strong></p>
+                        <ul><li>Read through the explanations and examples provided in Hindi. Take your time to understand each rule.</li></ul>
+                    </li>
+                    <li>
+                        <p><strong>Practice</strong></p>
+                        <ul><li>Try out the exercises or create your own sentences using the rules you’ve learned.</li></ul>
+                    </li>
+                    <li>
+                        <p><strong>Repeat</strong></p>
+                        <ul><li>Move on to another topic and repeat the process to strengthen your overall grammar knowledge.</li></ul>
+                    </li>
+                </ol>
+                <hr>
+                
+                <h3>Benefits of Using the App</h3>
+                
+                <h4>1. Enhanced English Proficiency</h4>
+                <p>By mastering grammar, you can improve your writing, speaking, and comprehension skills.</p>
+                
+                <h4>2. Tailored Learning Experience</h4>
+                <p>The app’s Hindi-based explanations make it easier for Hindi speakers to grasp English grammar concepts quickly.</p>
+                
+                <h4>3. Confidence in Communication</h4>
+                <p>Whether it’s for academic, professional, or personal purposes, the app helps you communicate effectively in English.</p>
+                <hr>
+                
+                <h3>Feedback and Support</h3>
+                <p>We value your feedback! Share your experience or suggestions with us at <a href="mailto:ask.ni18.in@gmail.com">ask.ni18.in@gmail.com</a>. For more information and resources, visit our website: <strong>Learn English Grammar in Hindi - All English Grammar in Hindi.</strong> (Consider making this a link if applicable).</p>
+                <hr>
+                
+                <div class="text-center my-10">
+                    <a href="https://play.google.com/store/apps/details?id=in.ni18.allenglishgrammarinhindi" target="_blank" rel="noopener noreferrer"
+                       class="inline-block bg-secondary text-white hover:bg-green-600 font-semibold text-lg px-10 py-4 rounded-lg shadow-md transform hover:scale-105 transition-all duration-300 ease-in-out">
+                        <i class="ri-google-play-fill align-middle mr-2"></i> Download the App Now
+                    </a>
+                </div>
+                
+                <p>By making grammar accessible and easy to understand, the “<a href="https://www.ni18.in/blogs/apps/all-english-grammar-in-hindi" target="_blank" rel="noopener noreferrer">All English Grammar in Hindi</a>” app is a must-have for Hindi speakers looking to master English. Download it now and start your journey to better English today!</p>
+            
+                <footer class="mt-12 pt-6 border-t border-gray-200 text-sm text-gray-500">
+                    <p>Tags: <span class="bg-gray-200 text-gray-700 px-2 py-1 rounded-full text-xs">English Grammar</span>, <span class="bg-gray-200 text-gray-700 px-2 py-1 rounded-full text-xs">Learn in Hindi</span>, <span class="bg-gray-200 text-gray-700 px-2 py-1 rounded-full text-xs">Language App</span>, <span class="bg-gray-200 text-gray-700 px-2 py-1 rounded-full text-xs">NI18 Apps</span></p>
+                    <!-- Add sharing buttons here if desired -->
+                </footer>
+            </article>
         </div>
-    </nav>
+    </main>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero-section">
-        <div class="container my-5">
-            <img class="cover-img" src="../images/ni18-cover.webp" alt="all-english-grammar-in-hindi">
-        </div>
-    </section>
-
-    <div class="container my-5">
-        <article>
-            <h1><strong>Master English Grammar in Hindi: The Ultimate Learning Guide</strong></h1>
-            <p>Learning English grammar can be challenging, especially if your primary language is Hindi. That&rsquo;s where the &ldquo;All English Grammar in Hindi&rdquo; app comes in. This app is designed to make English grammar simple, clear, and easy to understand by providing detailed explanations in Hindi. Whether you are a student, professional, or language enthusiast, this app is your go-to resource for mastering English grammar.</p>
-            <hr>
-            <h3><strong>Key Features of the App</strong></h3>
-            <p>This app covers all the essential topics in English grammar. Below are some of its key features:</p>
-            <h4>1. <strong>Types of Sentences</strong></h4>
-            <ul>
-                <li><strong>Simple Sentences</strong>: Learn how to form and use basic sentences in English.</li>
-                <li><strong>Affirmative Sentences</strong>: Understand how to structure positive statements effectively.</li>
-                <li><strong>Negative Sentences</strong>: Discover how to frame negative sentences without errors.</li>
-                <li><strong>Interrogative Sentences</strong>: Master the art of asking questions in English.</li>
-                <li><strong>Imperative Sentences</strong>: Learn how to give commands or make polite requests.</li>
-                <li><strong>Exclamatory Sentences</strong>: Express emotions and surprises confidently.</li>
-                <li><strong>Conditional Sentences</strong>: Explore how to talk about possibilities, conditions, and imaginary situations.</li>
-            </ul>
-            <h4>2. <strong>Nouns and Their Types</strong></h4>
-            <ul>
-                <li><strong>Proper Nouns</strong>: Understand how to use specific names for people, places, or things.</li>
-                <li><strong>Common Nouns</strong>: Learn about general terms used for people, places, or objects.</li>
-                <li><strong>Collective Nouns</strong>: Get familiar with words that represent groups or collections.</li>
-                <li><strong>Material Nouns</strong>: Identify terms used for substances and materials.</li>
-                <li><strong>Abstract Nouns</strong>: Understand words used for ideas, emotions, and qualities.</li>
-                <li><strong>General Nouns</strong>: Gain a complete understanding of naming words and their usage.</li>
-            </ul>
-            <h4>3. <strong>Adjectives and Degrees of Comparison</strong></h4>
-            <ul>
-                <li>Learn how adjectives describe nouns and how to compare them using positive, comparative, and superlative forms.</li>
-            </ul>
-            <h4>4. <strong>Articles</strong></h4>
-            <ul>
-                <li>Master the use of articles (&ldquo;a&rdquo;, &ldquo;an&rdquo;, and &ldquo;the&rdquo;) and their correct placement in sentences.</li>
-            </ul>
-            <h4>5. <strong>Verbs and Tenses</strong></h4>
-            <ul>
-                <li><strong>Verbs</strong>: Dive deep into action words and how they form the backbone of any sentence.</li>
-                <li><strong>Primary and Modal Auxiliary Verbs</strong>: Understand helping verbs like &ldquo;is,&rdquo; &ldquo;was,&rdquo; &ldquo;can,&rdquo; &ldquo;should,&rdquo; etc.</li>
-                <li><strong>Tenses</strong>: Learn the 12 tenses in English, covering past, present, and future scenarios.</li>
-            </ul>
-            <h4>6. <strong>Adverbs</strong></h4>
-            <ul>
-                <li>Explore words that modify verbs, adjectives, and other adverbs for precise communication.</li>
-            </ul>
-            <hr>
-            <h3><strong>Why Choose the &ldquo;All English Grammar in Hindi&rdquo; App?</strong></h3>
-            <h4>Comprehensive and User-Friendly</h4>
-            <p>The app&rsquo;s design is simple yet powerful. It breaks down complex English grammar rules into bite-sized lessons explained in Hindi. This makes learning intuitive and engaging.</p>
-            <h4>Tailored for Hindi Speakers</h4>
-            <p>Unlike generic grammar apps, this one is specially designed for native Hindi speakers. All explanations, examples, and exercises are provided in Hindi, ensuring clarity and better understanding.</p>
-            <h4>One-Stop Solution</h4>
-            <p>From sentence structures to advanced topics like conditional sentences and auxiliary verbs, this app covers everything you need to become proficient in English grammar.</p>
-            <hr>
-            <h3><strong>How to Use the App Effectively</strong></h3>
-            <p>To make the most out of the &ldquo;All English Grammar in Hindi&rdquo; app, follow these simple steps:</p>
-            <ol>
-                <li>
-                    <p><strong>Choose a Topic</strong></p>
-                    <ul>
-                        <li>Open the app and select the grammar topic you want to focus on.</li>
+    <!-- Footer (Consistent with other pages) -->
+    <footer class="bg-dark text-gray-200 py-12">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-3 gap-8 mb-10">
+                <div>
+                    <h3 class="text-xl font-semibold text-white mb-4">NI18</h3>
+                    <p class="text-sm leading-relaxed">Innovative technology solutions for a digital-first world. We help businesses grow and succeed through cutting-edge software and strategic insights.</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold text-white mb-4">Quick Links</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="https://ni18-in.github.io/ni18/" class="hover:text-primary transition-colors">Home</a></li>
+                        <li><a href="https://ni18-in.github.io/ni18/#services" class="hover:text-primary transition-colors">Services</a></li>
+                        <li><a href="https://ni18-in.github.io/ni18/blogs.html" class="hover:text-primary transition-colors" aria-current="page">Blogs</a></li>
+                        <li><a href="https://ni18-in.github.io/ni18/about-us.html" class="hover:text-primary transition-colors">About Us</a></li>
+                        <li><a href="https://forms.gle/Jr7RxbKNDjLzCLQ8A" target="_blank" rel="noopener noreferrer" class="hover:text-primary transition-colors">Contact</a></li>
+                        <li><a href="https://ni18-in.github.io/ni18/privacy-policy.html" class="hover:text-primary transition-colors">Privacy Policy</a></li>
+                        <li><a href="https://ni18-in.github.io/ni18/terms-of-service.html" class="hover:text-primary transition-colors">Terms of Service</a></li>
                     </ul>
-                </li>
-                <li>
-                    <p><strong>Study the Material</strong></p>
-                    <ul>
-                        <li>Read through the explanations and examples provided in Hindi. Take your time to understand each rule.</li>
-                    </ul>
-                </li>
-                <li>
-                    <p><strong>Practice</strong></p>
-                    <ul>
-                        <li>Try out the exercises or create your own sentences using the rules you&rsquo;ve learned.</li>
-                    </ul>
-                </li>
-                <li>
-                    <p><strong>Repeat</strong></p>
-                    <ul>
-                        <li>Move on to another topic and repeat the process to strengthen your overall grammar knowledge.</li>
-                    </ul>
-                </li>
-            </ol>
-            <hr>
-            <h3><strong>Benefits of Using the App</strong></h3>
-            <h4>1. <strong>Enhanced English Proficiency</strong></h4>
-            <p>By mastering grammar, you can improve your writing, speaking, and comprehension skills.</p>
-            <h4>2. <strong>Tailored Learning Experience</strong></h4>
-            <p>The app&rsquo;s Hindi-based explanations make it easier for Hindi speakers to grasp English grammar concepts quickly.</p>
-            <h4>3. <strong>Confidence in Communication</strong></h4>
-            <p>Whether it&rsquo;s for academic, professional, or personal purposes, the app helps you communicate effectively in English.</p>
-            <hr>
-            <h3><strong>Feedback and Support</strong></h3>
-            <p>We value your feedback! Share your experience or suggestions with us at <a href="mailto:ask.ni18.in@gmail.com">ask.ni18.in@gmail.com</a>. For more information and resources, visit our website: <strong>Learn English Grammar in Hindi - All English Grammar in Hindi.</strong></p>
-            <hr>
-            <h3><strong>Download the App Now</strong></h3>
-            <p>Don&rsquo;t let language barriers hold you back. Download the &ldquo;<a href="https://play.google.com/store/apps/details?id=in.ni18.allenglishgrammarinhindi" target="_blank" rel="noopener noreferrer">All English Grammar in Hindi</a>&rdquo; app today and take the first step towards mastering English grammar. Improve your skills and gain the confidence to excel in your academic and professional journey.</p>
-            <hr>
-            <p>By making grammar accessible and easy to understand, the &ldquo;<a href="https://www.ni18.in/blogs/apps/all-english-grammar-in-hindi" target="_blank" rel="noopener noreferrer">All English Grammar in Hindi</a>&rdquo; app is a must-have for Hindi speakers looking to master English. Download it now and start your journey to better English today!</p>
-        </article>
-    </div>
-
-    <!-- Footer -->
-    <footer class="bg-dark text-white text-center py-4">
-        <div class="container">
-            <p>&copy; 2024 <a href="https://blog.ni18.in/" class="text-white text-decoration-none">ni18</a></p>
-            <div class="social-links">
-                <a href="https://www.linkedin.com/company/ni18" aria-label="linkedin ni18 social media link" class="text-white mx-2 text-decoration-none"><i class="ri-linkedin-fill"></i></a>
-                <a href="https://x.com/ni18_in" aria-label="twitter ni18 social media link" class="text-white mx-2 text-decoration-none"><i class="ri-twitter-fill"></i></a>
-                <a href="https://github.com/ni18-in" aria-label="github ni18 social media link" class="text-white mx-2 text-decoration-none"><i class="ri-github-fill"></i></a>
-                <a href="https://www.facebook.com/ni18.in" aria-label="facebook ni18 social media link" class="text-white mx-2 text-decoration-none"><i class="ri-facebook-fill"></i></a>
-                <a href="https://www.instagram.com/ni18.in/" aria-label="instagram ni18 social media link" class="text-white mx-2 text-decoration-none"><i class="ri-instagram-fill"></i></a>
-                <a href="https://www.youtube.com/@ni18_in" aria-label="youtube ni18 social media link" class="text-white mx-2 text-decoration-none"><i class="ri-youtube-fill"></i></a>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold text-white mb-4">Connect With Us</h3>
+                    <div class="flex space-x-4 mb-4">
+                        <a href="https://www.linkedin.com/company/ni18" aria-label="NI18 LinkedIn Profile" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-primary transition-colors"><i class="ri-linkedin-box-fill text-2xl"></i></a>
+                        <a href="https://x.com/ni18_in" aria-label="NI18 Twitter Profile" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-primary transition-colors"><i class="ri-twitter-x-fill text-2xl"></i></a>
+                        <a href="https://github.com/ni18-in" aria-label="NI18 GitHub Profile" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-primary transition-colors"><i class="ri-github-fill text-2xl"></i></a>
+                        <a href="https://www.facebook.com/ni18.in" aria-label="NI18 Facebook Page" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-primary transition-colors"><i class="ri-facebook-circle-fill text-2xl"></i></a>
+                        <a href="https://www.instagram.com/ni18.in/" aria-label="NI18 Instagram Profile" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-primary transition-colors"><i class="ri-instagram-line text-2xl"></i></a>
+                        <a href="https://www.youtube.com/@ni18_in" aria-label="NI18 YouTube Channel" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-primary transition-colors"><i class="ri-youtube-fill text-2xl"></i></a> <!-- Replace with actual YouTube channel -->
+                    </div>
+                    <p class="text-sm">Email: <a href="mailto:info@ni18.in" class="hover:text-primary">info@ni18.in</a></p> <!-- Replace with actual email -->
+                </div>
+            </div>
+            <div class="border-t border-gray-700 pt-8 text-center">
+                <p class="text-sm">© <span id="currentYear"></span> NI18. All Rights Reserved. Designed with <i class="ri-heart-fill text-red-500 align-middle"></i> by NI18.</p>
+                <p class="text-xs mt-2 text-gray-400">For optimal experience, please ensure JavaScript is enabled.</p>
             </div>
         </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Back to Top Button -->
+    <button id="backToTopBtn" title="Go to top"
+            class="fixed bottom-6 right-6 p-3 rounded-full bg-primary text-white shadow-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50 transition-all duration-300 opacity-0 invisible z-50">
+        <i class="ri-arrow-up-s-line text-2xl"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobileMenuButton');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIconOpen = document.getElementById('menuIconOpen');
+        const menuIconClose = document.getElementById('menuIconClose');
+
+        if (mobileMenuButton && mobileMenu && menuIconOpen && menuIconClose) {
+            mobileMenuButton.addEventListener('click', () => {
+                const expanded = mobileMenuButton.getAttribute('aria-expanded') === 'true' || false;
+                mobileMenuButton.setAttribute('aria-expanded', !expanded);
+                mobileMenu.classList.toggle('hidden');
+                menuIconOpen.classList.toggle('hidden');
+                menuIconClose.classList.toggle('hidden');
+            });
+        
+            document.querySelectorAll('#mobile-menu a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenuButton.setAttribute('aria-expanded', 'false');
+                    mobileMenu.classList.add('hidden');
+                    menuIconOpen.classList.remove('hidden');
+                    menuIconClose.classList.add('hidden');
+                });
+            });
+        }
+        
+        // Navbar scroll effect
+        const navbar = document.getElementById('mainNavbar');
+        const backToTopBtn = document.getElementById('backToTopBtn');
+        window.onscroll = function() {
+            if (navbar) {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('navbar-scrolled');
+                } else {
+                    navbar.classList.remove('navbar-scrolled');
+                }
+            }
+            if (backToTopBtn) {
+                if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+                    backToTopBtn.style.opacity = "1";
+                    backToTopBtn.style.visibility = "visible";
+                } else {
+                    backToTopBtn.style.opacity = "0";
+                    backToTopBtn.style.visibility = "hidden";
+                }
+            }
+        };
+
+        // Update current year in footer
+        const currentYearSpan = document.getElementById('currentYear');
+        if (currentYearSpan) {
+            currentYearSpan.textContent = new Date().getFullYear();
+        }
+        
+        // Back to Top Button functionality
+        if (backToTopBtn) {
+            backToTopBtn.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        }
+    </script>
+
 </body>
 </html>

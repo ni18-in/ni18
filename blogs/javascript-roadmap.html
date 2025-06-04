@@ -1,488 +1,660 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description"
-        content="Learn JavaScript step by step with our easy roadmap. Start from basics, explore advanced topics, and become a JavaScript expert. Begin your journey today!">
-    <title>JavaScript Roadmap: Learn Step by Step from Basics to Advanced</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
-    <style>
-        :root {
-            --primary-color: #3498db;
-            --secondary-color: #2ecc71;
-            --dark-color: #2c3e50;
-        }
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Roadmap: Learn Step by Step from Basics to Advanced - NI18</title>
+    <meta name="description" content="Learn JavaScript step by step with our easy-to-follow roadmap. Start from the basics, explore advanced topics, and become a JavaScript expert. Begin your journey today with NI18!">
+    <meta name="keywords" content="JavaScript roadmap, learn JavaScript, JavaScript basics, advanced JavaScript, JavaScript tutorial, JavaScript for beginners, web development, NI18 blogs, programming roadmap">
+    <meta name="author" content="NI18 Team"> <!-- Or specific author -->
+    <link rel="canonical" href="https://ni18-in.github.io/ni18/blogs/javascript-roadmap.html"> <!-- Assuming this is the final URL -->
 
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="JavaScript Roadmap: Learn Step by Step from Basics to Advanced - NI18">
+    <meta property="og:description" content="Our comprehensive JavaScript roadmap guides you from fundamental concepts to advanced techniques. Perfect for beginners and aspiring developers.">
+    <meta property="og:image" content="https://ni18-in.github.io/ni18/images/og_javascript_roadmap.png"> <!-- Replace with actual relevant image -->
+    <meta property="og:url" content="https://ni18-in.github.io/ni18/blogs/javascript-roadmap.html">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="NI18">
+    <meta property="article:published_time" content="2024-06-05T00:00:00+00:00"> <!-- Example: Current date -->
+    <meta property="article:modified_time" content="2024-06-05T00:00:00+00:00"> <!-- Example: Current date -->
+    <meta property="article:author" content="https://ni18-in.github.io/ni18/about-us.html">
+    <meta property="article:section" content="Programming Tutorials">
+    <meta property="article:tag" content="JavaScript">
+    <meta property="article:tag" content="Roadmap">
+    <meta property="article:tag" content="Web Development">
+    <meta property="article:tag" content="Learn to Code">
+
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="JavaScript Roadmap: Learn Step by Step from Basics to Advanced - NI18">
+    <meta name="twitter:description" content="Our comprehensive JavaScript roadmap guides you from fundamental concepts to advanced techniques.">
+    <meta name="twitter:image" content="https://ni18-in.github.io/ni18/images/twitter_javascript_roadmap.png"> <!-- Replace with actual relevant image -->
+    <meta name="twitter:site" content="@ni18_in">
+
+    <!-- Favicon -->
+    <link rel="icon" href="https://ni18-in.github.io/ni18/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="https://ni18-in.github.io/ni18/apple-touch-icon.png">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Remixicon -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet">
+
+    <!-- Custom Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3498db', // Blue
+                        secondary: '#f1c40f', // Yellow (often associated with JavaScript)
+                        dark: '#2c3e50',
+                        light: '#ecf0f1',
+                        'light-bg': '#f8f9fa',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                },
+            },
+            plugins: [],
+        }
+    </script>
+
+    <!-- Custom Styles -->
+    <style>
         body {
             font-family: 'Inter', sans-serif;
-            color: var(--dark-color);
-            line-height: 1.6;
+            color: #2c3e50;
+            line-height: 1.7;
         }
-
-        .gradient-overlay {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: white;
+        .gradient-article-hero-js { /* Unique gradient for this article */
+            background: linear-gradient(135deg, rgba(52, 152, 219, 0.85), rgba(241, 196, 15, 0.85)), url('https://placehold.co/1600x500/f1c40f/2c3e50?text=JavaScript+Roadmap') no-repeat center center;
+            background-size: cover;
         }
-
-        .hero-section {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            position: relative;
-            overflow: hidden;
+        html {
+            scroll-behavior: smooth;
         }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
+        #mainNavbar {
+            transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
         }
-
-        .section-title {
-            font-weight: 700;
-            position: relative;
-            padding-bottom: 15px;
+        .navbar-scrolled {
+            background-color: rgba(44, 62, 80, 0.95) !important;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            width: 60px;
-            height: 3px;
-            background: var(--primary-color);
-            transform: translateX(-50%);
-        }
-
-        .tech-icon {
-            font-size: 3rem;
-            color: var(--primary-color);
-            margin-bottom: 15px;
-        }
-
-        .table-responsive {
-            text-align: left;
-        }
+        /* Basic prose styling for article content */
+        .article-content h2 { margin-top: 2.5em; margin-bottom: 1em; font-size: 2em; font-weight: 700; border-bottom: 2px solid var(--primary-color); padding-bottom: 0.3em; color: var(--dark-color);}
+        .article-content h3 { margin-top: 2em; margin-bottom: 0.75em; font-size: 1.5em; font-weight: 600; color: #1f2937; }
+        .article-content p { margin-bottom: 1.25em; color: #374151; font-size: 1.05em; }
+        .article-content ul, .article-content ol { list-style-position: outside; margin-left: 1.5em; margin-bottom: 1.25em; color: #374151; font-size: 1.05em;}
+        .article-content ul li, .article-content ol li { margin-bottom: 0.6em; padding-left: 0.5em; }
+        .article-content ul ul, .article-content ol ul { margin-top: 0.5em; margin-bottom: 0.5em;} /* Nested lists */
+        .article-content ul { list-style-type: disc; }
+        .article-content ol { list-style-type: decimal; }
+        .article-content ol > li > p { margin-bottom: 0.25em;}
+        .article-content a { color: var(--primary-color); text-decoration: underline; font-weight: 500; }
+        .article-content a:hover { color: #2980b9; }
+        .article-content strong { font-weight: 700; color: #111827; }
+        .article-content code { background-color: #eef1f3; padding: 0.2em 0.4em; margin: 0; font-size: 85%; border-radius: 3px; font-family: 'Courier New', Courier, monospace; }
+        .article-content hr { margin-top: 2.5em; margin-bottom: 2.5em; border-top-width: 1px; border-color: #d1d5db; }
+        .article-content img.inline-article-image { max-width: 100%; height: auto; margin: 25px auto; display: block; border-radius: 12px; box-shadow: 0 6px 12px rgba(0,0,0,0.1); }
+        .article-content .roadmap-step { background-color: #f9fafb; border-left: 4px solid var(--secondary-color); padding: 1.5rem; border-radius: 0.5rem; margin-bottom: 1.5rem; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+        .article-content .roadmap-step h3 { margin-top: 0; border-bottom: none; padding-bottom: 0; font-size: 1.6em; color: var(--secondary-color);}
     </style>
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "JavaScript Roadmap: Learn Step by Step from Basics to Advanced",
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://ni18-in.github.io/ni18/images/og_javascript_roadmap.png", /* Replace with actual image URL */
+        "width": 1200,
+        "height": 630
+      },
+      "author": {
+        "@type": "Person",
+        "name": "NI18 Team", /* Or specific author */
+        "url": "https://ni18-in.github.io/ni18/about-us.html"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "NI18", 
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://ni18-in.github.io/ni18/images/ni18_logo_512x512.png", /* Replace with actual logo */
+          "width": 512,
+          "height": 512
+        }
+      },
+      "datePublished": "2024-06-05", /* Example: Current date */
+      "dateModified": "2024-06-05", /* Example: Current date */
+      "description": "Learn JavaScript step by step with our easy roadmap. Start from basics, explore advanced topics, and become a JavaScript expert. Begin your journey today!",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://ni18-in.github.io/ni18/blogs/javascript-roadmap.html" /* Canonical URL */
+      },
+      "articleBody": "This JavaScript roadmap guides learners from basic concepts like variables, data types, operators, and control structures, through intermediate topics such as objects, arrays, functions, scope, closures, DOM manipulation, and event handling. It then covers advanced JavaScript including ES6+ features (arrow functions, template literals, destructuring, modules), asynchronous programming (callbacks, Promises, async/await), and modern tools like package managers, bundlers, linters, and testing frameworks. The guide also touches on popular frameworks/libraries like React, Angular, Vue.js, Node.js, and Express, emphasizing hands-on practice and continuous learning."
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://ni18-in.github.io/ni18/"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Blogs",
+        "item": "https://ni18-in.github.io/ni18/blogs.html"
+      },{
+        "@type": "ListItem",
+        "position": 3,
+        "name": "JavaScript Roadmap",
+        "item": "https://ni18-in.github.io/ni18/blogs/javascript-roadmap.html"
+      }]
+    }
+    </script>
 </head>
+<body class="bg-light-bg antialiased">
 
-<body>
-    <!-- Navigation -->
-    <nav id="mainNavbar" class="navbar navbar-expand-lg navbar-dark fixed-top"
-        style="background-color: rgba(0,0,0,0.7);">
-        <div class="container">
-            <a class="navbar-brand" href="https://ni18-in.github.io/ni18/">NI18</a>
-            <button class="navbar-toggler" type="button" aria-label="Menu" data-bs-toggle="collapse"
-                data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="https://ni18-in.github.io/ni18/">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="https://forms.gle/Jr7RxbKNDjLzCLQ8A">Contact</a></li>
+    <!-- Header & Navigation -->
+    <header>
+        <nav id="mainNavbar" class="fixed top-0 left-0 right-0 z-50 py-3 bg-dark/80 backdrop-blur-md">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex items-center justify-between h-16">
+                    <div class="flex-shrink-0">
+                        <a href="https://ni18-in.github.io/ni18/" class="text-2xl font-bold text-white hover:text-primary transition-colors">NI18</a>
+                    </div>
+                    <div class="hidden md:block">
+                        <ul class="ml-10 flex items-baseline space-x-4">
+                            <li><a href="https://ni18-in.github.io/ni18/" class="text-gray-200 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Home</a></li>
+                            <li><a href="https://ni18-in.github.io/ni18/#services" class="text-gray-200 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Services</a></li>
+                            <li><a href="https://ni18-in.github.io/ni18/blogs.html" class="text-gray-100 bg-gray-700 px-3 py-2 rounded-md text-sm font-medium transition-colors" aria-current="page">Blogs</a></li>
+                            <li><a href="https://ni18-in.github.io/ni18/about-us.html" class="text-gray-200 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">About Us</a></li>
+                            <li><a href="https://forms.gle/Jr7RxbKNDjLzCLQ8A" class="text-gray-200 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors" target="_blank" rel="noopener noreferrer">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="md:hidden">
+                        <button id="mobileMenuButton" type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-controls="mobile-menu" aria-expanded="false" aria-label="Open main menu">
+                            <span class="sr-only">Open main menu</span>
+                            <i class="ri-menu-line text-2xl block" id="menuIconOpen"></i>
+                            <i class="ri-close-line text-2xl hidden" id="menuIconClose"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- Mobile menu -->
+            <div class="md:hidden hidden" id="mobile-menu">
+                <ul class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                    <li><a href="https://ni18-in.github.io/ni18/" class="text-gray-200 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium transition-colors">Home</a></li>
+                    <li><a href="https://ni18-in.github.io/ni18/#services" class="text-gray-200 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium transition-colors">Services</a></li>
+                    <li><a href="https://ni18-in.github.io/ni18/blogs.html" class="text-gray-100 bg-gray-700 block px-3 py-2 rounded-md text-base font-medium transition-colors" aria-current="page">Blogs</a></li>
+                    <li><a href="https://ni18-in.github.io/ni18/about-us.html" class="text-gray-200 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium transition-colors">About Us</a></li>
+                    <li><a href="https://forms.gle/Jr7RxbKNDjLzCLQ8A" class="text-gray-200 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium transition-colors" target="_blank" rel="noopener noreferrer">Contact</a></li>
                 </ul>
             </div>
-        </div>
-    </nav>
+        </nav>
+    </header>
 
-    <!-- About Section -->
-    <section id="about" class="bg-light py-5">
-        <div class="container">
-            <h2 class="text-center section-title mb-5">Blogs</h2>
-
-            <div class="container">
-
-                <h1>JavaScript Roadmap: Learn Step by Step from Basics to Advanced</h1>
-                <p>JavaScript is one of the most popular programming languages in the world. Whether you are a beginner
-                    or a seasoned developer looking to expand your skills, this roadmap will help you navigate the world
-                    of JavaScript&mdash;from the basics to advanced concepts. In this guide, we will break down each
-                    step and provide practical tips and resources to help you learn effectively.</p>
-                <hr />
-                <h2>Introduction</h2>
-                <p>JavaScript is not just a language for web browsers; it is also used on the server side, in mobile app
-                    development, and even for building desktop applications. Its versatility has made it a must-learn
-                    skill for anyone interested in modern software development.</p>
-                <p>In this guide, we will walk you through a clear, step-by-step path to master JavaScript. Whether you
-                    want to build interactive web pages or develop complex applications, this roadmap will provide you
-                    with the knowledge and skills required to succeed.</p>
-                <hr />
-                <h2>Why Learn JavaScript?</h2>
-                <p>JavaScript is everywhere in today&rsquo;s digital world. Here are a few reasons why you should
-                    consider learning it:</p>
-                <ul>
-                    <li><strong>High Demand:</strong> Many tech companies require JavaScript skills for front-end,
-                        back-end, and full-stack development.</li>
-                    <li><strong>Versatility:</strong> Use JavaScript for web development, mobile app development,
-                        server-side programming, and more.</li>
-                    <li><strong>Community and Resources:</strong> A large community means plenty of tutorials,
-                        documentation, and support.</li>
-                    <li><strong>Career Opportunities:</strong> JavaScript developers often find a wide range of job
-                        opportunities and competitive salaries.</li>
-                </ul>
-                <hr />
-                <h2>Getting Started with JavaScript Basics</h2>
-                <p>Before you dive into more complex topics, you need to build a strong foundation in the basics.
-                    Here&rsquo;s how to get started:</p>
-                <h3>Essential Concepts</h3>
-                <ol>
-                    <li>
-                        <p><strong>Variables and Data Types:</strong></p>
-                        <ul>
-                            <li>Understand how to declare variables using <code>var</code>, <code>let</code>, and
-                                <code>const</code>.
-                            </li>
-                            <li>Learn about different data types such as numbers, strings, booleans, arrays, and
-                                objects.</li>
-                        </ul>
-                    </li>
-                    <li>
-                        <p><strong>Operators:</strong></p>
-                        <ul>
-                            <li>Get familiar with arithmetic, comparison, and logical operators.</li>
-                        </ul>
-                    </li>
-                    <li>
-                        <p><strong>Control Structures:</strong></p>
-                        <ul>
-                            <li>Learn how to use conditionals (<code>if</code>, <code>else</code>, <code>switch</code>)
-                                and loops (<code>for</code>, <code>while</code>).</li>
-                        </ul>
-                    </li>
-                    <li>
-                        <p><strong>Functions:</strong></p>
-                        <ul>
-                            <li>Understand how to define and call functions.</li>
-                            <li>Explore the concepts of parameters, return values, and scope.</li>
-                        </ul>
-                    </li>
-                    <li>
-                        <p><strong>Basic DOM Manipulation:</strong></p>
-                        <ul>
-                            <li>Learn how to select and manipulate HTML elements using JavaScript.</li>
-                            <li>Understand events and how to respond to user actions like clicks and key presses.</li>
-                        </ul>
-                    </li>
-                </ol>
-                <h3>Hands-On Practice</h3>
-                <ul>
-                    <li><strong>Write Simple Scripts:</strong> Start by writing small scripts that perform basic tasks.
-                    </li>
-                    <li><strong>Use Online Editors:</strong> Platforms like CodePen, JSFiddle, or your local development
-                        environment are great places to practice.</li>
-                    <li><strong>Build Small Projects:</strong> Create simple projects like a calculator, a to-do list,
-                        or an interactive quiz to solidify your learning.</li>
-                </ul>
-                <hr />
-                <h2>Diving Deeper: Intermediate Concepts</h2>
-                <p>Once you have a solid grasp of the basics, it&rsquo;s time to explore intermediate topics that will
-                    help you write more efficient and scalable code.</p>
-                <h3>Core JavaScript Concepts</h3>
-                <ol>
-                    <li>
-                        <p><strong>Objects and Arrays:</strong></p>
-                        <ul>
-                            <li>Learn how to create and manipulate objects and arrays.</li>
-                            <li>Understand object properties, methods, and how to iterate through arrays using loops and
-                                higher-order functions.</li>
-                        </ul>
-                    </li>
-                    <li>
-                        <p><strong>Functions as First-Class Citizens:</strong></p>
-                        <ul>
-                            <li>Explore the concept of higher-order functions&mdash;functions that take other functions
-                                as arguments or return them.</li>
-                            <li>Understand callbacks and the importance of passing functions around as values.</li>
-                        </ul>
-                    </li>
-                    <li>
-                        <p><strong>Scope and Closures:</strong></p>
-                        <ul>
-                            <li>Delve into how JavaScript handles variable scope.</li>
-                            <li>Learn about closures, which allow functions to access variables from an outer function
-                                even after the outer function has executed.</li>
-                        </ul>
-                    </li>
-                    <li>
-                        <p><strong>Error Handling:</strong></p>
-                        <ul>
-                            <li>Understand how to handle errors using <code>try</code>, <code>catch</code>, and
-                                <code>finally</code> blocks.
-                            </li>
-                            <li>Learn the importance of writing robust code that gracefully handles exceptions.</li>
-                        </ul>
-                    </li>
-                </ol>
-                <h3>Working with the DOM</h3>
-                <ul>
-                    <li>
-                        <p><strong>Manipulate HTML Elements:</strong></p>
-                        <ul>
-                            <li>Practice selecting and changing elements in the DOM.</li>
-                            <li>Learn how to create, remove, and update HTML elements dynamically.</li>
-                        </ul>
-                    </li>
-                    <li>
-                        <p><strong>Event Handling:</strong></p>
-                        <ul>
-                            <li>Explore how to add event listeners to elements.</li>
-                            <li>Understand the different types of events and how to manage them effectively.</li>
-                        </ul>
-                    </li>
-                    <li>
-                        <p><strong>Building Interactive Interfaces:</strong></p>
-                        <ul>
-                            <li>Combine your knowledge of the DOM and events to create interactive web pages.</li>
-                            <li>Build projects like dynamic forms or interactive galleries to put these concepts into
-                                practice.</li>
-                        </ul>
-                    </li>
-                </ul>
-                <hr />
-                <h2>Mastering Advanced JavaScript</h2>
-                <p>After mastering the intermediate topics, you are ready to move on to advanced JavaScript. This stage
-                    focuses on modern JavaScript features and best practices.</p>
-                <h3>ES6+ Features</h3>
-                <ul>
-                    <li><strong>Arrow Functions:</strong>
-                        <ul>
-                            <li>Learn the syntax and benefits of using arrow functions for more concise code.</li>
-                        </ul>
-                    </li>
-                    <li><strong>Template Literals:</strong>
-                        <ul>
-                            <li>Use template literals to create strings that allow embedded expressions.</li>
-                        </ul>
-                    </li>
-                    <li><strong>Destructuring:</strong>
-                        <ul>
-                            <li>Simplify your code by extracting values from arrays or objects using destructuring
-                                assignments.</li>
-                        </ul>
-                    </li>
-                    <li><strong>Spread and Rest Operators:</strong>
-                        <ul>
-                            <li>Understand how to use these operators to expand or combine arrays and objects.</li>
-                        </ul>
-                    </li>
-                    <li><strong>Modules:</strong>
-                        <ul>
-                            <li>Learn about JavaScript modules to organize your code effectively.</li>
-                            <li>Understand how to import and export functions, objects, and variables.</li>
-                        </ul>
-                    </li>
-                </ul>
-                <h3>Asynchronous Programming</h3>
-                <ul>
-                    <li><strong>Callbacks:</strong>
-                        <ul>
-                            <li>Learn how callbacks work to handle asynchronous operations.</li>
-                        </ul>
-                    </li>
-                    <li><strong>Promises:</strong>
-                        <ul>
-                            <li>Understand the concept of promises to simplify asynchronous code.</li>
-                            <li>Learn how to chain promises and handle errors.</li>
-                        </ul>
-                    </li>
-                    <li><strong>Async/Await:</strong>
-                        <ul>
-                            <li>Discover how async/await can make your asynchronous code look and behave like
-                                synchronous code.</li>
-                            <li>Practice writing cleaner, more readable asynchronous functions.</li>
-                        </ul>
-                    </li>
-                </ul>
-                <h3>Modern JavaScript Tools</h3>
-                <ul>
-                    <li><strong>Package Managers:</strong>
-                        <ul>
-                            <li>Get acquainted with npm (Node Package Manager) to manage libraries and dependencies.
-                            </li>
-                        </ul>
-                    </li>
-                    <li><strong>Bundlers and Build Tools:</strong>
-                        <ul>
-                            <li>Learn about tools like Webpack, Parcel, or Rollup to bundle your code.</li>
-                        </ul>
-                    </li>
-                    <li><strong>Linters and Formatters:</strong>
-                        <ul>
-                            <li>Use tools like ESLint and Prettier to maintain clean and consistent code.</li>
-                        </ul>
-                    </li>
-                    <li><strong>Testing Frameworks:</strong>
-                        <ul>
-                            <li>Explore testing frameworks such as Jest or Mocha to write tests for your code.</li>
-                        </ul>
-                    </li>
-                </ul>
-                <hr />
-                <h2>Exploring JavaScript Frameworks and Libraries</h2>
-                <p>After learning the core language, it&rsquo;s beneficial to explore frameworks and libraries that can
-                    help you build complex applications more efficiently.</p>
-                <h3>Popular Frameworks and Libraries</h3>
-                <ol>
-                    <li><strong>React:</strong>
-                        <ul>
-                            <li>A popular library for building user interfaces.</li>
-                            <li>Focuses on creating reusable components.</li>
-                        </ul>
-                    </li>
-                    <li><strong>Angular:</strong>
-                        <ul>
-                            <li>A full-featured framework maintained by Google.</li>
-                            <li>Ideal for building large-scale enterprise applications.</li>
-                        </ul>
-                    </li>
-                    <li><strong>Vue.js:</strong>
-                        <ul>
-                            <li>A progressive framework that is easy to integrate with other projects.</li>
-                            <li>Known for its simplicity and flexibility.</li>
-                        </ul>
-                    </li>
-                    <li><strong>Node.js:</strong>
-                        <ul>
-                            <li>Use JavaScript on the server side.</li>
-                            <li>Build scalable network applications and APIs.</li>
-                        </ul>
-                    </li>
-                    <li><strong>Express:</strong>
-                        <ul>
-                            <li>A minimal and flexible Node.js framework for building web applications.</li>
-                            <li>Provides robust features for web and mobile applications.</li>
-                        </ul>
-                    </li>
-                </ol>
-                <ul>
-                    <li><strong>Other Tools and Libraries:</strong>
-                        <ul>
-                            <li><strong>Redux or MobX:</strong> For state management in large applications.</li>
-                            <li><strong>GraphQL:</strong> For efficient data fetching.</li>
-                            <li><strong>TypeScript:</strong> A superset of JavaScript that adds static types to improve
-                                code quality and maintainability.</li>
-                        </ul>
-                    </li>
-                </ul>
-                <hr />
-                <h2>Putting It All Together</h2>
-                <p>As you progress through this roadmap, remember that practice is key. Here are a few steps to help you
-                    consolidate your learning:</p>
-                <ul>
-                    <li><strong>Build Projects:</strong> Start small, and gradually work on more complex projects that
-                        combine multiple concepts.</li>
-                    <li><strong>Collaborate with Others:</strong> Join coding communities, participate in hackathons, or
-                        contribute to open-source projects.</li>
-                    <li><strong>Keep Up with Trends:</strong> JavaScript is constantly evolving. Follow blogs, subscribe
-                        to newsletters, and participate in webinars to stay updated on the latest features and best
-                        practices.</li>
-                    <li><strong>Review and Refactor:</strong> Regularly review your code, refactor to improve
-                        readability, and adopt best practices to enhance performance and maintainability.</li>
-                </ul>
-                <hr />
-                <h2>Additional Resources and Next Steps</h2>
-                <p>To further your journey in learning JavaScript, consider these resources:</p>
-                <ul>
-                    <li><strong>Online Courses:</strong>
-                        <ul>
-                            <li>Platforms like Udemy, Coursera, and freeCodeCamp offer excellent JavaScript courses.
-                            </li>
-                        </ul>
-                    </li>
-                    <li><strong>Documentation and Tutorials:</strong>
-                        <ul>
-                            <li>The <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript">Mozilla Developer
-                                    Network (MDN)</a> is a comprehensive resource.</li>
-                        </ul>
-                    </li>
-                    <li><strong>Books:</strong>
-                        <ul>
-                            <li><em>&ldquo;Eloquent JavaScript&rdquo;</em> by Marijn Haverbeke</li>
-                            <li><em>&ldquo;You Don&rsquo;t Know JS&rdquo;</em> series by Kyle Simpson</li>
-                        </ul>
-                    </li>
-                    <li><strong>Community and Forums:</strong>
-                        <ul>
-                            <li>Join communities like Stack Overflow, Reddit&rsquo;s r/javascript, or local coding
-                                meetups to ask questions, share experiences, and collaborate with fellow developers.
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-                <p>Learning JavaScript is a journey that can open many doors in the world of software development. This
-                    roadmap provides a structured path from the basics to advanced topics, covering everything you need
-                    to become proficient in JavaScript. Remember that the key to mastering any programming language is
-                    consistent practice and continuous learning.</p>
-                <p>Start with the fundamentals, build your skills with intermediate topics, and then dive into the
-                    advanced features that modern JavaScript offers. Once you have a solid grasp of the language,
-                    explore the vast ecosystem of frameworks and libraries to build powerful, scalable applications.</p>
-                <p>Whether you are building interactive web pages, developing mobile apps, or creating server-side
-                    applications, JavaScript is an essential tool in your developer toolkit. Use this roadmap as your
-                    guide, and enjoy your journey toward becoming a skilled JavaScript developer.</p>
-
-
-                <ul id="blog-list">
-                    <!-- Blogs will be dynamically loaded here -->
-                </ul>
+    <main class="pt-16"> <!-- Adjusted padding top -->
+        <!-- Article Hero Section -->
+        <section id="article-hero-banner" class="w-full py-20 sm:py-28 md:py-32 gradient-article-hero-js text-white text-center relative">
+            <div class="absolute inset-0 opacity-20"></div>
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight mb-4">
+                    JavaScript Roadmap: Learn Step by Step from Basics to Advanced
+                </h1>
+                <p class="text-lg sm:text-xl md:text-2xl max-w-3xl mx-auto">
+                    Your comprehensive guide to mastering the world's most popular programming language.
+                </p>
             </div>
+        </section>
+        
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 my-8 sm:my-12">
+            <article class="bg-white p-6 sm:p-8 md:p-10 rounded-xl shadow-2xl article-content max-w-4xl mx-auto">
+                <header class="mb-10 text-center border-b pb-6 border-gray-200">
+                     <p class="text-gray-600 text-base">
+                        Published on: <time datetime="2024-06-05">June 5, 2024</time> <!-- Update with actual date -->
+                        <span class="mx-2 text-gray-400">|</span> By <strong>NI18 Team</strong>
+                    </p>
+                </header>
 
-            <script>
-                // JavaScript
-                const blogs = [
-                    { title: "Other JavaScript Blogs", file: "https://blog.ni18.in/category/javascript/" }
-                ];
+                <img src="https://ni18-in.github.io/ni18/images/ni18-cover.webp" <!-- Assumed path, update if needed -->
+                     onerror="this.onerror=null;this.src='https://placehold.co/800x400/f1c40f/2c3e50?text=JavaScript+Code';"
+                     alt="Abstract representation of JavaScript code or concepts" 
+                     class="inline-article-image mb-8">
 
+                <section>
+                    <h2>Introduction</h2>
+                    <p>JavaScript is one of the most popular programming languages in the world. Whether you are a beginner or a seasoned developer looking to expand your skills, this roadmap will help you navigate the world of JavaScript—from the basics to advanced concepts. In this guide, we will break down each step and provide practical tips and resources to help you learn effectively.</p>
+                    <p>JavaScript is not just a language for web browsers; it is also used on the server side (Node.js), in mobile app development (React Native, Ionic), and even for building desktop applications (Electron). Its versatility has made it a must-learn skill for anyone interested in modern software development.</p>
+                    <p>In this guide, we will walk you through a clear, step-by-step path to master JavaScript. Whether you want to build interactive web pages or develop complex applications, this roadmap will provide you with the knowledge and skills required to succeed.</p>
+                </section>
+                <hr />
 
-                const blogList = document.getElementById('blog-list');
+                <section>
+                    <h2>Why Learn JavaScript?</h2>
+                    <p>JavaScript is everywhere in today’s digital world. Here are a few compelling reasons why you should consider learning it:</p>
+                    <ul>
+                        <li><strong>High Demand:</strong> Tech companies worldwide consistently seek JavaScript skills for front-end, back-end, and full-stack development roles.</li>
+                        <li><strong>Versatility:</strong> Use JavaScript for a vast range of applications: dynamic web development, mobile app creation, server-side programming, game development, and more.</li>
+                        <li><strong>Rich Ecosystem & Community:</strong> A massive and active global community means an abundance of tutorials, libraries, frameworks, documentation, and readily available support.</li>
+                        <li><strong>Career Opportunities:</strong> JavaScript developers often find a wide range of job opportunities with competitive salaries and growth potential.</li>
+                        <li><strong>Core Web Technology:</strong> Alongside HTML and CSS, JavaScript is one of the three core technologies of the World Wide Web.</li>
+                    </ul>
+                </section>
+                <hr />
 
-                blogs.forEach(blog => {
-                    const listItem = document.createElement('li');
-                    listItem.innerHTML = `<h2><a href="${blog.file}" target="_blank">${blog.title}</a></h2>`;
-                    blogList.appendChild(listItem);
-                });
-            </script>
+                <section class="roadmap-step">
+                    <h3>Getting Started with JavaScript Basics</h3>
+                    <p>Before you dive into more complex topics, you need to build a strong foundation in the basics. Here’s how to get started:</p>
+                    <h4>Essential Concepts</h4>
+                    <ol>
+                        <li>
+                            <p><strong>Variables and Data Types:</strong></p>
+                            <ul>
+                                <li>Understand how to declare variables using <code>var</code>, <code>let</code>, and <code>const</code>, and their differences (scope, hoisting).</li>
+                                <li>Learn about JavaScript's primitive data types: numbers, strings, booleans, <code>null</code>, <code>undefined</code>, <code>symbol</code>, and <code>bigint</code>.</li>
+                                <li>Explore complex data types: objects and arrays.</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <p><strong>Operators:</strong></p>
+                            <ul>
+                                <li>Get familiar with arithmetic (<code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>%</code>), assignment (<code>=</code>, <code>+=</code>), comparison (<code>==</code>, <code>===</code>, <code>!=</code>, <code>!==</code>, <code>&gt;</code>, <code>&lt;</code>), logical (<code>&&</code>, <code>||</code>, <code>!</code>), and ternary (<code>? :</code>) operators.</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <p><strong>Control Structures:</strong></p>
+                            <ul>
+                                <li>Learn how to use conditional statements (<code>if</code>, <code>else if</code>, <code>else</code>, <code>switch</code>) to make decisions in your code.</li>
+                                <li>Master loops (<code>for</code>, <code>while</code>, <code>do...while</code>, <code>for...in</code>, <code>for...of</code>) for repetitive tasks.</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <p><strong>Functions:</strong></p>
+                            <ul>
+                                <li>Understand how to define and call functions (function declarations, function expressions, arrow functions).</li>
+                                <li>Explore the concepts of parameters, arguments, return values, and function scope.</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <p><strong>Basic DOM Manipulation:</strong></p>
+                            <ul>
+                                <li>Learn how to select HTML elements using methods like <code>getElementById</code>, <code>getElementsByClassName</code>, <code>querySelector</code>, etc.</li>
+                                <li>Understand how to modify element content (<code>innerHTML</code>, <code>textContent</code>), attributes, and styles.</li>
+                                <li>Learn about events (e.g., clicks, key presses, mouse movements) and how to attach event listeners to respond to user actions.</li>
+                            </ul>
+                        </li>
+                    </ol>
+                    <h4>Hands-On Practice</h4>
+                    <ul>
+                        <li><strong>Write Simple Scripts:</strong> Start by writing small scripts that perform basic tasks, like changing text on a webpage or performing simple calculations.</li>
+                        <li><strong>Use Online Editors & Browser Console:</strong> Platforms like CodePen, JSFiddle, or your browser's developer console are great places to experiment and practice.</li>
+                        <li><strong>Build Small Projects:</strong> Create simple projects like a basic calculator, a to-do list application, or an interactive quiz to solidify your learning and see tangible results.</li>
+                    </ul>
+                </section>
+                <hr />
 
+                <section class="roadmap-step">
+                    <h3>Diving Deeper: Intermediate Concepts</h3>
+                    <p>Once you have a solid grasp of the basics, it’s time to explore intermediate topics that will help you write more efficient, organized, and scalable code.</p>
+                    <h4>Core JavaScript Concepts</h4>
+                    <ol>
+                        <li>
+                            <p><strong>Objects and Arrays In-Depth:</strong></p>
+                            <ul>
+                                <li>Learn advanced techniques for creating and manipulating objects (constructors, prototypes, <code>this</code> keyword).</li>
+                                <li>Master array methods (<code>map</code>, <code>filter</code>, <code>reduce</code>, <code>forEach</code>, <code>find</code>, <code>sort</code>, etc.) for powerful data manipulation.</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <p><strong>Functions as First-Class Citizens:</strong></p>
+                            <ul>
+                                <li>Explore the concept of higher-order functions—functions that operate on other functions, either by taking them as arguments or by returning them.</li>
+                                <li>Understand callbacks and their role in asynchronous operations and event handling.</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <p><strong>Scope and Closures:</strong></p>
+                            <ul>
+                                <li>Delve deeper into how JavaScript handles variable scope (global, function/local, block scope with <code>let</code>/<code>const</code>) and hoisting.</li>
+                                <li>Learn about closures, a powerful feature where an inner function has access to the outer (enclosing) function’s variables, even after the outer function has finished executing.</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <p><strong>Error Handling:</strong></p>
+                            <ul>
+                                <li>Understand how to effectively handle errors and exceptions using <code>try...catch...finally</code> blocks.</li>
+                                <li>Learn about different types of errors and the importance of writing robust code that can gracefully handle unexpected situations.</li>
+                            </ul>
+                        </li>
+                         <li>
+                            <p><strong>The `this` Keyword:</strong></p>
+                            <ul>
+                                <li>Understand the different ways the <code>this</code> keyword behaves depending on how a function is called (global context, as a method, as a constructor, with <code>call</code>/<code>apply</code>/<code>bind</code>, in arrow functions).</li>
+                            </ul>
+                        </li>
+                    </ol>
+                    <h4>Working with the DOM More Effectively</h4>
+                    <ul>
+                        <li>
+                            <p><strong>Advanced DOM Manipulation:</strong></p>
+                            <ul>
+                                <li>Practice creating, inserting, removing, and replacing HTML elements dynamically.</li>
+                                <li>Learn about traversing the DOM tree (parent, child, sibling nodes).</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <p><strong>Event Delegation and Management:</strong></p>
+                            <ul>
+                                <li>Explore event bubbling and capturing.</li>
+                                <li>Understand event delegation for more efficient handling of events on multiple elements.</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <p><strong>Building Interactive Interfaces:</strong></p>
+                            <ul>
+                                <li>Combine your knowledge of the DOM and events to create more complex interactive web pages and components.</li>
+                                <li>Build projects like dynamic forms with validation, interactive image galleries, or simple single-page application (SPA) features.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </section>
+                <hr />
+
+                <section class="roadmap-step">
+                    <h3>Mastering Advanced JavaScript</h3>
+                    <p>After mastering the intermediate topics, you are ready to move on to advanced JavaScript. This stage focuses on modern JavaScript features (ES6 and beyond), design patterns, and best practices for writing professional-grade code.</p>
+                    <h4>ES6+ Features (Modern JavaScript)</h4>
+                    <ul>
+                        <li><strong>Arrow Functions:</strong> Deepen your understanding of their syntax, lexical <code>this</code> binding, and use cases.</li>
+                        <li><strong>Template Literals:</strong> Master multi-line strings and embedded expressions for cleaner string manipulation.</li>
+                        <li><strong>Destructuring Assignment:</strong> Efficiently extract values from arrays or properties from objects into distinct variables.</li>
+                        <li><strong>Spread and Rest Operators (<code>...</code>):</strong> Understand their use for expanding iterables, merging objects/arrays, and handling variable numbers of function arguments.</li>
+                        <li><strong>Default Parameters:</strong> Define default values for function parameters.</li>
+                        <li><strong>Classes:</strong> Learn the syntactical sugar for creating constructor functions and working with prototypes in an object-oriented style.</li>
+                        <li><strong>Modules (Import/Export):</strong> Master ES6 modules to organize your code into reusable and maintainable pieces.</li>
+                        <li><strong>Promises & Async/Await (Asynchronous Programming):</strong>
+                            <ul>
+                                <li>Thoroughly understand Promises for managing asynchronous operations and avoiding "callback hell."</li>
+                                <li>Learn how <code>async/await</code> provides a cleaner, more synchronous-looking syntax for working with Promises.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Iterators and Generators:</strong> Understand how to create custom iteration behaviors.</li>
+                        <li><strong>Map, Set, WeakMap, WeakSet:</strong> Learn about these useful data structures.</li>
+                    </ul>
+                    <h4>Asynchronous Programming Deep Dive</h4>
+                    <ul>
+                        <li><strong>Event Loop, Call Stack, Callback Queue:</strong> Understand the underlying mechanism of how JavaScript handles asynchronous operations.</li>
+                        <li><strong>Advanced Promise Patterns:</strong> Learn about <code>Promise.all()</code>, <code>Promise.race()</code>, <code>Promise.allSettled()</code>, <code>Promise.any()</code>.</li>
+                        <li><strong>Fetch API:</strong> Master making HTTP requests to APIs using the modern Fetch API.</li>
+                    </ul>
+                    <h4>Modern JavaScript Tools & Practices</h4>
+                    <ul>
+                        <li><strong>Package Managers (npm/yarn):</strong> Become proficient in using npm or yarn to manage project dependencies and scripts.</li>
+                        <li><strong>Bundlers and Build Tools (Webpack, Parcel, Rollup):</strong> Learn how these tools bundle your JavaScript modules, CSS, and other assets for efficient delivery to the browser. Understand concepts like code splitting and tree shaking.</li>
+                        <li><strong>Linters and Formatters (ESLint, Prettier):</strong> Use these tools to enforce code style consistency and catch potential errors early.</li>
+                        <li><strong>Testing Frameworks (Jest, Mocha, Cypress):</strong> Explore and practice writing unit, integration, and end-to-end tests for your JavaScript code to ensure quality and reliability.</li>
+                        <li><strong>Transpilers (Babel):</strong> Understand how tools like Babel allow you to write modern JavaScript (ES6+) and transpile it down to older versions (like ES5) for broader browser compatibility.</li>
+                        <li><strong>Version Control (Git):</strong> Essential for any developer. Master Git for tracking changes, collaboration, and managing code history.</li>
+                        <li><strong>Browser Developer Tools:</strong> Become an expert at using your browser's dev tools for debugging, performance profiling, and inspecting the DOM.</li>
+                    </ul>
+                </section>
+                <hr />
+
+                <section class="roadmap-step">
+                    <h3>Exploring JavaScript Frameworks and Libraries</h3>
+                    <p>After gaining a strong command of core JavaScript and modern development practices, it’s beneficial to explore frameworks and libraries. These tools can significantly accelerate development, provide structure, and help you build complex, scalable applications more efficiently.</p>
+                    <h4>Popular Front-End Frameworks/Libraries</h4>
+                    <ol>
+                        <li><strong>React:</strong>
+                            <ul>
+                                <li>A declarative, efficient, and flexible JavaScript library for building user interfaces, developed by Facebook.</li>
+                                <li>Focuses on creating reusable UI components and managing application state (often with tools like Redux or Zustand).</li>
+                            </ul>
+                        </li>
+                        <li><strong>Angular:</strong>
+                            <ul>
+                                <li>A comprehensive, opinionated framework developed and maintained by Google, built with TypeScript.</li>
+                                <li>Ideal for building large-scale, complex enterprise applications, offering a complete solution for routing, state management, and more.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Vue.js:</strong>
+                            <ul>
+                                <li>A progressive and approachable framework known for its simplicity, flexibility, and excellent documentation.</li>
+                                <li>Easy to integrate into existing projects or use to build full-fledged SPAs.</li>
+                            </ul>
+                        </li>
+                         <li><strong>Svelte:</strong>
+                            <ul>
+                                <li>A newer approach where Svelte compiles your code to highly efficient imperative code that directly manipulates the DOM, rather than using a virtual DOM.</li>
+                            </ul>
+                        </li>
+                    </ol>
+                    <h4>Server-Side JavaScript (Node.js)</h4>
+                    <ul>
+                        <li><strong>Node.js:</strong>
+                            <ul>
+                                <li>A JavaScript runtime built on Chrome's V8 engine that allows you to run JavaScript on the server side.</li>
+                                <li>Enables building scalable network applications, REST APIs, command-line tools, and more.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Express.js:</strong>
+                            <ul>
+                                <li>A minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications. It's the de facto standard for many Node.js projects.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Other Node.js Frameworks:</strong> Explore others like NestJS (for building efficient, scalable server-side applications with TypeScript), Koa, or Fastify.</li>
+                    </ul>
+                    <h4>Other Useful Tools and Libraries</h4>
+                    <ul>
+                        <li><strong>State Management Libraries:</strong> Redux, Zustand, Pinia (for Vue), NgRx (for Angular) – for managing complex application state.</li>
+                        <li><strong>Data Fetching/GraphQL Clients:</strong> Apollo Client, React Query, SWR – for efficient data fetching and caching.</li>
+                        <li><strong>Utility Libraries:</strong> Lodash, Moment.js/Day.js – for common utility functions and date/time manipulation.</li>
+                        <li><strong>TypeScript:</strong> While not a framework, it's a superset of JavaScript that adds static types. Highly recommended for larger projects to improve code quality, maintainability, and developer experience.</li>
+                    </ul>
+                </section>
+                <hr />
+
+                <section>
+                    <h2>Putting It All Together & Continuous Learning</h2>
+                    <p>As you progress through this roadmap, remember that <strong>consistent practice is key</strong>. Theoretical knowledge is important, but applying what you learn by building projects is what truly solidifies your skills.</p>
+                    <ul>
+                        <li><strong>Build Diverse Projects:</strong> Start with small, focused projects for each concept. Gradually work on more complex applications that integrate multiple concepts and technologies. Examples: a weather app, a movie database browser, a real-time chat application, an e-commerce site.</li>
+                        <li><strong>Contribute and Collaborate:</strong> Join coding communities (like GitHub, Dev.to, Stack Overflow). Participate in hackathons or contribute to open-source projects. Collaborating with others is a great way to learn and improve.</li>
+                        <li><strong>Stay Updated with Trends:</strong> JavaScript and its ecosystem are constantly evolving. Follow influential developers and organizations, subscribe to newsletters (e.g., JavaScript Weekly), read blogs, and participate in webinars or conferences to stay updated on the latest features, tools, and best practices.</li>
+                        <li><strong>Review and Refactor Your Code:</strong> Regularly revisit your old code. You'll often find ways to improve it based on new knowledge. Refactoring helps in understanding design patterns and writing cleaner, more efficient code.</li>
+                        <li><strong>Seek Feedback:</strong> Don't be afraid to share your code and ask for feedback from more experienced developers. Code reviews are invaluable for growth.</li>
+                    </ul>
+                </section>
+                <hr />
+
+                <section>
+                    <h2>Additional Resources and Next Steps</h2>
+                    <p>To further your journey in learning JavaScript, consider these valuable resources:</p>
+                    <ul>
+                        <li><strong>Online Courses & Interactive Platforms:</strong>
+                            <ul>
+                                <li>Platforms like Udemy, Coursera, Pluralsight, freeCodeCamp, The Odin Project, Scrimba, and Codecademy offer excellent structured JavaScript courses for all levels.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Official Documentation and Reference:</strong>
+                            <ul>
+                                <li>The <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noopener noreferrer">Mozilla Developer Network (MDN) Web Docs</a> is an indispensable and comprehensive resource for JavaScript and web technologies.</li>
+                                <li>ECMAScript specification (for the very brave and curious).</li>
+                            </ul>
+                        </li>
+                        <li><strong>Influential Books:</strong>
+                            <ul>
+                                <li><em>“Eloquent JavaScript”</em> by Marijn Haverbeke (available online for free).</li>
+                                <li><em>“You Don’t Know JS Yet”</em> (2nd Edition) series by Kyle Simpson (challenges deep understanding).</li>
+                                <li><em>"JavaScript: The Good Parts"</em> by Douglas Crockford (classic, though a bit dated, still insightful).</li>
+                            </ul>
+                        </li>
+                        <li><strong>Community and Forums:</strong>
+                            <ul>
+                                <li>Join communities like Stack Overflow (for specific questions), Reddit’s r/javascript and r/learnjavascript, Dev.to, Hashnode, or local coding meetups to ask questions, share experiences, and collaborate with fellow developers.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <p>Learning JavaScript is a rewarding journey that can open many doors in the vast world of software development. This roadmap provides a structured path from the fundamentals to advanced topics, covering essential knowledge to become proficient in JavaScript. Remember that the key to mastering any programming language is consistent practice, building projects, and continuous learning.</p>
+                    <p>Start with the fundamentals, build your skills with intermediate topics, and then dive into the advanced features and ecosystem that modern JavaScript offers. Once you have a solid grasp of the language, explore frameworks and libraries to build powerful, scalable applications.</p>
+                    <p>Whether you are building interactive web pages, developing mobile apps, or creating server-side applications, JavaScript is an essential tool in your developer toolkit. Use this roadmap as your guide, be patient with yourself, and enjoy your journey toward becoming a skilled JavaScript developer!</p>
+                </section>
+                
+                <footer class="mt-12 pt-8 border-t border-gray-300">
+                    <h3 class="text-xl font-semibold text-dark mb-4">Explore More JavaScript Content</h3>
+                    <div id="other-js-blogs-container">
+                        <!-- Link will be injected here by JavaScript -->
+                    </div>
+                     <div class="mt-6">
+                        <p class="text-sm text-gray-600">Tags: 
+                            <span class="inline-block bg-gray-200 text-gray-700 px-3 py-1 rounded-full text-xs font-semibold mr-2 mb-2">JavaScript</span>
+                            <span class="inline-block bg-gray-200 text-gray-700 px-3 py-1 rounded-full text-xs font-semibold mr-2 mb-2">Roadmap</span>
+                            <span class="inline-block bg-gray-200 text-gray-700 px-3 py-1 rounded-full text-xs font-semibold mr-2 mb-2">Web Development</span>
+                            <span class="inline-block bg-gray-200 text-gray-700 px-3 py-1 rounded-full text-xs font-semibold mr-2 mb-2">Programming</span>
+                            <span class="inline-block bg-gray-200 text-gray-700 px-3 py-1 rounded-full text-xs font-semibold mr-2 mb-2">Learn to Code</span>
+                            <span class="inline-block bg-gray-200 text-gray-700 px-3 py-1 rounded-full text-xs font-semibold mr-2 mb-2">NI18</span>
+                        </p>
+                    </div>
+                </footer>
+            </article>
         </div>
-    </section>
-
-    <!-- Contact Section -->
-
-    <section id="contact" class="py-5 gradient-overlay">
-        <div class="container">
-            <!-- Blog Posts Section -->
-
-            <div class="mt-5 text-center">
-                <div id="blogList" class="table-responsive"></div>
-            </div>
-
-        </div>
-    </section>
-
+    </main>
 
     <!-- Footer -->
-    <footer class="bg-dark text-white text-center py-4">
-        <div class="container">
-            <p>&copy; 2024 <a href="https://blog.ni18.in/" class="text-white text-decoration-none">ni18</a></p>
-            <div class="social-links">
-                <a href="https://www.linkedin.com/company/ni18" aria-label="linkedin ni18 social media link"
-                    class="text-white mx-2 text-decoration-none"><i class="ri-linkedin-fill"></i></a>
-                <a href="https://x.com/ni18_in" aria-label="twitter ni18 social media link"
-                    class="text-white mx-2 text-decoration-none"><i class="ri-twitter-fill"></i></a>
-                <a href="https://github.com/ni18-in" aria-label="github ni18 social media link"
-                    class="text-white mx-2 text-decoration-none"><i class="ri-github-fill"></i></a>
-                <a href="https://www.facebook.com/ni18.in" aria-label="facebook ni18 social media link"
-                    class="text-white mx-2 text-decoration-none"><i class="ri-facebook-fill"></i></a>
-                <a href="https://www.instagram.com/ni18.in/" aria-label="instagram ni18 social media link"
-                    class="text-white mx-2 text-decoration-none"><i class="ri-instagram-fill"></i></a>
-                <a href="https://www.youtube.com/@ni18_in" aria-label="youtube ni18 social media link"
-                    class="text-white mx-2 text-decoration-none"><i class="ri-youtube-fill"></i></a>
+    <footer class="bg-dark text-gray-200 py-12">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-3 gap-8 mb-10">
+                <div>
+                    <h3 class="text-xl font-semibold text-white mb-4">NI18</h3>
+                    <p class="text-sm leading-relaxed">Innovative technology solutions for a digital-first world. We help businesses grow and succeed through cutting-edge software and strategic insights.</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold text-white mb-4">Quick Links</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="https://ni18-in.github.io/ni18/" class="hover:text-primary transition-colors">Home</a></li>
+                        <li><a href="https://ni18-in.github.io/ni18/#services" class="hover:text-primary transition-colors">Services</a></li>
+                        <li><a href="https://ni18-in.github.io/ni18/blogs.html" class="hover:text-primary transition-colors" aria-current="page">Blogs</a></li>
+                        <li><a href="https://ni18-in.github.io/ni18/about-us.html" class="hover:text-primary transition-colors">About Us</a></li>
+                        <li><a href="https://forms.gle/Jr7RxbKNDjLzCLQ8A" target="_blank" rel="noopener noreferrer" class="hover:text-primary transition-colors">Contact</a></li>
+                        <li><a href="https://ni18-in.github.io/ni18/privacy-policy.html" class="hover:text-primary transition-colors">Privacy Policy</a></li>
+                        <li><a href="https://ni18-in.github.io/ni18/terms-of-service.html" class="hover:text-primary transition-colors">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold text-white mb-4">Connect With Us</h3>
+                    <div class="flex space-x-4 mb-4">
+                        <a href="https://www.linkedin.com/company/ni18" aria-label="NI18 LinkedIn Profile" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-primary transition-colors"><i class="ri-linkedin-box-fill text-2xl"></i></a>
+                        <a href="https://x.com/ni18_in" aria-label="NI18 Twitter Profile" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-primary transition-colors"><i class="ri-twitter-x-fill text-2xl"></i></a>
+                        <a href="https://github.com/ni18-in" aria-label="NI18 GitHub Profile" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-primary transition-colors"><i class="ri-github-fill text-2xl"></i></a>
+                        <a href="https://www.facebook.com/ni18.in" aria-label="NI18 Facebook Page" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-primary transition-colors"><i class="ri-facebook-circle-fill text-2xl"></i></a>
+                        <a href="https://www.instagram.com/ni18.in/" aria-label="NI18 Instagram Profile" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-primary transition-colors"><i class="ri-instagram-line text-2xl"></i></a>
+                        <a href="https://www.youtube.com/@ni18_in" aria-label="NI18 YouTube Channel" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-primary transition-colors"><i class="ri-youtube-fill text-2xl"></i></a>
+                    </div>
+                    <p class="text-sm">Email: <a href="mailto:info@ni18.in" class="hover:text-primary">info@ni18.in</a></p>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 pt-8 text-center">
+                <p class="text-sm">© <span id="currentYear"></span> NI18. All Rights Reserved. Designed with <i class="ri-heart-fill text-red-500 align-middle"></i> by NI18.</p>
+                <p class="text-xs mt-2 text-gray-400">For optimal experience, please ensure JavaScript is enabled.</p>
             </div>
         </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-</body>
+    <!-- Back to Top Button -->
+    <button id="backToTopBtn" title="Go to top"
+            class="fixed bottom-6 right-6 p-3 rounded-full bg-primary text-white shadow-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50 transition-all duration-300 opacity-0 invisible z-50">
+        <i class="ri-arrow-up-s-line text-2xl"></i>
+    </button>
 
+    <!-- Scripts -->
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobileMenuButton');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIconOpen = document.getElementById('menuIconOpen');
+        const menuIconClose = document.getElementById('menuIconClose');
+
+        if (mobileMenuButton && mobileMenu && menuIconOpen && menuIconClose) {
+            mobileMenuButton.addEventListener('click', () => {
+                const expanded = mobileMenuButton.getAttribute('aria-expanded') === 'true' || false;
+                mobileMenuButton.setAttribute('aria-expanded', !expanded);
+                mobileMenu.classList.toggle('hidden');
+                menuIconOpen.classList.toggle('hidden');
+                menuIconClose.classList.toggle('hidden');
+            });
+        
+            document.querySelectorAll('#mobile-menu a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenuButton.setAttribute('aria-expanded', 'false');
+                    mobileMenu.classList.add('hidden');
+                    menuIconOpen.classList.remove('hidden');
+                    menuIconClose.classList.add('hidden');
+                });
+            });
+        }
+        
+        // Navbar scroll effect
+        const navbar = document.getElementById('mainNavbar');
+        const backToTopBtn = document.getElementById('backToTopBtn');
+        window.onscroll = function() {
+            if (navbar) {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('navbar-scrolled');
+                } else {
+                    navbar.classList.remove('navbar-scrolled');
+                }
+            }
+            if (backToTopBtn) {
+                if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+                    backToTopBtn.style.opacity = "1";
+                    backToTopBtn.style.visibility = "visible";
+                } else {
+                    backToTopBtn.style.opacity = "0";
+                    backToTopBtn.style.visibility = "hidden";
+                }
+            }
+        };
+
+        // Update current year in footer
+        const currentYearSpan = document.getElementById('currentYear');
+        if (currentYearSpan) {
+            currentYearSpan.textContent = new Date().getFullYear();
+        }
+        
+        // Back to Top Button functionality
+        if (backToTopBtn) {
+            backToTopBtn.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        }
+
+        // JavaScript for "Other JavaScript Blogs" link
+        const otherJsBlogs = [
+            { title: "Explore More JavaScript Articles on Our Main Blog", file: "https://blog.ni18.in/category/javascript/" }
+        ];
+        const otherJsBlogsContainer = document.getElementById('other-js-blogs-container');
+        if (otherJsBlogsContainer) {
+            otherJsBlogs.forEach(blog => {
+                const linkElement = document.createElement('p'); // Changed from h2 for better semantics in footer
+                linkElement.innerHTML = `<a href="${blog.file}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-primary hover:text-blue-700 font-semibold">
+                                            ${blog.title} <i class="ri-external-link-line ml-1"></i>
+                                         </a>`;
+                otherJsBlogsContainer.appendChild(linkElement);
+            });
+        }
+    </script>
+
+</body>
 </html>

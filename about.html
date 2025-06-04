@@ -2,127 +2,362 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Learn more about ni18, a forward-thinking technology company dedicated to delivering innovative digital solutions and empowering businesses.">
-    <title>About Us - NI18</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
-    <style>
-        :root {
-            --primary-color: #3498db;
-            --secondary-color: #2ecc71;
-            --dark-color: #2c3e50;
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About NI18 - Our Mission, Values, and Team</title>
+    <meta name="description" content="Learn about NI18, a forward-thinking technology company committed to delivering innovative digital solutions. Discover our mission, values, and the team driving our success.">
+    <meta name="keywords" content="NI18, about NI18, company profile, tech company, innovation, digital solutions, our mission, our values, tech team">
+    <meta name="author" content="NI18">
+    <link rel="canonical" href="https://ni18-in.github.io/ni18/about-us.html"> <!-- Assuming this page will be about-us.html -->
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="About NI18 - Our Mission, Values, and Team">
+    <meta property="og:description" content="Learn about NI18, a forward-thinking technology company committed to delivering innovative digital solutions.">
+    <meta property="og:image" content="https://ni18-in.github.io/ni18/images/ni18_og_image_about_us.png"> <!-- Replace with an appropriate OG image for this page -->
+    <meta property="og:url" content="https://ni18-in.github.io/ni18/about-us.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="NI18">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="About NI18 - Our Mission, Values, and Team">
+    <meta name="twitter:description" content="Learn about NI18, a forward-thinking technology company committed to delivering innovative digital solutions.">
+    <meta name="twitter:image" content="https://ni18-in.github.io/ni18/images/ni18_twitter_card_about_us.png"> <!-- Replace with an appropriate Twitter card image for this page -->
+    <meta name="twitter:site" content="@ni18_in">
+
+    <!-- Favicon -->
+    <link rel="icon" href="https://ni18-in.github.io/ni18/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="https://ni18-in.github.io/ni18/apple-touch-icon.png">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Remixicon -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet">
+
+    <!-- Custom Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3498db',
+                        secondary: '#2ecc71',
+                        dark: '#2c3e50',
+                        light: '#ecf0f1',
+                        'light-bg': '#f8f9fa',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                },
+            },
+            plugins: [], // No plugins needed for this basic setup via CDN
         }
+    </script>
+
+    <!-- Custom Styles -->
+    <style>
         body {
             font-family: 'Inter', sans-serif;
-            color: var(--dark-color);
-            line-height: 1.6;
+            color: #2c3e50; /* dark color */
+            line-height: 1.7;
         }
-        .gradient-overlay {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: white;
+        .gradient-hero-header { /* Specific for this page's hero */
+            background: linear-gradient(135deg, #3498db, #2ecc71); /* primary to secondary */
         }
-        .hero-section {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            position: relative;
-            overflow: hidden;
-        }
-        .hero-content {
-            position: relative;
-            z-index: 2;
-        }
-        .section-title {
-            font-weight: 700;
-            position: relative;
-            padding-bottom: 15px;
-        }
-        .section-title::after {
+        .section-title-underline::after {
             content: '';
             position: absolute;
-            bottom: 0;
+            bottom: -10px;
             left: 50%;
-            width: 60px;
-            height: 3px;
-            background: var(--primary-color);
+            width: 70px;
+            height: 4px;
+            background: #3498db; /* primary color */
             transform: translateX(-50%);
+            border-radius: 2px;
         }
-        .tech-icon {
-            font-size: 3rem;
-            color: var(--primary-color);
-            margin-bottom: 15px;
+        html {
+            scroll-behavior: smooth;
         }
-        .table-responsive {
-            text-align: left;
+        #mainNavbar {
+            transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
         }
+        .navbar-scrolled {
+            background-color: rgba(44, 62, 80, 0.95) !important; /* Dark color with opacity */
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        /* Basic prose styling if not using the typography plugin */
+        .prose-custom h3 { margin-top: 1.5em; margin-bottom: 0.5em; font-size: 1.5em; font-weight: 600;}
+        .prose-custom p { margin-bottom: 1em; }
+        .prose-custom strong { font-weight: 600; }
     </style>
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "AboutPage",
+      "name": "About NI18 - Our Mission, Values, and Team",
+      "description": "Learn more about NI18, a forward-thinking technology company committed to delivering innovative digital solutions. Discover our mission, values, and the team driving our success.",
+      "url": "https://ni18-in.github.io/ni18/about-us.html",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://ni18-in.github.io/ni18/about-us.html"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "NI18",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://ni18-in.github.io/ni18/images/ni18_logo.png" /* Ensure this logo exists and is accessible */
+        }
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://ni18-in.github.io/ni18/"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "About Us",
+        "item": "https://ni18-in.github.io/ni18/about-us.html"
+      }]
+    }
+    </script>
 </head>
-<body>
-    <!-- Navigation -->
-    <nav id="mainNavbar" class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: rgba(0,0,0,0.7);">
-        <div class="container">
-            <a class="navbar-brand" href="https://ni18-in.github.io/ni18/">NI18</a>
-            <button class="navbar-toggler" type="button" aria-label="Menu" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="https://ni18-in.github.io/ni18/">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="about">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="https://forms.gle/Jr7RxbKNDjLzCLQ8A">Contact</a></li>
+<body class="bg-gray-100 antialiased">
+
+    <!-- Header & Navigation (Consistent with other pages) -->
+    <header>
+        <nav id="mainNavbar" class="fixed top-0 left-0 right-0 z-50 py-3 bg-dark/80 backdrop-blur-md">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex items-center justify-between h-16">
+                    <div class="flex-shrink-0">
+                        <a href="https://ni18-in.github.io/ni18/" class="text-2xl font-bold text-white hover:text-primary transition-colors">NI18</a>
+                    </div>
+                    <div class="hidden md:block">
+                        <ul class="ml-10 flex items-baseline space-x-4">
+                            <li><a href="https://ni18-in.github.io/ni18/" class="text-gray-200 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Home</a></li>
+                            <li><a href="https://ni18-in.github.io/ni18/#services" class="text-gray-200 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Services</a></li>
+                            <li><a href="https://ni18-in.github.io/ni18/blogs.html" class="text-gray-200 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Blogs</a></li>
+                            <li><a href="https://ni18-in.github.io/ni18/about-us.html" class="text-gray-100 bg-gray-700 px-3 py-2 rounded-md text-sm font-medium transition-colors" aria-current="page">About Us</a></li> <!-- Active link style -->
+                            <li><a href="https://forms.gle/Jr7RxbKNDjLzCLQ8A" class="text-gray-200 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors" target="_blank" rel="noopener noreferrer">Contact</a></li>
+                            <li><a href="https://ni18-in.github.io/ni18/C-DAC-Center-Finder.html" class="text-gray-200 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors" target="_blank" rel="noopener noreferrer">C-DAC Finder</a></li>
+                            <li><a href="https://ni18-in.github.io/ni18/simple-javascript-compiler" class="text-gray-200 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors" target="_blank" rel="noopener noreferrer">JS Compiler</a></li>
+                        </ul>
+                    </div>
+                    <div class="md:hidden">
+                        <button id="mobileMenuButton" type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-controls="mobile-menu" aria-expanded="false" aria-label="Open main menu">
+                            <span class="sr-only">Open main menu</span>
+                            <i class="ri-menu-line text-2xl block" id="menuIconOpen"></i>
+                            <i class="ri-close-line text-2xl hidden" id="menuIconClose"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- Mobile menu -->
+            <div class="md:hidden hidden" id="mobile-menu">
+                <ul class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                    <li><a href="https://ni18-in.github.io/ni18/" class="text-gray-200 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium transition-colors">Home</a></li>
+                    <li><a href="https://ni18-in.github.io/ni18/#services" class="text-gray-200 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium transition-colors">Services</a></li>
+                    <li><a href="https://ni18-in.github.io/ni18/blogs.html" class="text-gray-200 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium transition-colors">Blogs</a></li>
+                    <li><a href="https://ni18-in.github.io/ni18/about-us.html" class="text-gray-100 bg-gray-700 block px-3 py-2 rounded-md text-base font-medium transition-colors" aria-current="page">About Us</a></li>
+                    <li><a href="https://forms.gle/Jr7RxbKNDjLzCLQ8A" class="text-gray-200 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium transition-colors" target="_blank" rel="noopener noreferrer">Contact</a></li>
+                    <li><a href="https://ni18-in.github.io/ni18/C-DAC-Center-Finder.html" class="text-gray-200 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium transition-colors" target="_blank" rel="noopener noreferrer">C-DAC Finder</a></li>
+                    <li><a href="https://ni18-in.github.io/ni18/simple-javascript-compiler" class="text-gray-200 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium transition-colors" target="_blank" rel="noopener noreferrer">JS Compiler</a></li>
                 </ul>
             </div>
-        </div>
-    </nav>
+        </nav>
+    </header>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero-section gradient-overlay text-center">
-        <div class="container hero-content">
-            <h1 class="display-4 fw-bold mb-4">About ni18</h1>
-            <p class="lead mb-5">Innovative Technology. Exceptional Results.</p>
-        </div>
-    </section>
+    <main>
+        <!-- Hero Section -->
+        <section id="page-header" class="pt-32 pb-20 gradient-hero-header text-white text-center">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-6">About NI18</h1>
+                <p class="text-lg sm:text-xl md:text-2xl max-w-2xl mx-auto">Innovative Technology. Exceptional Results. Driving Your Digital Future.</p>
+            </div>
+        </section>
 
-    <!-- About Section -->
-    <section id="about" class="bg-light py-5">
-        <div class="container">
-            <h2 class="text-center section-title mb-5">Who We Are</h2>
-            <div class="row align-items-center">
-                <div class="col-md-6">
-                    <p class="lead">
-                        At ni18, we are a forward-thinking technology company committed to delivering innovative digital solutions that empower businesses to thrive in a competitive landscape.
-                    </p>
-                    <p>
-                        Our team of skilled technologists, designers, and strategists work collaboratively to turn ideas into reality, offering expertise in eCommerce development, cloud solutions, custom software, and digital marketing strategies. With a focus on scalability and innovation, we craft tailored solutions to meet your unique business needs.
-                    </p>
-                    <p>
-                        At the core of ni18 lies our dedication to client success, driven by values of innovation, integrity, and excellence. We believe in creating impactful digital experiences that deliver measurable results.
-                    </p>
+        <!-- About Content Section -->
+        <section id="about-content" class="py-16 sm:py-24 bg-white">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl sm:text-4xl font-bold text-dark text-center section-title-underline relative mb-16">Who We Are</h2>
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div class="prose-custom text-gray-700 max-w-none text-lg leading-relaxed">
+                        <p>
+                            At <strong>NI18</strong>, we are a forward-thinking technology company committed to delivering innovative digital solutions that empower businesses to thrive in a competitive landscape.
+                        </p>
+                        <p>
+                            Our team of skilled technologists, designers, and strategists work collaboratively to turn ideas into reality. We offer expertise in eCommerce development, cloud solutions, custom software, and digital marketing strategies. With a focus on scalability and innovation, we craft tailored solutions to meet your unique business needs.
+                        </p>
+                        <p>
+                            At the core of NI18 lies our dedication to client success, driven by values of <strong>innovation, integrity, and excellence</strong>. We believe in creating impactful digital experiences that deliver measurable results and build lasting partnerships.
+                        </p>
+                    </div>
+                    <div class="mt-8 md:mt-0">
+                        <img src="https://placehold.co/600x450/2c3e50/ffffff?text=NI18+Team+Working" 
+                             onerror="this.onerror=null;this.src='https://placehold.co/600x450/cccccc/333333?text=Image+Not+Available';"
+                             alt="The NI18 team collaborating on innovative solutions" 
+                             class="rounded-xl shadow-2xl w-full h-auto object-cover">
+                        <!-- Actual image: <img src="images/ni18_team_work.png" alt="The NI18 Team at Work" class="rounded-xl shadow-2xl w-full h-auto object-cover"> -->
+                    </div>
                 </div>
-                <div class="col-md-6">
-                    <img src="images/ni18.png" alt="The ni18 Team at Work" class="img-fluid rounded shadow">
+
+                <!-- Optional: Add more sections like Our Mission, Our Values, Our Team -->
+                <div class="mt-16 sm:mt-24 prose-custom text-gray-700 max-w-4xl mx-auto">
+                    <h3 class="text-2xl sm:text-3xl font-bold text-dark text-center section-title-underline relative mb-12">Our Core Values</h3>
+                    <div class="grid sm:grid-cols-3 gap-8 text-center">
+                        <div class="p-6 bg-light-bg rounded-lg shadow-md">
+                            <i class="ri-lightbulb-flash-line text-4xl text-primary mb-3"></i>
+                            <h4 class="text-xl font-semibold text-dark mb-2">Innovation</h4>
+                            <p class="text-sm">Continuously exploring new technologies and creative approaches to solve complex challenges.</p>
+                        </div>
+                        <div class="p-6 bg-light-bg rounded-lg shadow-md">
+                            <i class="ri-shield-check-line text-4xl text-primary mb-3"></i>
+                            <h4 class="text-xl font-semibold text-dark mb-2">Integrity</h4>
+                            <p class="text-sm">Upholding the highest ethical standards in all our interactions and deliverables.</p>
+                        </div>
+                        <div class="p-6 bg-light-bg rounded-lg shadow-md">
+                            <i class="ri-trophy-line text-4xl text-primary mb-3"></i>
+                            <h4 class="text-xl font-semibold text-dark mb-2">Excellence</h4>
+                            <p class="text-sm">Striving for outstanding quality and performance in every project we undertake.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
+        </section>
+        
+        <!-- Call to Action Section -->
+        <section class="py-16 sm:py-20 gradient-hero-header text-white">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-3xl sm:text-4xl font-bold mb-6">Ready to Innovate With Us?</h2>
+                <p class="text-lg sm:text-xl mb-10 max-w-2xl mx-auto">
+                    Let's discuss how NI18 can partner with you to achieve your digital ambitions.
+                </p>
+                <a href="https://forms.gle/Jr7RxbKNDjLzCLQ8A" target="_blank" rel="noopener noreferrer"
+                   class="bg-white text-primary hover:bg-opacity-90 font-semibold text-lg px-10 py-4 rounded-full shadow-lg transform hover:scale-105 transition-all duration-300 ease-in-out">
+                    Get in Touch
+                </a>
+            </div>
+        </section>
 
-        </div>
-    </section>
+    </main>
 
-    <!-- Footer -->
-    <footer class="bg-dark text-white text-center py-4">
-        <div class="container">
-            <p>&copy; 2024 <a href="https://blog.ni18.in/" class="text-white text-decoration-none">ni18</a></p>
-            <div class="social-links">
-                <a href="https://www.linkedin.com/company/ni18" aria-label="linkedin ni18 social media link" class="text-white mx-2 text-decoration-none"><i class="ri-linkedin-fill"></i></a>
-                <a href="https://x.com/ni18_in" aria-label="twitter ni18 social media link" class="text-white mx-2 text-decoration-none"><i class="ri-twitter-fill"></i></a>
-                <a href="https://github.com/ni18-in" aria-label="github ni18 social media link" class="text-white mx-2 text-decoration-none"><i class="ri-github-fill"></i></a>
-                <a href="https://www.facebook.com/ni18.in" aria-label="facebook ni18 social media link" class="text-white mx-2 text-decoration-none"><i class="ri-facebook-fill"></i></a>
-                <a href="https://www.instagram.com/ni18.in/" aria-label="instagram ni18 social media link" class="text-white mx-2 text-decoration-none"><i class="ri-instagram-fill"></i></a>
-                <a href="https://www.youtube.com/@ni18_in" aria-label="youtube ni18 social media link" class="text-white mx-2 text-decoration-none"><i class="ri-youtube-fill"></i></a>
+    <!-- Footer (Consistent with other pages) -->
+    <footer class="bg-dark text-gray-200 py-12">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-3 gap-8 mb-10">
+                <div>
+                    <h3 class="text-xl font-semibold text-white mb-4">NI18</h3>
+                    <p class="text-sm leading-relaxed">Innovative technology solutions for a digital-first world. We help businesses grow and succeed through cutting-edge software and strategic insights.</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold text-white mb-4">Quick Links</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="https://ni18-in.github.io/ni18/" class="hover:text-primary transition-colors">Home</a></li>
+                        <li><a href="https://ni18-in.github.io/ni18/#services" class="hover:text-primary transition-colors">Services</a></li>
+                        <li><a href="https://ni18-in.github.io/ni18/blogs.html" class="hover:text-primary transition-colors">Blogs</a></li>
+                        <li><a href="https://ni18-in.github.io/ni18/about-us.html" class="hover:text-primary transition-colors" aria-current="page">About Us</a></li>
+                        <li><a href="https://forms.gle/Jr7RxbKNDjLzCLQ8A" target="_blank" rel="noopener noreferrer" class="hover:text-primary transition-colors">Contact</a></li>
+                        <li><a href="https://ni18-in.github.io/ni18/privacy-policy.html" class="hover:text-primary transition-colors">Privacy Policy</a></li>
+                        <li><a href="https://ni18-in.github.io/ni18/terms-of-service.html" class="hover:text-primary transition-colors">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold text-white mb-4">Connect With Us</h3>
+                    <div class="flex space-x-4 mb-4">
+                        <a href="https://www.linkedin.com/company/ni18" aria-label="NI18 LinkedIn Profile" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-primary transition-colors"><i class="ri-linkedin-box-fill text-2xl"></i></a>
+                        <a href="https://x.com/ni18_in" aria-label="NI18 Twitter Profile" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-primary transition-colors"><i class="ri-twitter-x-fill text-2xl"></i></a>
+                        <a href="https://github.com/ni18-in" aria-label="NI18 GitHub Profile" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-primary transition-colors"><i class="ri-github-fill text-2xl"></i></a>
+                        <a href="https://www.facebook.com/ni18.in" aria-label="NI18 Facebook Page" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-primary transition-colors"><i class="ri-facebook-circle-fill text-2xl"></i></a>
+                        <a href="https://www.instagram.com/ni18.in/" aria-label="NI18 Instagram Profile" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-primary transition-colors"><i class="ri-instagram-line text-2xl"></i></a>
+                        <a href="https://www.youtube.com/@ni18_in" aria-label="NI18 YouTube Channel" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-primary transition-colors"><i class="ri-youtube-fill text-2xl"></i></a> <!-- Replace with actual YouTube channel -->
+                    </div>
+                    <p class="text-sm">Email: <a href="mailto:info@ni18.in" class="hover:text-primary">info@ni18.in</a></p> <!-- Replace with actual email -->
+                </div>
+            </div>
+            <div class="border-t border-gray-700 pt-8 text-center">
+                <p class="text-sm">© <span id="currentYear"></span> NI18. All Rights Reserved. Designed with <i class="ri-heart-fill text-red-500 align-middle"></i> by NI18.</p>
+                <p class="text-xs mt-2 text-gray-400">For optimal experience, please ensure JavaScript is enabled.</p>
             </div>
         </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Back to Top Button -->
+    <button id="backToTopBtn" title="Go to top"
+            class="fixed bottom-6 right-6 p-3 rounded-full bg-primary text-white shadow-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50 transition-all duration-300 opacity-0 invisible z-50">
+        <i class="ri-arrow-up-s-line text-2xl"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobileMenuButton');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIconOpen = document.getElementById('menuIconOpen');
+        const menuIconClose = document.getElementById('menuIconClose');
+
+        if (mobileMenuButton && mobileMenu && menuIconOpen && menuIconClose) {
+            mobileMenuButton.addEventListener('click', () => {
+                const expanded = mobileMenuButton.getAttribute('aria-expanded') === 'true' || false;
+                mobileMenuButton.setAttribute('aria-expanded', !expanded);
+                mobileMenu.classList.toggle('hidden');
+                menuIconOpen.classList.toggle('hidden');
+                menuIconClose.classList.toggle('hidden');
+            });
+        
+            document.querySelectorAll('#mobile-menu a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenuButton.setAttribute('aria-expanded', 'false');
+                    mobileMenu.classList.add('hidden');
+                    menuIconOpen.classList.remove('hidden');
+                    menuIconClose.classList.add('hidden');
+                });
+            });
+        }
+        
+        // Navbar scroll effect
+        const navbar = document.getElementById('mainNavbar');
+        const backToTopBtn = document.getElementById('backToTopBtn');
+        window.onscroll = function() {
+            if (navbar) {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('navbar-scrolled');
+                } else {
+                    navbar.classList.remove('navbar-scrolled');
+                }
+            }
+            if (backToTopBtn) {
+                if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+                    backToTopBtn.style.opacity = "1";
+                    backToTopBtn.style.visibility = "visible";
+                } else {
+                    backToTopBtn.style.opacity = "0";
+                    backToTopBtn.style.visibility = "hidden";
+                }
+            }
+        };
+
+        // Update current year in footer
+        const currentYearSpan = document.getElementById('currentYear');
+        if (currentYearSpan) {
+            currentYearSpan.textContent = new Date().getFullYear();
+        }
+        
+        // Back to Top Button functionality
+        if (backToTopBtn) {
+            backToTopBtn.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        }
+    </script>
+
 </body>
 </html>
