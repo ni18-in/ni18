@@ -16,6 +16,11 @@
         <priority>0.80</priority>
     </url>
     <url>
+        <loc>https://ni18-in.github.io/ni18/best-blogs.html</loc>
+        <lastmod>2025-25-06T11:55:07+00:00</lastmod>
+        <priority>0.80</priority>
+    </url>
+    <url>
         <loc>https://ni18-in.github.io/ni18/blogs/javascript-roadmap.html</loc>
         <lastmod>2025-02-07T11:55:07+00:00</lastmod>
         <priority>0.90</priority>
