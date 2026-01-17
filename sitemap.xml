@@ -1,39 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset
-    xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 
-    http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-    
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-        <loc>https://ni18-in.github.io/ni18/</loc>
-        <lastmod>2024-12-07T11:55:07+00:00</lastmod>
-        <priority>1.00</priority>
+        <loc>https://ni18-in.github.io/ni18/about.html</loc>
+        <lastmod>2026-01-17</lastmod>
+        <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://ni18-in.github.io/ni18/blogs.html</loc>
-        <lastmod>2024-12-07T11:55:07+00:00</lastmod>
-        <priority>0.80</priority>
+        <loc>https://ni18-in.github.io/ni18/blogs/all-english-grammar-in-marathi.html</loc>
+        <lastmod>2026-01-17</lastmod>
+        <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://ni18-in.github.io/ni18/blogs/javascript-roadmap.html</loc>
-        <lastmod>2025-02-07T11:55:07+00:00</lastmod>
-        <priority>0.90</priority>
+        <loc>https://ni18-in.github.io/ni18/blogs/best-ai-beauty-test.html</loc>
+        <lastmod>2026-01-17</lastmod>
+        <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://ni18-in.github.io/ni18/about</loc>
-        <lastmod>2024-12-07T11:55:07+00:00</lastmod>
-        <priority>0.80</priority>
-    </url>
-    <url>
-        <loc>https://ni18-in.github.io/ni18/C-DAC-Center-Finder</loc>
-        <lastmod>2025-01-03T11:55:07+00:00</lastmod>
-        <priority>0.90</priority>
+        <loc>https://ni18-in.github.io/ni18/blogs/bible-quiz-app.html</loc>
+        <lastmod>2026-01-17</lastmod>
+        <priority>0.8</priority>
     </url>
     <url>
         <loc>https://ni18-in.github.io/ni18/blogs/How-to-Choose-the-Right-Technology-Stack-for-Your-Project.html</loc>
-        <lastmod>2024-12-07T11:55:07+00:00</lastmod>
-        <priority>0.80</priority>
+        <lastmod>2026-01-17</lastmod>
+        <priority>0.8</priority>
     </url>
-
+    <url>
+        <loc>https://ni18-in.github.io/ni18/blogs/javascript-roadmap.html</loc>
+        <lastmod>2026-01-17</lastmod>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://ni18-in.github.io/ni18/blogs/TypeScript-vs-JavaScript-Comprehensive-Comparison.html</loc>
+        <lastmod>2026-01-17</lastmod>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://ni18-in.github.io/ni18/blogs.html</loc>
+        <lastmod>2026-01-17</lastmod>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://ni18-in.github.io/ni18/C-DAC-Center-Finder.html</loc>
+        <lastmod>2025-01-10</lastmod>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://ni18-in.github.io/ni18/contact.html</loc>
+        <lastmod>2026-01-17</lastmod>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://ni18-in.github.io/ni18/index.html</loc>
+        <lastmod>2026-01-17</lastmod>
+        <priority>1.0</priority>
+    </url>
+    <url>
+        <loc>https://ni18-in.github.io/ni18/simple-javascript-compiler.html</loc>
+        <lastmod>2025-03-02</lastmod>
+        <priority>0.8</priority>
+    </url>
 </urlset>
