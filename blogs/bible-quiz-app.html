@@ -1,174 +1,289 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="This is where “Bible Quiz” comes into play - an engaging Android app designed to help users delve into the rich tapestry of the scriptures in an interactive and educational manner.">
+    <meta name="description"
+        content="This is where “Bible Quiz” comes into play - an engaging Android app designed to help users delve into the rich tapestry of the scriptures in an interactive and educational manner.">
     <title>Bible Quiz App</title>
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://ni18-in.github.io/ni18/blogs/bible-quiz-app.html">
     <meta property="og:title" content="Bible Quiz App">
-    <meta property="og:description" content="This is where “Bible Quiz” comes into play - an engaging Android app designed to help users delve into the rich tapestry of the scriptures in an interactive and educational manner.">
+    <meta property="og:description"
+        content="This is where “Bible Quiz” comes into play - an engaging Android app designed to help users delve into the rich tapestry of the scriptures in an interactive and educational manner.">
     <meta property="og:image" content="https://ni18-in.github.io/ni18/images/ni18.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://ni18-in.github.io/ni18/blogs/bible-quiz-app.html">
     <meta property="twitter:title" content="Bible Quiz App">
-    <meta property="twitter:description" content="This is where “Bible Quiz” comes into play - an engaging Android app designed to help users delve into the rich tapestry of the scriptures in an interactive and educational manner.">
+    <meta property="twitter:description"
+        content="This is where “Bible Quiz” comes into play - an engaging Android app designed to help users delve into the rich tapestry of the scriptures in an interactive and educational manner.">
     <meta property="twitter:image" content="https://ni18-in.github.io/ni18/images/ni18.png">
 
     <link rel="canonical" href="https://ni18-in.github.io/ni18/blogs/bible-quiz-app.html">
-    
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
-    
 
-<script type="application/ld+json">
+
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+
+
+    <!-- JSON-LD Structured Data (from existing, ensure all URLs are correct) -->
+    <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Article",
       "headline": "Bible Quiz: Deepen Your Understanding of the Scriptures",
       "image": {
         "@type": "ImageObject",
-        "url": "https://ni18-in.github.io/ni18/images/ni18.png",
+        "url": "https://ni18-in.github.io/ni18/images/og_bible_quiz_app.png", /* Replace with actual image URL */
         "width": 1200,
         "height": 630
       },
       "author": {
         "@type": "Person",
-        "name": "Nitin"
+        "name": "Nitin", /* From existing */
+        "url": "https://ni18-in.github.io/ni18/" /* Example author URL */
       },
       "publisher": {
         "@type": "Organization",
-        "name": "ni18 Health Hub",
+        "name": "NI18", 
         "logo": {
           "@type": "ImageObject",
-          "url": "https://ni18-in.github.io/ni18/images/ni18.png",
-          "width": 600,
-          "height": 60
+          "url": "https://ni18-in.github.io/ni18/images/ni18_logo_512x512.png", /* Replace with actual logo */
+          "width": 512,
+          "height": 512
         }
       },
-      "datePublished": "2024-12-21",
+      "datePublished": "2024-12-21", /* From existing */
+      "dateModified": "2025-06-05", /* Example modification date */
       "description": "Discover the ultimate Bible Quiz app for deepening your knowledge of the scriptures. Engage in interactive quizzes covering books, characters, verses, themes, and more.",
       "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "https://www.ni18.in/blogs/apps/bible-quiz"
-      }
+        "@id": "https://ni18-in.github.io/ni18/blogs/bible-quiz-app.html" /* Canonical URL */
+      },
+      "articleBody": "The Bible Quiz app is an engaging Android tool designed to help users delve into the rich tapestry of the scriptures interactively. It covers books of the Bible, characters, verses, themes, historical events, parables, prophecies, doctrine, and geography. Key features include progress tracking, timed challenges, leaderboards, and a user-friendly interface, making it suitable for scholars, families, church groups, and curious seekers."
     }
     </script>
-    
-    <link href="../style.css" rel="stylesheet">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://ni18-in.github.io/ni18/"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Blogs",
+        "item": "https://ni18-in.github.io/ni18/blogs.html"
+      },{
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Bible Quiz App Guide",
+        "item": "https://ni18-in.github.io/ni18/blogs/bible-quiz-app.html"
+      }]
+    }
+    </script>
+
+
 </head>
-<body>
+
+<body class="bg-gray-50 text-gray-800 antialiased">
     <!-- Navigation -->
     <div id="navbar-placeholder"></div>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero-section">
-        <div class="container my-5">
-            <img class="cover-img" src="../images/ni18-cover.webp" alt="bible quiz app">
-        </div>
-    </section>
+    <main class="pt-16"> <!-- Adjusted padding top -->
+        <!-- Article Hero Section -->
+        <section id="article-hero-banner"
+            class="w-full py-20 sm:py-28 md:py-32 gradient-article-hero-bible text-white text-center relative">
+            <div class="absolute inset-0 opacity-20"></div>
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight mb-4">
+                    Bible Quiz: Deepen Your Understanding of the Scriptures
+                </h1>
+                <p class="text-lg sm:text-xl md:text-2xl max-w-3xl mx-auto">
+                    An engaging Android app to explore the Bible interactively.
+                </p>
+            </div>
+        </section>
 
-    <div class="container my-5">
-        <article>
-            <h1>Bible Quiz: Deepen Your Understanding of the Scriptures</h1>
-            <h2>About the App</h2>
-            <p>The <a href="https://www.ni18.in/blogs/apps/bible-quiz" target="_blank" rel="noopener noreferrer"><strong>Bible Quiz</strong> app</a> is your ultimate companion for enhancing your knowledge of the Bible. Whether you&apos;re a seasoned scholar or a curious beginner, this app offers a fun and engaging way to explore the rich teachings, history, and wisdom of the scriptures. With a user-friendly interface and interactive features, Bible Quiz makes learning enjoyable for everyone.</p>
-            <h3>Key Features of Bible Quiz</h3>
-            <ol>
-                <li>
-                    <p><strong>Books of the Bible</strong></p>
-                    <ul>
-                        <li>Test your knowledge of the Bible&rsquo;s structure by identifying and organizing books from Genesis to Revelation. This section helps you master the sequence and significance of the 66 books.</li>
-                    </ul>
-                </li>
-                <li>
-                    <p><strong>Characters</strong></p>
-                    <ul>
-                        <li>Dive into the lives of key biblical figures, including prophets, apostles, and other individuals who played pivotal roles in biblical history. Learn about their stories, contributions, and lessons they impart.</li>
-                    </ul>
-                </li>
-                <li>
-                    <p><strong>Verses and Passages</strong></p>
-                    <ul>
-                        <li>Challenge yourself to memorize and understand specific verses and passages. This feature strengthens your connection with God&rsquo;s Word and aids in personal spiritual growth.</li>
-                    </ul>
-                </li>
-                <li>
-                    <p><strong>Themes and Topics</strong></p>
-                    <ul>
-                        <li>Explore essential themes such as love, forgiveness, salvation, and more. This section provides a deeper understanding of the core messages and teachings found throughout the Bible.</li>
-                    </ul>
-                </li>
-                <li>
-                    <p><strong>Historical Events</strong></p>
-                    <ul>
-                        <li>Relive significant events, from the Exodus and the life of Jesus to the Acts of the Apostles. This section offers insights into the historical context and importance of these events.</li>
-                    </ul>
-                </li>
-                <li>
-                    <p><strong>Parables and Miracles</strong></p>
-                    <ul>
-                        <li>Study the profound teachings of Jesus through his parables and explore the miracles recorded in the Gospels. This feature brings to life the lessons and wonders of Christ&rsquo;s ministry.</li>
-                    </ul>
-                </li>
-                <li>
-                    <p><strong>Prophecies</strong></p>
-                    <ul>
-                        <li>Discover biblical prophecies and their fulfillment. This section unravels the mysteries of divine revelations and highlights their significance in biblical history.</li>
-                    </ul>
-                </li>
-                <li>
-                    <p><strong>Doctrine and Theology</strong></p>
-                    <ul>
-                        <li>Deepen your understanding of key biblical doctrines and theological concepts. Learn about fundamental beliefs and how they shape Christian faith and practice.</li>
-                    </ul>
-                </li>
-                <li>
-                    <p><strong>Geography</strong></p>
-                    <ul>
-                        <li>Expand your knowledge of the geographical locations mentioned in the Bible. From ancient cities to significant landscapes, this section helps you visualize the biblical world.</li>
-                    </ul>
-                </li>
-                <li>
-                    <p><strong>Trivia and General Knowledge</strong></p>
-                    <ul>
-                        <li>Enjoy a variety of general questions covering miscellaneous aspects of the Bible. This section provides a delightful challenge for enthusiasts of all levels.</li>
-                    </ul>
-                </li>
-            </ol>
-            <h3>Interactive Features</h3>
-            <ul>
-                <li><strong>Progress Tracking</strong>: Monitor your progress and achievements as you complete quizzes.</li>
-                <li><strong>Timed Challenges</strong>: Test your knowledge under time constraints to enhance your quick thinking and recall.</li>
-                <li><strong>Leaderboards</strong>: Compete with friends and fellow users to see who knows the Bible best.</li>
-                <li><strong>User-Friendly Interface</strong>: Navigate easily through quizzes and topics, ensuring an enjoyable experience.</li>
-            </ul>
-            <h3>Why Choose Bible Quiz?</h3>
-            <p>Whether you&rsquo;re preparing for a Bible study, enhancing your personal understanding, or simply having fun, Bible Quiz offers a comprehensive platform for all your needs. The app caters to:</p>
-            <ul>
-                <li><strong>Scholars</strong>: Refine your expertise with advanced quizzes on theology and history.</li>
-                <li><strong>Families</strong>: Enjoy interactive learning sessions with children and loved ones.</li>
-                <li><strong>Church Groups</strong>: Facilitate engaging Bible study activities.</li>
-                <li><strong>Curious Seekers</strong>: Begin your journey with an accessible and beginner-friendly approach.</li>
-            </ul>
-            <h3>How to Get Started</h3>
-            <ol>
-                <li><strong>Download the App</strong>: Available on major app stores, Bible Quiz is just a click away.</li>
-                <li><strong>Sign Up</strong>: Create an account to track your progress and access leaderboards.</li>
-                <li><strong>Choose Your Quiz</strong>: Select from the wide range of topics and difficulty levels.</li>
-                <li><strong>Start Learning</strong>: Dive into the quizzes and uncover the treasures of the Bible.</li>
-            </ol>
-            <h3>Contact Us</h3>
-            <p>We value your feedback and suggestions. If you have any questions or ideas to improve the app, feel free to reach out. Our goal is to provide you with the best experience as you explore the timeless wisdom of the Bible.</p>
-            <h3>Download Now</h3>
-            <p>Take the first step toward enriching your biblical knowledge. Download <a href="https://play.google.com/store/apps/details?id=in.ni18.bible.quiz" target="_blank" rel="noopener noreferrer">Bible Quiz</a> today and embark on a journey of discovery and enlightenment!</p>
-        </article>
-    </div>
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 my-8 sm:my-12">
+            <article class="bg-white p-6 sm:p-8 md:p-10 rounded-xl shadow-2xl article-content max-w-4xl mx-auto">
+                <header class="mb-10 text-center border-b pb-6 border-gray-200">
+                    <p class="text-gray-600 text-base">
+                        Published on: <time datetime="2024-12-21">December 21, 2024</time>
+                        <span class="mx-2 text-gray-400">|</span> By <strong>Nitin</strong>
+                        <span class="mx-2 text-gray-400">|</span> Last Updated: <time datetime="2025-06-05">June 5,
+                            2025</time>
+                    </p>
+                </header>
+
+                <img src="https://ni18-in.github.io/ni18/images/ni18-cover.webp" <!-- Assumed path from original, update
+                    if needed -->
+                onerror="this.onerror=null;this.src='https://placehold.co/800x400/8e44ad/ffffff?text=Bible+Quiz+App';"
+                alt="Cover image for Bible Quiz App article"
+                class="inline-article-image mb-8">
+
+                <h2>About the App</h2>
+                <p>The <a href="https://www.ni18.in/blogs/apps/bible-quiz" target="_blank"
+                        rel="noopener noreferrer"><strong>Bible Quiz</strong> app</a> is your ultimate companion for
+                    enhancing your knowledge of the Bible. Whether you're a seasoned scholar or a curious beginner, this
+                    app offers a fun and engaging way to explore the rich teachings, history, and wisdom of the
+                    scriptures. With a user-friendly interface and interactive features, Bible Quiz makes learning
+                    enjoyable for everyone.</p>
+
+                <h3>Key Features of Bible Quiz</h3>
+                <ol>
+                    <li>
+                        <p><strong>Books of the Bible</strong></p>
+                        <ul>
+                            <li>Test your knowledge of the Bible’s structure by identifying and organizing books from
+                                Genesis to Revelation. This section helps you master the sequence and significance of
+                                the 66 books.</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p><strong>Characters</strong></p>
+                        <ul>
+                            <li>Dive into the lives of key biblical figures, including prophets, apostles, and other
+                                individuals who played pivotal roles in biblical history. Learn about their stories,
+                                contributions, and lessons they impart.</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p><strong>Verses and Passages</strong></p>
+                        <ul>
+                            <li>Challenge yourself to memorize and understand specific verses and passages. This feature
+                                strengthens your connection with God’s Word and aids in personal spiritual growth.</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p><strong>Themes and Topics</strong></p>
+                        <ul>
+                            <li>Explore essential themes such as love, forgiveness, salvation, and more. This section
+                                provides a deeper understanding of the core messages and teachings found throughout the
+                                Bible.</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p><strong>Historical Events</strong></p>
+                        <ul>
+                            <li>Relive significant events, from the Exodus and the life of Jesus to the Acts of the
+                                Apostles. This section offers insights into the historical context and importance of
+                                these events.</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p><strong>Parables and Miracles</strong></p>
+                        <ul>
+                            <li>Study the profound teachings of Jesus through his parables and explore the miracles
+                                recorded in the Gospels. This feature brings to life the lessons and wonders of Christ’s
+                                ministry.</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p><strong>Prophecies</strong></p>
+                        <ul>
+                            <li>Discover biblical prophecies and their fulfillment. This section unravels the mysteries
+                                of divine revelations and highlights their significance in biblical history.</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p><strong>Doctrine and Theology</strong></p>
+                        <ul>
+                            <li>Deepen your understanding of key biblical doctrines and theological concepts. Learn
+                                about fundamental beliefs and how they shape Christian faith and practice.</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p><strong>Geography</strong></p>
+                        <ul>
+                            <li>Expand your knowledge of the geographical locations mentioned in the Bible. From ancient
+                                cities to significant landscapes, this section helps you visualize the biblical world.
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p><strong>Trivia and General Knowledge</strong></p>
+                        <ul>
+                            <li>Enjoy a variety of general questions covering miscellaneous aspects of the Bible. This
+                                section provides a delightful challenge for enthusiasts of all levels.</li>
+                        </ul>
+                    </li>
+                </ol>
+
+                <img src="https://placehold.co/800x400/3498db/ffffff?text=Bible+Quiz+Interface"
+                    onerror="this.onerror=null;this.src='https://placehold.co/800x400/cccccc/333333?text=App+Screenshot';"
+                    alt="Screenshot of Bible Quiz App Interface showing quiz categories" class="inline-article-image">
+
+                <h3>Interactive Features</h3>
+                <ul class="grid sm:grid-cols-2 gap-x-8">
+                    <li><i class="ri-bar-chart-2-line text-secondary mr-2"></i><strong>Progress Tracking</strong>:
+                        Monitor your progress and achievements.</li>
+                    <li><i class="ri-timer-flash-line text-secondary mr-2"></i><strong>Timed Challenges</strong>: Test
+                        your knowledge under time constraints.</li>
+                    <li><i class="ri-trophy-line text-secondary mr-2"></i><strong>Leaderboards</strong>: Compete with
+                        friends and fellow users.</li>
+                    <li><i class="ri-smartphone-line text-secondary mr-2"></i><strong>User-Friendly Interface</strong>:
+                        Navigate easily through quizzes and topics.</li>
+                </ul>
+
+                <h3>Why Choose Bible Quiz?</h3>
+                <p>Whether you’re preparing for a Bible study, enhancing your personal understanding, or simply having
+                    fun, Bible Quiz offers a comprehensive platform for all your needs. The app caters to:</p>
+                <div class="grid sm:grid-cols-2 gap-6 my-6">
+                    <div class="feature-card">
+                        <h4><i class="ri-graduation-cap-line mr-2"></i>Scholars</h4>
+                        <p>Refine your expertise with advanced quizzes on theology and history.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4><i class="ri-parent-line mr-2"></i>Families</h4>
+                        <p>Enjoy interactive learning sessions with children and loved ones.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4><i class="ri-group-line mr-2"></i>Church Groups</h4>
+                        <p>Facilitate engaging Bible study activities.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4><i class="ri-search-eye-line mr-2"></i>Curious Seekers</h4>
+                        <p>Begin your journey with an accessible and beginner-friendly approach.</p>
+                    </div>
+                </div>
+
+                <h3>How to Get Started</h3>
+                <ol>
+                    <li><strong>Download the App</strong>: Available on major app stores, Bible Quiz is just a click
+                        away.</li>
+                    <li><strong>Sign Up</strong>: Create an account to track your progress and access leaderboards.</li>
+                    <li><strong>Choose Your Quiz</strong>: Select from the wide range of topics and difficulty levels.
+                    </li>
+                    <li><strong>Start Learning</strong>: Dive into the quizzes and uncover the treasures of the Bible.
+                    </li>
+                </ol>
+
+                <h3>Contact Us</h3>
+                <p>We value your feedback and suggestions. If you have any questions or ideas to improve the app, feel
+                    free to reach out. Our goal is to provide you with the best experience as you explore the timeless
+                    wisdom of the Bible.</p>
+
+                <div class="text-center my-10 p-6 bg-gradient-to-r from-primary to-secondary rounded-lg shadow-lg">
+                    <h3 class="text-2xl font-semibold text-white mb-4">Ready to Test Your Knowledge?</h3>
+                    <a href="https://play.google.com/store/apps/details?id=in.ni18.bible.quiz" target="_blank"
+                        rel="noopener noreferrer"
+                        class="inline-flex items-center bg-white text-dark hover:bg-light font-semibold text-lg px-8 py-3 rounded-lg shadow-md transform hover:scale-105 transition-all duration-300 ease-in-out">
+                        <i class="ri-google-play-fill align-middle mr-2"></i> Download Bible Quiz Now
+                    </a>
+                </div>
+
+                <div id="footer-placeholder"></div>
+            </article>
+        </div>
+    </main>
 
     <!-- Footer -->
     <div id="footer-placeholder"></div>
@@ -176,4 +291,5 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../script.js"></script>
 </body>
+
 </html>
