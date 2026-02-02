@@ -11,52 +11,10 @@ document.addEventListener('DOMContentLoaded', () => {
     /* 
        Dynamic Loading Logic
     */
-    function loadComponent(id, path, callback) {
-        // Path resolving logic
-        const cssLink = document.querySelector('link[href*="style.css"]');
-        // If standard linking isn't found (because we removed style.css in favor of tailwind), 
-        // fallback to checking usage of internal scripts or just try relative.
-
-        let relativeRoot = '';
-        // Heuristic: count how many levels deep we are by looking at the script src if possible?
-        // Or simpler: We know we are in 'blogs/' if pathname contains it.
-        if (window.location.pathname.includes('/blogs/')) {
-            relativeRoot = '../';
-        }
-
-        // However, the simplest robust way for this specific project structure:
-        // Components are always in /components/ relative to root.
-        // We can try to fetch from relativeRoot + 'components/' + path
-
-        const fullPath = relativeRoot + 'components/' + path;
-
-        fetch(fullPath)
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-                return response.text();
-            })
-            .then(data => {
-                document.getElementById(id).innerHTML = data;
-                if (callback) callback();
-            })
-            .catch(error => {
-                console.error(`Error loading ${path}:`, error);
-                // Don't show alert for now to avoid annoyance if it's just a minor path issue we can retry?
-                // But do show if it fails completely.
-                document.getElementById(id).innerHTML = `<div class="p-4 bg-red-100 text-red-700">Failed to load ${path}. Check console.</div>`;
-            });
-    }
-
-    loadComponent('navbar-placeholder', 'header.html', () => {
-        initNavbar();
-        highlightActiveLink();
-    });
-
-    loadComponent('footer-placeholder', 'footer.html', () => {
-        initFooter();
-    });
+    // Initialize UI components directly since they are now statically injected
+    initNavbar();
+    initFooter();
+    highlightActiveLink();
 
 
     // --- UI Initialization Logic ---
