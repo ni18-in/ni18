@@ -30,12 +30,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
     <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    
     <!-- Remixicon -->
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet">
 
     <!-- Custom Tailwind Configuration -->
-    <script src="tailwind_config.js"></script>
+    
 
     <style>
         body {
@@ -96,6 +96,7 @@
             color: #1a1c1e !important;
         }
     </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body class="bg-gray-50 flex flex-col min-h-screen">
@@ -106,7 +107,7 @@
             <!-- Brand Logo -->
             <div class="flex-shrink-0">
                 <a href="index.html" class="flex items-center gap-2 group">
-                    <img src="images/ni18_logo.png" alt="NI18 Logo" class="h-9 w-auto bg-white rounded-lg p-1 border border-outline-variant/30">
+                    <img src="images/ni18_logo.png" alt="NI18 Logo" width="36" height="36" fetchpriority="high" class="h-9 w-9 bg-white rounded-lg p-1 border border-outline-variant/30">
                     <span class="text-2xl font-display font-black tracking-tight text-primary hover:text-secondary transition-colors">NI18</span>
                 </a>
             </div>
@@ -129,7 +130,7 @@
                     <li><a href="contact.html"
                             class="nav-link text-on-surface-variant hover:bg-primary/5 hover:text-primary px-4 py-2 rounded-full text-sm font-medium transition-all duration-200">Contact</a>
                     </li>
-                    <li><a href="C-DAC-Center-Finder.html"
+                    <li><a href="c-dac-center-finder.html"
                             class="nav-link text-on-surface-variant hover:bg-primary/5 hover:text-primary px-4 py-2 rounded-full text-sm font-medium transition-all duration-200">C-DAC
                             Finder</a></li>
                     <li><a href="simple-javascript-compiler.html"
@@ -169,7 +170,7 @@
             <li><a href="contact.html"
                     class="mobile-nav-link text-on-surface-variant hover:bg-primary/5 hover:text-primary block px-4 py-3 rounded-xl text-base font-medium transition-all">Contact</a>
             </li>
-            <li><a href="C-DAC-Center-Finder.html"
+            <li><a href="c-dac-center-finder.html"
                     class="mobile-nav-link text-on-surface-variant hover:bg-primary/5 hover:text-primary block px-4 py-3 rounded-xl text-base font-medium transition-all">C-DAC
                     Finder</a></li>
             <li><a href="simple-javascript-compiler.html"
@@ -312,13 +313,16 @@
 <!-- Back to Top M3 Floating Action Button (FAB) -->
 
 
+<!-- Back to Top M3 Floating Action Button (FAB) -->
+
+
 <!-- Back to Top Button -->
 <button id="backToTopBtn" title="Go to top"
     class="fixed bottom-5 right-5 p-3 rounded-full bg-primary text-white shadow-lg hover:bg-blue-700 transition-all duration-300 opacity-0 invisible z-50">
     <i class="ri-arrow-up-s-line text-2xl"></i>
 </button>
 
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 </body>
 
 </html>

@@ -64,13 +64,24 @@
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
     <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet">
-    <script src="../tailwind_config.js"></script>
+    
     <style>
         body { font-family: 'Roboto', 'Inter', sans-serif; }
         h1, h2, h3, h4, h5, h6 { font-family: 'Outfit', sans-serif; }
     </style>
+    
+    
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <!-- Material Design 3 Styling and Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
     
 </head>
 
@@ -82,7 +93,7 @@
             <!-- Brand Logo -->
             <div class="flex-shrink-0">
                 <a href="../index.html" class="flex items-center gap-2 group">
-                    <img src="../images/ni18_logo.png" alt="NI18 Logo" class="h-9 w-auto bg-white rounded-lg p-1 border border-outline-variant/30">
+                    <img src="../images/ni18_logo.png" alt="NI18 Logo" width="36" height="36" fetchpriority="high" class="h-9 w-9 bg-white rounded-lg p-1 border border-outline-variant/30">
                     <span class="text-2xl font-display font-black tracking-tight text-primary hover:text-secondary transition-colors">NI18</span>
                 </a>
             </div>
@@ -105,7 +116,7 @@
                     <li><a href="../contact.html"
                             class="nav-link text-on-surface-variant hover:bg-primary/5 hover:text-primary px-4 py-2 rounded-full text-sm font-medium transition-all duration-200">Contact</a>
                     </li>
-                    <li><a href="../C-DAC-Center-Finder.html"
+                    <li><a href="../c-dac-center-finder.html"
                             class="nav-link text-on-surface-variant hover:bg-primary/5 hover:text-primary px-4 py-2 rounded-full text-sm font-medium transition-all duration-200">C-DAC
                             Finder</a></li>
                     <li><a href="../simple-javascript-compiler.html"
@@ -145,7 +156,7 @@
             <li><a href="../contact.html"
                     class="mobile-nav-link text-on-surface-variant hover:bg-primary/5 hover:text-primary block px-4 py-3 rounded-xl text-base font-medium transition-all">Contact</a>
             </li>
-            <li><a href="../C-DAC-Center-Finder.html"
+            <li><a href="../c-dac-center-finder.html"
                     class="mobile-nav-link text-on-surface-variant hover:bg-primary/5 hover:text-primary block px-4 py-3 rounded-xl text-base font-medium transition-all">C-DAC
                     Finder</a></li>
             <li><a href="../simple-javascript-compiler.html"
@@ -156,92 +167,10 @@
 </nav>
 
     <!-- Footer (Consistent with other pages) -->
-    <footer class="bg-dark text-gray-200 py-12">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid md:grid-cols-3 gap-8 mb-10">
-                <div>
-                    <h3 class="text-xl font-semibold text-white mb-4">NI18</h3>
-                    <p class="text-sm leading-relaxed">Innovative technology solutions for a digital-first world. We
-                        help businesses grow and succeed through cutting-edge software and strategic insights.</p>
-                </div>
-                <div>
-                    <h3 class="text-xl font-semibold text-white mb-4">Quick Links</h3>
-                    <ul class="space-y-2 text-sm">
-                        <li><a href="https://ni18-in.github.io/ni18/"
-                                class="hover:text-primary transition-colors">Home</a></li>
-                        <li><a href="https://ni18-in.github.io/ni18/#services"
-                                class="hover:text-primary transition-colors">Services</a></li>
-                        <li><a href="https://ni18-in.github.io/ni18/blogs.html"
-                                class="hover:text-primary transition-colors" aria-current="page">Blogs</a></li>
-                        <li><a href="https://ni18-in.github.io/ni18/about-us.html"
-                                class="hover:text-primary transition-colors">About Us</a></li>
-                        <li><a href="https://forms.gle/Jr7RxbKNDjLzCLQ8A" target="_blank" rel="noopener noreferrer"
-                                class="hover:text-primary transition-colors">Contact</a></li>
-                        <li><a href="https://ni18-in.github.io/ni18/privacy-policy.html"
-                                class="hover:text-primary transition-colors">Privacy Policy</a></li>
-                        <li><a href="https://ni18-in.github.io/ni18/terms-of-service.html"
-                                class="hover:text-primary transition-colors">Terms of Service</a></li>
-                    </ul>
-                    </li>
-                    <li>
-                        <p><strong>Study the Material</strong></p>
-                        <ul>
-                            <li>Read through the explanations and examples provided in Hindi. Take your time to
-                                understand each rule.</li>
-                        </ul>
-                    </li>
-                    <li>
-                        <p><strong>Practice</strong></p>
-                        <ul>
-                            <li>Try out the exercises or create your own sentences using the rules you&rsquo;ve learned.
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <p><strong>Repeat</strong></p>
-                        <ul>
-                            <li>Move on to another topic and repeat the process to strengthen your overall grammar
-                                knowledge.</li>
-                        </ul>
-                    </li>
-                    </ol>
-                    <hr>
-                    <h3><strong>Benefits of Using the App</strong></h3>
-                    <h4>1. <strong>Enhanced English Proficiency</strong></h4>
-                    <p>By mastering grammar, you can improve your writing, speaking, and comprehension skills.</p>
-                    <h4>2. <strong>Tailored Learning Experience</strong></h4>
-                    <p>The app&rsquo;s Hindi-based explanations make it easier for Hindi speakers to grasp English
-                        grammar concepts quickly.</p>
-                    <h4>3. <strong>Confidence in Communication</strong></h4>
-                    <p>Whether it&rsquo;s for academic, professional, or personal purposes, the app helps you
-                        communicate effectively in English.</p>
-                    <hr>
-                    <h3><strong>Feedback and Support</strong></h3>
-                    <p>We value your feedback! Share your experience or suggestions with us at <a
-                            href="mailto:ask.ni18.in@gmail.com">ask.ni18.in@gmail.com</a>. For more information and
-                        resources, visit our website: <strong>Learn English Grammar in Hindi - All English Grammar in
-                            Hindi.</strong></p>
-                    <hr>
-                    <h3><strong>Download the App Now</strong></h3>
-                    <p>Don&rsquo;t let language barriers hold you back. Download the &ldquo;<a
-                            href="https://play.google.com/store/apps/details?id=in.ni18.allenglishgrammarinhindi"
-                            target="_blank" rel="noopener noreferrer">All English Grammar in Hindi</a>&rdquo; app today
-                        and take the first step towards mastering English grammar. Improve your skills and gain the
-                        confidence to excel in your academic and professional journey.</p>
-                    <hr>
-                    <p>By making grammar accessible and easy to understand, the &ldquo;<a
-                            href="https://www.ni18.in/blogs/apps/all-english-grammar-in-hindi" target="_blank"
-                            rel="noopener noreferrer">All English Grammar in Hindi</a>&rdquo; app is a must-have for
-                        Hindi speakers looking to master English. Download it now and start your journey to better
-                        English today!</p>
-                    </article>
-                </div>
+    
 
-                <!-- Footer -->
-                
+<!-- Back to Top M3 Floating Action Button (FAB) -->
 
-                
-                <script src="../script.js"></script>
     <footer class="bg-dark text-on-surface-variant border-t border-outline-variant/20 py-16">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
@@ -304,6 +233,7 @@
 
 <!-- Back to Top M3 Floating Action Button (FAB) -->
 
+    <script src="../script.js"></script>
 </body>
 
 </html>
