@@ -26,24 +26,19 @@ files.forEach(file => {
     content = content.replace(/<link.*style\.css.*?>/g, '');
 
 
-    // 3. Inject Tailwind, Fonts, and Config
+    // 3. Inject Fonts, Icons, and style.css
     const headInjection = `
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Material Design 3 Styling and Icons -->
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet">
-    <script src="../tailwind_config.js"></script>
-    <style>
-        body { font-family: 'Roboto', 'Inter', sans-serif; }
-        h1, h2, h3, h4, h5, h6 { font-family: 'Outfit', sans-serif; }
-    </style>
+    <link rel="stylesheet" href="../style.css">
     `;
 
-    if (!content.includes('cdn.tailwindcss.com')) {
+    if (!content.includes('style.css')) {
         content = content.replace('</head>', headInjection + '\n</head>');
     }
 

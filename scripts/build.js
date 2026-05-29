@@ -18,7 +18,7 @@ function adjustPaths(htmlContent, depth) {
     
     // Regexp targets: local html files, logo images, custom scripts
     return htmlContent
-        .replace(/href="(index\.html|about\.html|blogs\.html|contact\.html|C-DAC-Center-Finder\.html|simple-javascript-compiler\.html|privacy-policy\.html|terms-of-service\.html)(#[a-zA-Z0-9_\-]+)?"/g, `href="${prefix}$1$2"`)
+        .replace(/href="(index\.html|about\.html|blogs\.html|contact\.html|c-dac-center-finder\.html|simple-javascript-compiler\.html|privacy-policy\.html|terms-of-service\.html)(#[a-zA-Z0-9_\-]+)?"/g, `href="${prefix}$1$2"`)
         .replace(/src="(images\/[^"]+|script\.js)"/g, `src="${prefix}$1"`);
 }
 
@@ -82,7 +82,7 @@ try {
         'about.html',
         'blogs.html',
         'contact.html',
-        'C-DAC-Center-Finder.html',
+        'c-dac-center-finder.html',
         'simple-javascript-compiler.html',
         'best-blogs.html'
     ];
