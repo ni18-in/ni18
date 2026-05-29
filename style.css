@@ -1,358 +1,71 @@
 /* ==========================================================================
-   Google Material Design 3 Vanilla CSS Design System & Utility Mapper
+   Google Material Design 3 Custom Overrides (Supporting BeerCSS & Fonts)
    ========================================================================== */
 
-/* --- Design Tokens & Root Custom Properties --- */
-:root {
-    /* Brand Colors (Sapphire Blue theme) */
-    --md-sys-color-primary: #0f52ba;
-    --md-sys-color-on-primary: #ffffff;
-    --md-sys-color-primary-container: #dbe2f9;
-    --md-sys-color-on-primary-container: #001a43;
-    
-    --md-sys-color-secondary: #5a5f70;
-    --md-sys-color-on-secondary: #ffffff;
-    --md-sys-color-secondary-container: #e0e2ec;
-    --md-sys-color-on-secondary-container: #171b2b;
-
-    --md-sys-color-tertiary: #745470;
-    --md-sys-color-on-tertiary: #ffffff;
-    --md-sys-color-tertiary-container: #ffd7f3;
-    --md-sys-color-on-tertiary-container: #2b122a;
-    
-    --md-sys-color-background: #fcf8fd;
-    --md-sys-color-on-background: #1a1c1e;
-    
-    --md-sys-color-surface: #fdfbff;
-    --md-sys-color-on-surface: #1a1c1e;
-    --md-sys-color-surface-variant: #e2e2ec;
-    --md-sys-color-on-surface-variant: #43474e;
-    
-    --md-sys-color-outline: #73777f;
-    --md-sys-color-outline-variant: #c3c6cf;
-    --md-sys-color-error: #ba1a1a;
-    --md-sys-color-on-error: #ffffff;
-
-    /* Elevations (Native box-shadow overlays) */
-    --md-elevation-0: none;
-    --md-elevation-1: 0px 1px 3px 1px rgba(0,0,0,0.08), 0px 1px 2px 0px rgba(0,0,0,0.15);
-    --md-elevation-2: 0px 2px 6px 2px rgba(0,0,0,0.08), 0px 1px 2px 0px rgba(0,0,0,0.15);
-    --md-elevation-3: 0px 1px 3px 0px rgba(0,0,0,0.2), 0px 4px 8px 3px rgba(0,0,0,0.08);
-    --md-elevation-4: 0px 2px 3px 0px rgba(0,0,0,0.2), 0px 6px 10px 4px rgba(0,0,0,0.08);
-    --md-elevation-5: 0px 4px 4px 0px rgba(0,0,0,0.2), 0px 8px 12px 6px rgba(0,0,0,0.08);
-
-    /* Fonts */
-    --font-display: 'Outfit', sans-serif;
-    --font-body: 'Roboto', 'Inter', sans-serif;
+/* Typography Overrides */
+body, button, input, select, textarea, div, p, span, a, label {
+    font-family: 'Roboto', 'Inter', sans-serif !important;
 }
 
-/* Automatic Dark Mode Scheme */
-@media (prefers-color-scheme: dark) {
-    :root {
-        --md-sys-color-primary: #b3c5ff;
-        --md-sys-color-on-primary: #002b75;
-        --md-sys-color-primary-container: #003f9b;
-        --md-sys-color-on-primary-container: #dbe2f9;
-        
-        --md-sys-color-secondary: #c4c6d0;
-        --md-sys-color-on-secondary: #2e3038;
-        --md-sys-color-secondary-container: #44474f;
-        --md-sys-color-on-secondary-container: #e0e2ec;
-
-        --md-sys-color-tertiary: #e2bbde;
-        --md-sys-color-on-tertiary: #422740;
-        --md-sys-color-tertiary-container: #5b3d57;
-        --md-sys-color-on-tertiary-container: #ffd7f3;
-        
-        --md-sys-color-background: #141316;
-        --md-sys-color-on-background: #e5e2e6;
-        
-        --md-sys-color-surface: #141316;
-        --md-sys-color-on-surface: #e5e2e6;
-        --md-sys-color-surface-variant: #43474e;
-        --md-sys-color-on-surface-variant: #c3c6cf;
-        
-        --md-sys-color-outline: #8d9199;
-        --md-sys-color-outline-variant: #43474e;
-    }
+h1, h2, h3, h4, h5, h6, .font-display, .navbar-brand {
+    font-family: 'Outfit', sans-serif !important;
 }
 
-/* Global Basics & Reset */
-* {
+/* Base resets & layout offsets for BeerCSS fixed navigation */
+body {
+    padding-top: 64px !important; /* Offset for Top App Bar */
     margin: 0;
-    padding: 0;
     box-sizing: border-box;
 }
 
-body {
-    background-color: var(--md-sys-color-background);
-    color: var(--md-sys-color-on-background);
-    font-family: var(--font-body);
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-    padding-top: 80px; /* Space for fixed navigation bar */
+/* Header customization - blurred translucent background */
+header {
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    border-bottom: 1px solid var(--outline-variant) !important;
 }
 
-/* --- Layout Utility Classes (Tailwind Mappings) --- */
-.container {
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
+/* Quick link custom style */
+footer a {
+    text-decoration: none !important;
 }
-@media (min-width: 640px) { .container { max-width: 640px; } }
-@media (min-width: 768px) { .container { max-width: 768px; } }
-@media (min-width: 1024px) { .container { max-width: 1024px; } }
-@media (min-width: 1280px) { .container { max-width: 1200px; } }
-
-.max-w-7xl { max-width: 80rem; }
-.max-w-4xl { max-width: 56rem; }
-.max-w-3xl { max-width: 48rem; }
-.max-w-2xl { max-width: 42rem; }
-.max-w-xl { max-width: 36rem; }
-.max-w-md { max-width: 28rem; }
-.max-w-sm { max-width: 24rem; }
-
-.mx-auto { margin-left: auto; margin-right: auto; }
-.my-auto { margin-top: auto; margin-bottom: auto; }
-
-/* Display & Positioning */
-.block { display: block; }
-.inline-block { display: inline-block; }
-.flex { display: flex; }
-.grid { display: grid; }
-.hidden { display: none !important; }
-
-.relative { position: relative; }
-.absolute { position: absolute; }
-.fixed { position: absolute; position: fixed; }
-
-.top-0 { top: 0; }
-.left-0 { left: 0; }
-.right-0 { right: 0; }
-.bottom-0 { bottom: 0; }
-.z-50 { z-index: 50; }
-
-.w-full { width: 100%; }
-.w-auto { width: auto; }
-.h-full { height: 100%; }
-.h-auto { height: auto; }
-.h-16 { height: 4rem; }
-.h-9 { height: 2.25rem; }
-.w-9 { width: 2.25rem; }
-
-.flex-col { flex-direction: column; }
-.flex-row { flex-direction: row; }
-.flex-wrap { flex-wrap: wrap; }
-.items-center { align-items: center; }
-.justify-between { justify-content: space-between; }
-.justify-center { justify-content: center; }
-.flex-shrink-0 { flex-shrink: 0; }
-
-/* Dynamic Responsive Grids */
-.grid-cols-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
-.col-span-1 { grid-column: span 1 / span 1; }
-
-@media (min-width: 768px) {
-    .md\:block { display: block !important; }
-    .md\:hidden { display: none !important; }
-    .md\:flex-row { flex-direction: row; }
-    .md\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .md\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-    .md\:grid-cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+footer a:hover {
+    color: var(--primary) !important;
+    text-decoration: underline !important;
 }
 
-@media (min-width: 1024px) {
-    .lg\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-}
-
-/* Spacing Helpers */
-.gap-2 { gap: 0.5rem; }
-.gap-3 { gap: 0.75rem; }
-.gap-4 { gap: 1rem; }
-.gap-8 { gap: 2rem; }
-.gap-12 { gap: 3rem; }
-
-.p-1 { padding: 0.25rem; }
-.p-2 { padding: 0.5rem; }
-.p-3 { padding: 0.75rem; }
-.p-4 { padding: 1rem; }
-.p-6 { padding: 1.5rem; }
-.p-8 { padding: 2rem; }
-.p-10 { padding: 2.5rem; }
-
-.px-4 { padding-left: 1rem; padding-right: 1rem; }
-.px-6 { padding-left: 1.5rem; padding-right: 1.5rem; }
-.px-8 { padding-left: 2rem; padding-right: 2rem; }
-
-.py-2 { padding-top: 0.5rem; padding-bottom: 0.5rem; }
-.py-3 { padding-top: 0.75rem; padding-bottom: 0.75rem; }
-.py-4 { padding-top: 1rem; padding-bottom: 1rem; }
-.py-12 { padding-top: 3rem; padding-bottom: 3rem; }
-.py-16 { padding-top: 4rem; padding-bottom: 4rem; }
-.py-24 { padding-top: 6rem; padding-bottom: 6rem; }
-.py-32 { padding-top: 8rem; padding-bottom: 8rem; }
-
-.mb-2 { margin-bottom: 0.5rem; }
-.mb-4 { margin-bottom: 1rem; }
-.mb-6 { margin-bottom: 1.5rem; }
-.mb-8 { margin-bottom: 2rem; }
-.mb-10 { margin-bottom: 2.5rem; }
-.mb-12 { margin-bottom: 3rem; }
-
-.mt-2 { margin-top: 0.5rem; }
-.mt-4 { margin-top: 1rem; }
-.mt-6 { margin-top: 1.5rem; }
-.mt-8 { margin-top: 2rem; }
-
-/* --- Typography System --- */
-.font-display { font-family: var(--font-display); }
-.font-body { font-family: var(--font-body); }
-
-.font-black { font-weight: 900; }
-.font-extrabold { font-weight: 800; }
-.font-bold { font-weight: 700; }
-.font-semibold { font-weight: 600; }
-.font-medium { font-weight: 500; }
-.font-normal { font-weight: 400; }
-.font-light { font-weight: 300; }
-
-.text-xs { font-size: 0.75rem; }
-.text-sm { font-size: 0.875rem; }
-.text-base { font-size: 1rem; }
-.text-lg { font-size: 1.125rem; }
-.text-xl { font-size: 1.25rem; }
-.text-2xl { font-size: 1.5rem; }
-.text-3xl { font-size: 1.875rem; }
-.text-4xl { font-size: 2.25rem; }
-.text-5xl { font-size: 3rem; }
-
-.leading-tight { line-height: 1.25; }
-.leading-relaxed { line-height: 1.625; }
-.tracking-tight { letter-spacing: -0.025em; }
-.text-center { text-align: center; }
-
-/* Colors Mappings */
-.bg-primary { background-color: var(--md-sys-color-primary) !important; }
-.text-primary { color: var(--md-sys-color-primary) !important; }
-.bg-primary-container { background-color: var(--md-sys-color-primary-container) !important; }
-.text-on-primary-container { color: var(--md-sys-color-on-primary-container) !important; }
-
-.bg-secondary { background-color: var(--md-sys-color-secondary) !important; }
-.text-secondary { color: var(--md-sys-color-secondary) !important; }
-
-.bg-surface { background-color: var(--md-sys-color-surface) !important; }
-.text-on-surface { color: var(--md-sys-color-on-surface) !important; }
-.bg-surface-variant { background-color: var(--md-sys-color-surface-variant) !important; }
-.text-on-surface-variant { color: var(--md-sys-color-on-surface-variant) !important; }
-
-.text-white { color: #ffffff !important; }
-.text-gray-400 { color: #8e9099 !important; }
-.text-gray-500 { color: #74777f !important; }
-.text-gray-600 { color: #5a5f70 !important; }
-.text-gray-800 { color: #1a1c1e !important; }
-
-.border { border: 1px solid var(--md-sys-color-outline-variant); }
-.border-t { border-top: 1px solid var(--md-sys-color-outline-variant); }
-.border-b { border-bottom: 1px solid var(--md-sys-color-outline-variant); }
-.border-outline-variant\/30 { border-color: rgba(195, 198, 207, 0.3) !important; }
-
-/* Material Shapes (Border Radius) */
-.rounded-lg { border-radius: 8px; }
-.rounded-xl { border-radius: 12px; }
-.rounded-2xl { border-radius: 16px; }
-.rounded-3xl { border-radius: 24px; }
-.rounded-full { border-radius: 9999px; }
-
-/* Elevations (Shadows) */
-.shadow-sm { box-shadow: var(--md-elevation-1); }
-.shadow-md { box-shadow: var(--md-elevation-2); }
-.shadow-lg { box-shadow: var(--md-elevation-3); }
-.shadow-xl { box-shadow: var(--md-elevation-4); }
-.shadow-2xl { box-shadow: var(--md-elevation-5); }
-
-/* --- Interactive Hover Effects --- */
-.hover\:bg-primary\/5:hover { background-color: rgba(15, 82, 186, 0.08) !important; }
-.hover\:text-primary:hover { color: var(--md-sys-color-primary) !important; }
-.hover\:shadow-lg:hover { box-shadow: var(--md-elevation-3); }
-.hover\:shadow-2xl:hover { box-shadow: var(--md-elevation-5); }
-.hover\:underline:hover { text-decoration: underline; }
-.transition-all { transition: all 0.3s cubic-bezier(0.2, 0, 0, 1); }
-.duration-300 { transition-duration: 300ms; }
-.cursor-pointer { cursor: pointer; }
-
-/* --- Material Design 3 Spec Components --- */
-
-/* 1. Header (Navbar Scroll style) */
-.navbar-scrolled {
-    background-color: var(--md-sys-color-surface) !important;
-    box-shadow: var(--md-elevation-2) !important;
-    border-bottom: 1px solid var(--md-sys-color-outline-variant) !important;
-}
-
-/* 2. Backdrop Blur helpers */
-.backdrop-blur-lg {
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-}
-.backdrop-blur-md {
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-}
-
-/* 3. M3 Grid overlays & containers */
-.gradient-overlay {
-    background: linear-gradient(135deg, var(--md-sys-color-primary-container), var(--md-sys-color-primary));
-    color: var(--md-sys-color-on-primary-container);
-}
-
-/* 4. Rounded Material Cards */
-.card-hover {
-    transition: all 0.3s cubic-bezier(0.2, 0, 0, 1);
-}
-.card-hover:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--md-elevation-3);
-}
-
-/* 5. Outlined Text Inputs (Material Text Field style) */
-.form-input-m3 {
-    width: 100%;
-    padding: 1rem 1.25rem;
-    border-radius: 12px;
-    border: 2px solid var(--md-sys-color-outline);
-    background-color: transparent;
-    color: var(--md-sys-color-on-surface);
-    font-size: 1rem;
-    outline: none;
-    transition: border-color 0.2s ease-in-out;
-}
-.form-input-m3:focus {
-    border-color: var(--md-sys-color-primary);
-}
-
-/* Custom code block styling inside IDE sandbox */
+/* CodeMirror Editor container adjustments (JS Compiler) */
 .CodeMirror {
-    font-family: 'Fira Code', 'Courier New', Courier, monospace;
+    height: 400px !important;
+    border-radius: 12px !important;
+    border: 1px solid var(--outline) !important;
+    padding: 8px !important;
+    font-family: 'Fira Code', 'Courier New', Courier, monospace !important;
 }
 
-/* Lazy load and object cover overrides */
-.object-cover {
+/* Article visual improvements */
+article.card {
+    transition: transform 0.2s cubic-bezier(0.2, 0, 0, 1), box-shadow 0.2s cubic-bezier(0.2, 0, 0, 1);
+}
+article.card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--elev-3) !important;
+}
+
+/* Custom visual gradients for Material hero sections */
+.gradient-overlay-m3 {
+    background: linear-gradient(135deg, var(--primary-container), var(--secondary-container));
+    color: var(--on-primary-container);
+}
+
+.gradient-article-hero {
+    background: linear-gradient(135deg, var(--primary), var(--tertiary));
+    color: #ffffff;
+}
+
+.cover-img {
+    width: 100%;
+    height: auto;
     object-fit: cover;
-}
-
-/* Back to Top FAB Button */
-#backToTopBtn {
-    background-color: var(--md-sys-color-primary-container);
-    color: var(--md-sys-color-on-primary-container);
-    border: none;
-    cursor: pointer;
-    box-shadow: var(--md-elevation-3);
-    transition: all 0.2s cubic-bezier(0.2, 0, 0, 1);
-}
-#backToTopBtn:hover {
-    background-color: var(--md-sys-color-primary);
-    color: var(--md-sys-color-on-primary);
-    box-shadow: var(--md-elevation-4);
+    border-radius: 24px;
 }

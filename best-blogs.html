@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="h-full">
+<html lang="en">
 <head>
     <!-- SEO and Metadata -->
     <meta charset="utf-8" />
@@ -11,14 +11,19 @@
     <meta name="generator" content="Optimized by ni18" />
 
     <!-- Google Fonts -->
+    <!-- DNS Preconnect / Prefetch Hints -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
-    <!-- Tailwind CSS -->
-    
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet">
-    
+    <!-- Material Symbols Outlined icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+
+    <!-- BeerCSS stylesheet and javascript module -->
+    <link href="https://cdn.jsdelivr.net/npm/beercss@3.5.1/dist/cdn/beer.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/beercss@3.5.1/dist/cdn/beer.min.js" type="module"></script>
 
     <!-- Structured Data for Rich Snippets -->
     <script type="application/ld+json">
@@ -48,131 +53,369 @@
     </script>
 
     <style>
-        body {
-            font-family: 'Roboto', 'Inter', sans-serif;
-            color: #1a1c1e;
-        }
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Outfit', sans-serif;
-        }
         summary::-webkit-details-marker {
             display: none;
         }
-        
-        #mainNavbar {
-            transition: all 0.3s ease-in-out;
+        summary {
+            cursor: pointer;
+            outline: none;
         }
-
-        .navbar-scrolled {
-            background-color: rgba(253, 252, 255, 0.9) !important;
-            box-shadow: 0 1px 12px rgba(0, 0, 0, 0.05);
-            border-color: rgba(195, 198, 207, 0.5);
+        /* Sitemap List and Link Styling */
+        .sitemap-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+        .sitemap-list li {
+            margin: 0;
+            padding: 0;
+        }
+        .sitemap-list li a {
+            display: flex;
+            align-items: center;
+            padding: 10px 16px;
+            border-radius: 8px;
+            color: var(--on-surface);
+            text-decoration: none;
+            transition: background-color 0.2s, color 0.2s;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+        .sitemap-list li a:hover {
+            background-color: var(--primary-container);
+            color: var(--on-primary-container);
+        }
+        .sitemap-list li a::before {
+            font-family: 'Material Symbols Outlined';
+            font-size: 18px;
+            margin-right: 12px;
+            color: var(--primary);
+            flex-shrink: 0;
+        }
+        /* Section specific icons */
+        #home .sitemap-list li a::before {
+            content: "home";
+        }
+        #categories .sitemap-list li a::before {
+            content: "category";
+        }
+        #authors .sitemap-list li a::before {
+            content: "person";
+        }
+        #tags .sitemap-list li a::before {
+            content: "label";
+        }
+        #web-stories .sitemap-list li a::before {
+            content: "auto_stories";
+        }
+        #posts .sitemap-list li a::before {
+            content: "article";
         }
         
-        .navbar-scrolled span {
-            color: #005db3 !important;
+        details summary i {
+            transition: transform 0.3s ease;
         }
-        
-        .navbar-scrolled a.nav-link {
-            color: #43474e !important;
-        }
-        
-        .navbar-scrolled a.nav-link:hover {
-            color: #005db3 !important;
-            background-color: rgba(0, 93, 179, 0.05);
-        }
-        
-        .navbar-scrolled button {
-            color: #1a1c1e !important;
+        details[open] summary i {
+            transform: rotate(180deg);
         }
     </style>
     <link rel="stylesheet" href="style.css">
+    <meta name="theme-color" content="#0f52ba">
 </head>
-<body class="bg-background flex flex-col min-h-screen antialiased">
-    <!-- Header Placeholder -->
-    <nav id="mainNavbar" class="fixed top-0 left-0 right-0 z-50 py-3 bg-surface/80 backdrop-blur-lg border-b border-outline-variant/30 transition-all duration-300">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex items-center justify-between h-16">
-            <!-- Brand Logo -->
-            <div class="flex-shrink-0">
-                <a href="index.html" class="flex items-center gap-2 group">
-                    <img src="images/ni18_logo.png" alt="NI18 Logo" width="36" height="36" fetchpriority="high" class="h-9 w-9 bg-white rounded-lg p-1 border border-outline-variant/30">
-                    <span class="text-2xl font-display font-black tracking-tight text-primary hover:text-secondary transition-colors">NI18</span>
-                </a>
-            </div>
-
-            <!-- Desktop Menu (M3 Navigation Bar style buttons) -->
-            <div class="hidden md:block">
-                <ul class="flex items-center space-x-2">
-                    <li><a href="index.html"
-                            class="nav-link text-on-surface-variant hover:bg-primary/5 hover:text-primary px-4 py-2 rounded-full text-sm font-medium transition-all duration-200">Home</a>
-                    </li>
-                    <li><a href="index.html#services"
-                            class="nav-link text-on-surface-variant hover:bg-primary/5 hover:text-primary px-4 py-2 rounded-full text-sm font-medium transition-all duration-200">Services</a>
-                    </li>
-                    <li><a href="blogs.html"
-                            class="nav-link text-on-surface-variant hover:bg-primary/5 hover:text-primary px-4 py-2 rounded-full text-sm font-medium transition-all duration-200">Blogs</a>
-                    </li>
-                    <li><a href="about.html"
-                            class="nav-link text-on-surface-variant hover:bg-primary/5 hover:text-primary px-4 py-2 rounded-full text-sm font-medium transition-all duration-200">About</a>
-                    </li>
-                    <li><a href="contact.html"
-                            class="nav-link text-on-surface-variant hover:bg-primary/5 hover:text-primary px-4 py-2 rounded-full text-sm font-medium transition-all duration-200">Contact</a>
-                    </li>
-                    <li><a href="c-dac-center-finder.html"
-                            class="nav-link text-on-surface-variant hover:bg-primary/5 hover:text-primary px-4 py-2 rounded-full text-sm font-medium transition-all duration-200">C-DAC
-                            Finder</a></li>
-                    <li><a href="simple-javascript-compiler.html"
-                            class="nav-link text-on-surface-variant hover:bg-primary/5 hover:text-primary px-4 py-2 rounded-full text-sm font-medium transition-all duration-200">JS
-                            Compiler</a></li>
-                </ul>
-            </div>
-
-            <!-- Mobile Menu Toggle Button (M3 Icon Button) -->
-            <div class="md:hidden">
-                <button id="mobileMenuButton" type="button"
-                    class="inline-flex items-center justify-center p-3 rounded-full text-on-surface hover:bg-primary/5 focus:outline-none transition-all duration-200"
-                    aria-controls="mobile-menu" aria-expanded="false" aria-label="Open main menu">
-                    <span class="sr-only">Open main menu</span>
-                    <i class="ri-menu-line text-2xl block animate-fade-in" id="menuIconOpen"></i>
-                    <i class="ri-close-line text-2xl hidden animate-fade-in" id="menuIconClose"></i>
-                </button>
-            </div>
+<body>
+    <!-- Navbar Placeholder -->
+    <!-- Top App Bar -->
+<header class="fixed top surface elev-1 z-50">
+    <nav class="responsive">
+        <!-- Mobile menu toggle -->
+        <button class="circle transparent large md:hidden" onclick="ui('#mobile-menu')" aria-label="Toggle Navigation Menu">
+            <i>menu</i>
+        </button>
+        
+        <!-- Brand Title & Logo -->
+        <a href="index.html" class="row items-center gap">
+            <img src="images/ni18_logo.png" alt="NI18 Logo" width="36" height="36" fetchpriority="high" class="circle bg-white p-1 border border-outline-variant/30">
+            <h5 class="bold font-display max">NI18</h5>
+        </a>
+        
+        <div class="max"></div>
+        
+        <!-- Desktop Nav Bar -->
+        <div class="hidden md:flex row gap">
+            <a href="index.html" class="button transparent nav-link">Home</a>
+            <a href="index.html#services" class="button transparent nav-link">Services</a>
+            <a href="blogs.html" class="button transparent nav-link">Blogs</a>
+            <a href="about.html" class="button transparent nav-link">About</a>
+            <a href="contact.html" class="button transparent nav-link">Contact</a>
+            <a href="c-dac-center-finder.html" class="button transparent nav-link">C-DAC Finder</a>
+            <a href="simple-javascript-compiler.html" class="button transparent nav-link">JS Compiler</a>
         </div>
-    </div>
+    </nav>
+</header>
 
-    <!-- Mobile Menu Drawer (M3 Navigation Drawer Style) -->
-    <div class="md:hidden hidden bg-surface border-t border-outline-variant/30 shadow-2xl transition-all duration-300" id="mobile-menu">
-        <ul class="px-4 pt-2 pb-6 space-y-2">
-            <li><a href="index.html"
-                    class="mobile-nav-link text-on-surface-variant hover:bg-primary/5 hover:text-primary block px-4 py-3 rounded-xl text-base font-medium transition-all">Home</a>
-            </li>
-            <li><a href="index.html#services"
-                    class="mobile-nav-link text-on-surface-variant hover:bg-primary/5 hover:text-primary block px-4 py-3 rounded-xl text-base font-medium transition-all">Services</a>
-            </li>
-            <li><a href="blogs.html"
-                    class="mobile-nav-link text-on-surface-variant hover:bg-primary/5 hover:text-primary block px-4 py-3 rounded-xl text-base font-medium transition-all">Blogs</a>
-            </li>
-            <li><a href="about.html"
-                    class="mobile-nav-link text-on-surface-variant hover:bg-primary/5 hover:text-primary block px-4 py-3 rounded-xl text-base font-medium transition-all">About</a>
-            </li>
-            <li><a href="contact.html"
-                    class="mobile-nav-link text-on-surface-variant hover:bg-primary/5 hover:text-primary block px-4 py-3 rounded-xl text-base font-medium transition-all">Contact</a>
-            </li>
-            <li><a href="c-dac-center-finder.html"
-                    class="mobile-nav-link text-on-surface-variant hover:bg-primary/5 hover:text-primary block px-4 py-3 rounded-xl text-base font-medium transition-all">C-DAC
-                    Finder</a></li>
-            <li><a href="simple-javascript-compiler.html"
-                    class="mobile-nav-link text-on-surface-variant hover:bg-primary/5 hover:text-primary block px-4 py-3 rounded-xl text-base font-medium transition-all">JS
-                    Compiler</a></li>
-        </ul>
-    </div>
+<!-- Mobile Navigation Drawer -->
+<nav class="left drawer" id="mobile-menu">
+    <header class="row items-center gap">
+        <img src="images/ni18_logo.png" alt="NI18 Logo" width="36" height="36" class="circle">
+        <h5 class="bold font-display">NI18</h5>
+        <div class="max"></div>
+        <button class="circle transparent" onclick="ui('#mobile-menu')"><i>close</i></button>
+    </header>
+    <a href="index.html" class="row gap mobile-nav-link"><i>home</i> <div>Home</div></a>
+    <a href="index.html#services" class="row gap mobile-nav-link"><i>dns</i> <div>Services</div></a>
+    <a href="blogs.html" class="row gap mobile-nav-link"><i>article</i> <div>Blogs</div></a>
+    <a href="about.html" class="row gap mobile-nav-link"><i>info</i> <div>About</div></a>
+    <a href="contact.html" class="row gap mobile-nav-link"><i>mail</i> <div>Contact</div></a>
+    <a href="c-dac-center-finder.html" class="row gap mobile-nav-link"><i>search</i> <div>C-DAC Finder</div></a>
+    <a href="simple-javascript-compiler.html" class="row gap mobile-nav-link"><i>code</i> <div>JS Compiler</div></a>
 </nav>
 
-    <main class="flex-grow pt-32 pb-24">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <header class="mb-16 text-center">
-                <h1 class="text-4xl sm:text-6xl font-display font-black tracking-tight text-primary">Sitemap</h1>
+    <main class="responsive">
+        <div style="max-width: 800px; margin: 0 auto; padding: 24px 16px;">
+            <header class="center-align padding margin-bottom">
+                <h1 class="bold font-display text-primary">Sitemap</h1>
+                <p class="text-on-surface-variant text-lg font-light mt-4">Full content index and directory of all categories, tags, and articles.</p>
+            </header>
+            
+            <div class="vertical gap">
+                
+                <!-- Home Section -->
+                <article class="margin border round no-padding" id="home">
+                    <div class="row padding wave">
+                        <i>home</i>
+                        <div class="max">
+                            <h6 class="bold font-display">Home</h6>
+                        </div>
+                    </div>
+                    <div class="border-top padding">
+                        <ul class="sitemap-list">
+                            <li><a href="https://blog.ni18.in/">Home Page</a></li>
+                        </ul>
+                    </div>
+                </article>
+                
+                <!-- Categories Section -->
+                <article class="margin border round no-padding" id="categories">
+                    <details>
+                        <summary class="none row padding wave">
+                            <i>category</i>
+                            <h6 class="max bold font-display">Categories</h6>
+                            <i>expand_more</i>
+                        </summary>
+                        <div class="border-top padding">
+                            <ul class="sitemap-list">
+                                <li><a href="https://blog.ni18.in/category/blog/">How to Use and Download Doppl</a></li>
+                                <li><a href="https://blog.ni18.in/category/cdac/">C-DAC PG Diploma Admission for August 2025: Everything You Need to Know</a></li>
+                                <li><a href="https://blog.ni18.in/category/coding/">Vibe Coding Explained: The Fun, Intuitive Way to Write Code in 2025</a></li>
+                                <li><a href="https://blog.ni18.in/category/git/">Why Learn Git in 2025?</a></li>
+                                <li><a href="https://blog.ni18.in/category/javascript/">ECMAScript 2024: 10 Exciting New JavaScript Features to Supercharge Your Coding</a></li>
+                                <li><a href="https://blog.ni18.in/category/java/">How to Fix “BeanCreationException: Error Creating Bean ‘entityManagerFactory'” in Spring Boot</a></li>
+                                <li><a href="https://blog.ni18.in/category/fix/">Fix Selenium 4.25 Opening Chrome 136 to New Tab Instead of Navigating with driver.get()</a></li>
+                                <li><a href="https://blog.ni18.in/category/react/">How to Fix React Native UncheckedIOException: Could Not Move Temporary Workspace</a></li>
+                                <li><a href="https://blog.ni18.in/category/python/">Conda Activate Not Working? Fix ‘Run conda init’ Error</a></li>
+                                <li><a href="https://blog.ni18.in/category/flutter/">Overcoming Challenges in Implementing iOS 26’s Liquid Glass UI in Flutter</a></li>
+                                <li><a href="https://blog.ni18.in/category/artificial-intelligence/">How to Fix the “Uncaught NotAllowedError: The Device Is Not Eligible for Running On-Device Model” in Chrome</a></li>
+                                <li><a href="https://blog.ni18.in/category/tailwind/">Tailwind Plus for Advanced Users</a></li>
+                                <li><a href="https://blog.ni18.in/category/android/">Fixing Android Dependency: Solve androidx.browser Errors</a></li>
+                                <li><a href="https://blog.ni18.in/category/sfcc/">Global E-Commerce Giants Built on SFCC – Full List</a></li>
+                                <li><a href="https://blog.ni18.in/category/uncategorized/">How to Fix “Waiting for a Runner to Pick Up This Job” Error in GitHub Actions</a></li>
+                                <li><a href="https://blog.ni18.in/category/app-review/">MPSC Exam with the MPSC Quiz App</a></li>
+                                <li><a href="https://blog.ni18.in/category/b2b/">E-commerce with AI and ML: How Technology is Transforming Online Shopping</a></li>
+                                <li><a href="https://blog.ni18.in/category/integration/">CC Avenue Integration with Salesforce Commerce Cloud (SFCC)</a></li>
+                                <li><a href="https://blog.ni18.in/category/quick-fix/">Fix “zsh: command not found: python” Error on macOS Monterey 12.3</a></li>
+                                <li><a href="https://blog.ni18.in/category/salesforce/">CC Avenue Integration with Salesforce Commerce Cloud (SFCC)</a></li>
+                                <li><a href="https://blog.ni18.in/category/tools/">100% Free and Unlimited Screen Recorder</a></li>
+                                <li><a href="https://blog.ni18.in/category/windows/">Set-PnPListItem “File Has Been Modified” Error in SharePoint</a></li>
+                            </ul>
+                        </div>
+                    </details>
+                </article>
+
+                <!-- Authors Section -->
+                <article class="margin border round no-padding" id="authors">
+                    <div class="row padding wave">
+                        <i>people</i>
+                        <div class="max">
+                            <h6 class="bold font-display">Authors</h6>
+                        </div>
+                    </div>
+                    <div class="border-top padding">
+                        <ul class="sitemap-list">
+                            <li><a href="https://blog.ni18.in/author/nitinkanade027gmail-com/">Fix Selenium 4.25 Opening Chrome 136 to New Tab Instead of Navigating with driver.get()</a></li>
+                            <li><a href="https://blog.ni18.in/author/ni18/">What Are JavaScript Closures?</a></li>
+                        </ul>
+                    </div>
+                </article>
+
+                <!-- Tags Section -->
+                <article class="margin border round no-padding" id="tags">
+                    <details>
+                        <summary class="none row padding wave">
+                            <i>label</i>
+                            <h6 class="max bold font-display">Tags</h6>
+                            <i>expand_more</i>
+                        </summary>
+                        <div class="border-top padding">
+                            <ul class="sitemap-list">
+                                <li><a href="https://blog.ni18.in/tag/chrome/">Fix Selenium 4.25 Opening Chrome 136 to New Tab Instead of Navigating with driver.get()</a></li>
+                                <li><a href="https://blog.ni18.in/tag/fix/">Fix Selenium 4.25 Opening Chrome 136 to New Tab Instead of Navigating with driver.get()</a></li>
+                                <li><a href="https://blog.ni18.in/tag/selenium/">Fix Selenium 4.25 Opening Chrome 136 to New Tab Instead of Navigating with driver.get()</a></li>
+                                <li><a href="https://blog.ni18.in/tag/ios/">Fixing iOS 26 App Crashes with EXC_BREAKPOINT and URLSession</a></li>
+                                <li><a href="https://blog.ni18.in/tag/blog/">How to Use and Download Doppl</a></li>
+                                <li><a href="https://blog.ni18.in/tag/google/">How to Use and Download Doppl</a></li>
+                                <li><a href="https://blog.ni18.in/tag/firebase/">How to Fix “Component auth has not been registered yet” in React Native Expo with Firebase Auth</a></li>
+                                <li><a href="https://blog.ni18.in/tag/expo/">How to Fix “Component auth has not been registered yet” in React Native Expo with Firebase Auth</a></li>
+                                <li><a href="https://blog.ni18.in/tag/react/">How to Fix “Component auth has not been registered yet” in React Native Expo with Firebase Auth</a></li>
+                                <li><a href="https://blog.ni18.in/tag/browser/">What Is the /.well-known/appspecific/com.chrome.devtools.json Request?</a></li>
+                                <li><a href="https://blog.ni18.in/tag/javascript/">What Is the /.well-known/appspecific/com.chrome.devtools.json Request?</a></li>
+                                <li><a href="https://blog.ni18.in/tag/web/">What Is the /.well-known/appspecific/com.chrome.devtools.json Request?</a></li>
+                                <li><a href="https://blog.ni18.in/tag/coding/">How to Fix React Native UncheckedIOException: Could Not Move Temporary Workspace</a></li>
+                                <li><a href="https://blog.ni18.in/tag/conda/">Conda Activate Not Working? Fix ‘Run conda init’ Error</a></li>
+                                <li><a href="https://blog.ni18.in/tag/python/">Conda Activate Not Working? Fix ‘Run conda init’ Error</a></li>
+                                <li><a href="https://blog.ni18.in/tag/flutter/">Overcoming Challenges in Implementing iOS 26’s Liquid Glass UI in Flutter</a></li>
+                                <li><a href="https://blog.ni18.in/tag/discord/">How to Embed Videos in Discord</a></li>
+                                <li><a href="https://blog.ni18.in/tag/video/">How to Embed Videos in Discord</a></li>
+                                <li><a href="https://blog.ni18.in/tag/ai/">How to Fix the “Uncaught NotAllowedError: The Device Is Not Eligible for Running On-Device Model” in Chrome</a></li>
+                                <li><a href="https://blog.ni18.in/tag/tools/">100% Free and Unlimited Screen Recorder</a></li>
+                                <li><a href="https://blog.ni18.in/tag/openai/">How to Use OpenAI Codex</a></li>
+                                <li><a href="https://blog.ni18.in/tag/css/">Tailwind Plus for Advanced Users</a></li>
+                                <li><a href="https://blog.ni18.in/tag/tailwind/">Tailwind Plus for Advanced Users</a></li>
+                                <li><a href="https://blog.ni18.in/tag/ui/">Tailwind Plus for Advanced Users</a></li>
+                                <li><a href="https://blog.ni18.in/tag/ux/">Tailwind Plus for Advanced Users</a></li>
+                                <li><a href="https://blog.ni18.in/tag/startup/">What Does ‘Vibe Coded’ Mean? The Ultimate Guide to Vibe-Coded Startups in 2025</a></li>
+                                <li><a href="https://blog.ni18.in/tag/android/">How to Fix App Not Compatible with This Device</a></li>
+                                <li><a href="https://blog.ni18.in/tag/lynx/">Lynx JS vs. Kotlin in 2025: Which Is Better for Your App? A Simple, In-Depth Guide</a></li>
+                                <li><a href="https://blog.ni18.in/tag/cdac/">C-DAC PG Diploma Admission for August 2025: Everything You Need to Know</a></li>
+                                <li><a href="https://blog.ni18.in/tag/ccat/">C-DAC PG Diploma Admission for August 2025: Everything You Need to Know</a></li>
+                                <li><a href="https://blog.ni18.in/tag/syllabus/">CDAC C-CAT Syllabus</a></li>
+                                <li><a href="https://blog.ni18.in/tag/it/">Top 6 CDAC Institutes in India for 2025: Your Path to a Stellar IT Career</a></li>
+                                <li><a href="https://blog.ni18.in/tag/git/">How to Fix the “remote: Write access to repository not granted. fatal: unable to access” Error in Git</a></li>
+                                <li><a href="https://blog.ni18.in/tag/github/">How to Fix the “remote: Write access to repository not granted. fatal: unable to access” Error in Git</a></li>
+                                <li><a href="https://blog.ni18.in/tag/ci-cd/">How to Fix “Waiting for a Runner to Pick Up This Job” Error in GitHub Actions</a></li>
+                                <li><a href="https://blog.ni18.in/tag/typescript/">What Is TypeScript Project Corsa? A 10x Faster Future for Developers</a></li>
+                                <li><a href="https://blog.ni18.in/tag/java/">How to Fix Compilation Error After Upgrading to JDK 21: NoSuchFieldError JCImport JCTree qualid</a></li>
+                                <li><a href="https://blog.ni18.in/tag/built-in-ai-apis/">Built-in AI APIs</a></li>
+                                <li><a href="https://blog.ni18.in/tag/xcode/">How to Fix BoringSSL-GRPC Unsupported Option ‘-G’ for Target ‘arm64-apple-ios15.0’</a></li>
+                                <li><a href="https://blog.ni18.in/tag/e-commerce/">Global E-Commerce Giants Built on SFCC – Full List</a></li>
+                                <li><a href="https://blog.ni18.in/tag/sfcc/">Global E-Commerce Giants Built on SFCC – Full List</a></li>
+                                <li><a href="https://blog.ni18.in/tag/tool/">Compare JSON Online: Best Tools and Tips for Developers in 2025</a></li>
+                                <li><a href="https://blog.ni18.in/tag/json/">Compare JSON Online: Best Tools and Tips for Developers in 2025</a></li>
+                                <li><a href="https://blog.ni18.in/tag/gemini-ai/">How Firebase Studio Uses Gemini AI to Revolutionize App Development</a></li>
+                                <li><a href="https://blog.ni18.in/tag/npm/">Fix npm Error Code UNABLE_TO_GET_ISSUER_CERT_LOCALLY</a></li>
+                                <li><a href="https://blog.ni18.in/tag/nextjs/">Fix “Only Plain Objects” Warning in Next.js</a></li>
+                                <li><a href="https://blog.ni18.in/tag/scss/">The Legacy JS API is Deprecated: What It Means and How to Prepare for Dart Sass 2.0.0</a></li>
+                                <li><a href="https://blog.ni18.in/tag/ecmascript/">How to Fix “Error While Loading Config – You Appear to Be Using a Native ECMAScript Module Configuration File”</a></li>
+                                <li><a href="https://blog.ni18.in/tag/db/">How to Identify MongoDB Collection Name from AWS EventBridge Trigger</a></li>
+                                <li><a href="https://blog.ni18.in/tag/quick-fix/">Fix “zsh: command not found: python” Error on macOS Monterey 12.3</a></li>
+                                <li><a href="https://blog.ni18.in/tag/game/">How to Fix Stick Drift on PS5 Controller</a></li>
+                                <li><a href="https://blog.ni18.in/tag/sql/">Login Failed for User ‘xxx’. Reason: The Account is Disabled</a></li>
+                                <li><a href="https://blog.ni18.in/tag/chatgpt/">Meet New GPT-4.1 Guide to OpenAI’s Smartest AI in 2025</a></li>
+                                <li><a href="https://blog.ni18.in/tag/app/">JSON Visualizer Pro: The Ultimate Free Tool to Beautify and Analyze JSON Data</a></li>
+                                <li><a href="https://blog.ni18.in/tag/sdk/">What Is SDK Runtime in Android 14? A Simple Guide to Privacy and Stability</a></li>
+                                <li><a href="https://blog.ni18.in/tag/gradle/">How to Fix “Deprecated Gradle Features Were Used in This Build, Making It Incompatible with Gradle 9.0”</a></li>
+                                <li><a href="https://blog.ni18.in/tag/b2c/">SCAPI vs OCAPI: The Ultimate Guide to Salesforce Commerce Cloud APIs</a></li>
+                                <li><a href="https://blog.ni18.in/tag/ai-engineer/">How to Become an AI Engineer in 2025 from Scratch</a></li>
+                                <li><a href="https://blog.ni18.in/tag/c/">Understanding malloc() in Simple Terms</a></li>
+                                <li><a href="https://blog.ni18.in/tag/windows/">Set-PnPListItem “File Has Been Modified” Error in SharePoint</a></li>
+                                <li><a href="https://blog.ni18.in/tag/gtm/">How to Integrate Google Tag Manager (GTM) with Salesforce Commerce Cloud</a></li>
+                                <li><a href="https://blog.ni18.in/tag/ruby/">How to Fix “uninitialized constant ActiveSupport::LoggerThreadSafeLevel::Logger (NameError)” in Rails</a></li>
+                                <li><a href="https://blog.ni18.in/tag/node/">How to Fix “NVM Installation Error on Windows: Cannot Find the npm File”</a></li>
+                                <li><a href="https://blog.ni18.in/tag/nvm/">How to Fix “NVM Installation Error on Windows: Cannot Find the npm File”</a></li>
+                                <li><a href="https://blog.ni18.in/tag/angular/">How to Fix “Error: This command is not available when running the Angular CLI outside a workspace”</a></li>
+                                <li><a href="https://blog.ni18.in/tag/cli/">How to Fix “Error: This command is not available when running the Angular CLI outside a workspace”</a></li>
+                                <li><a href="https://blog.ni18.in/tag/azure-devops/">How to Fix the “No Template with an Identifier of ‘xamarinandroid’ Could Be Found” Error in Azure DevOps</a></li>
+                                <li><a href="https://blog.ni18.in/tag/r/">Fix “Error in initializePtr() : function ‘cholmod_factor_ldetA’ not provided by package ‘Matrix'” in R’s lmer Function</a></li>
+                            </ul>
+                        </div>
+                    </details>
+                </article>
+                
+                <!-- Web Stories Section -->
+                <article class="margin border round no-padding" id="web-stories">
+                    <details>
+                        <summary class="none row padding wave">
+                            <i>auto_stories</i>
+                            <h6 class="max bold font-display">Web Stories</h6>
+                            <i>expand_more</i>
+                        </summary>
+                        <div class="border-top padding">
+                            <ul class="sitemap-list">
+                                <li><a href="https://blog.ni18.in/web-stories/what-is-gtm/">Why Use GTM?</a></li>
+                                <li><a href="https://blog.ni18.in/web-stories/understanding-the-model-context-protocol-mcp/">Introducing MCP (The Concept)</a></li>
+                                <li><a href="https://blog.ni18.in/web-stories/top-7-programming-languages-to-learn-in-2025/">Go (Golang)</a></li>
+                                <li><a href="https://blog.ni18.in/web-stories/top-7-features-of-deepseek-ai/">1. Advanced Natural Language Processing</a></li>
+                                <li><a href="https://blog.ni18.in/web-stories/top-7-ai-powered-ides-for-developers/">Visual Studio Code (VS Code)</a></li>
+                                <li><a href="https://blog.ni18.in/web-stories/how-to-use-the-cdac-institute-finder-tool-for-your-rank/">Go to google and search for "CDAC Institute Finder" and select it</a></li>
+                            </ul>
+                        </div>
+                    </details>
+                </article>
+
+                <!-- Posts Section -->
+                <article class="margin border round no-padding" id="posts">
+                    <details>
+                        <summary class="none row padding wave">
+                            <i>article</i>
+                            <h6 class="max bold font-display">All Posts</h6>
+                            <i>expand_more</i>
+                        </summary>
+                        <div class="border-top padding">
+                            <ul class="sitemap-list">
+                        <li><a href="https://blog.ni18.in/fix-selenium-4-25-opening-chrome-136-to-new-tab-instead-of-navigating-with-driver-get/">Fix Selenium 4.25 Opening Chrome 136 to New Tab Instead of Navigating with driver.get()</a></li>
+                        <li><a href="https://blog.ni18.in/ios-26-app-crashes-with-exc-breakpoint-and-urlsession/">Fixing iOS 26 App Crashes with EXC_BREAKPOINT and URLSession</a></li>
+                        <li><a href="https://blog.ni18.in/how-to-use-and-download-doppl/">How to Use and Download Doppl</a></li>
+                        <li><a href="https://blog.ni18.in/auth-has-not-been-registered-yet-in-react-native-expo-with-firebase-auth/">How to Fix “Component auth has not been registered yet” in React Native Expo with Firebase Auth</a></li>
+                        <li><a href="https://blog.ni18.in/well-known-appspecific-com-chrome-devtools-json-request/">What Is the /.well-known/appspecific/com.chrome.devtools.json Request?</a></li>
+                        <li><a href="https://blog.ni18.in/react-native-uncheckedioexception-could-not-move-temporary-workspace/">How to Fix React Native UncheckedIOException: Could Not Move Temporary Workspace</a></li>
+                        <li><a href="https://blog.ni18.in/conda-activate-not-working-fix-run-conda-init-error/">Conda Activate Not Working? Fix ‘Run conda init’ Error</a></li>
+                        <li><a href="https://blog.ni18.in/reactdom-render-deprecation-in-react-18-and-how-to-migrate/">ReactDOM.render Deprecation in React 18 and How to Migrate</a></li>
+                        <li><a href="https://blog.ni18.in/itms-91053-missing-api-declaration-privacy/">ITMS-91053: Missing API Declaration – Privacy</a></li>
+                        <li><a href="https://blog.ni18.in/overcoming-challenges-in-implementing-ios-26s-liquid-glass-ui-in-flutter/">Overcoming Challenges in Implementing iOS 26’s Liquid Glass UI in Flutter</a></li>
+                        <li><a href="https://blog.ni18.in/how-to-embed-videos-in-discord/">How to Embed Videos in Discord</a></li>
+                        <li><a href="https://blog.ni18.in/best-free-ai-video-generators/">Best Free AI Video Generators in 2025: Create Videos Without Paying</a></li>
+                        <li><a href="https://blog.ni18.in/how-to-use-openai-codex/">How to Use OpenAI Codex</a></li>
+                        <li><a href="https://blog.ni18.in/tailwind-plus-for-advanced-users/">Tailwind Plus for Advanced Users</a></li>
+                        <li><a href="https://blog.ni18.in/dataframe-object-has-no-attribute-append/">Fix the “DataFrame object has no attribute ‘append'” Error in Pandas</a></li>
+                        <li><a href="https://blog.ni18.in/javascript-arrays-10-smart-hacks/">JavaScript Arrays: 10 Smart Hacks You Shouldn’t Code Without</a></li>
+                        <li><a href="https://blog.ni18.in/what-does-vibe-coded-mean-the-ultimate-guide-to-vibe-coded-startups/">What Does ‘Vibe Coded’ Mean? The Ultimate Guide to Vibe-Coded Startups in 2025</a></li>
+                        <li><a href="https://blog.ni18.in/lynx-js-vs-kotlin-2025-app-development-guide/">Lynx JS vs. Kotlin in 2025: Which Is Better for Your App? A Simple, In-Depth Guide</a></li>
+                        <li><a href="https://blog.ni18.in/prompts-to-create-stunning-ghibli-style-images/">Top Prompts to Create Stunning Ghibli-Style Images in 2025: AI Art Made Easy</a></li>
+                        <li><a href="https://blog.ni18.in/c-dac-pg-diploma-admission/">C-DAC PG Diploma Admission for August 2025: Everything You Need to Know</a></li>
+                        <li><a href="https://blog.ni18.in/cdac-c-cat-syllabus/">CDAC C-CAT Syllabus</a></li>
+                        <li><a href="https://blog.ni18.in/top-6-cdac-institutes-in-india/">Top 6 CDAC Institutes in India for 2025: Your Path to a Stellar IT Career</a></li>
+                        <li><a href="https://blog.ni18.in/advanced-certificate-course-in-hpc/">Advanced Certificate Course in HPC: Guide to High-Performance Computing in 2025</a></li>
+                        <li><a href="https://blog.ni18.in/pg-dac-syllabus/">PG DAC Syllabus</a></li>
+                        <li><a href="https://blog.ni18.in/cdac-institutes-placement-overview/">CDAC Institutes Placement Overview: 2022 Statistics and Insights</a></li>
+                        <li><a href="https://blog.ni18.in/project-ideas-for-cdac/">Project Ideas for CDAC</a></li>
+                        <li><a href="https://blog.ni18.in/how-to-choose-the-right-cdac-course-for-your-career/">How to Choose the Right CDAC Course for Your Career</a></li>
+                        <li><a href="https://blog.ni18.in/what-to-do-after-cdac-exam-result/">What to do after CDAC Exam Result</a></li>
+                        <li><a href="https://blog.ni18.in/cdac-institute-finder/">CDAC Institute Finder 2025</a></li>
+                        <li><a href="https://blog.ni18.in/fix-visual-studio-code-crash-error-process-memory-range/">How to Fix Visual Studio Code Crashing with ERROR:process_memory_range.cc(75) in 2025 – Perfect Solutions</a></li>
+                        <li><a href="https://blog.ni18.in/vibe-coding-explained-the-fun-intuitive-way-to-write-code/">Vibe Coding Explained: The Fun, Intuitive Way to Write Code in 2025</a></li>
+                        <li><a href="https://blog.ni18.in/what-is-vibe-coding-your-guide-to-ai-programming/">What Is Vibe Coding? Your Ultimate Guide to AI-Powered Programming in 2025</a></li>
+                        <li><a href="https://blog.ni18.in/is-ai-taking-your-job-how-developers-can-stay-ahead/">Is AI Taking Your Job? How Developers Can Stay Ahead</a></li>
+                        <li><a href="https://blog.ni18.in/javascript-error-handling/">7 Advanced JavaScript Error Handling Tips</a></li>
+                        <li><a href="https://blog.ni18.in/best-frontend-frameworks-for-speed-optimization-in-2025/">Best Frontend Frameworks for Speed Optimization in 2025</a></li>
+                        <li><a href="https://blog.ni18.in/difference-between-slice-and-splice-in-javascript/">Understanding JavaScript Array Methods: slice() vs splice()</a></li>
+                        <li><a href="https://blog.ni18.in/top-programming-languages-to-learn-in-2025/">Top Programming Languages to Learn in 2025</a></li>
+                        <li><a href="https://blog.ni18.in/project-loom-simplifying-concurrency-in-java/">Project Loom Unleashed: Transforming Java Concurrency with Unmatched Power in 2025</a></li>
+                        <li><a href="https://blog.ni18.in/remote-write-access-to-repository-not-granted-fatal-unable-to-access/">How to Fix the “remote: Write access to repository not granted. fatal: unable to access” Error in Git</a></li>
+                        <li><a href="https://blog.ni18.in/support-for-password-authentication-was-removed/">Support for Password Authentication Was Removed</a></li>
+                        <li><a href="https://blog.ni18.in/fixing-fatal-detected-dubious-ownership-in-repository-git/">Fixing the “fatal: detected dubious ownership in repository” Git Error</a></li>
+                        <li><a href="https://blog.ni18.in/how-to-generate-an-ssh-key-for-git/">How to Generate an SSH Key for Git</a></li>
+                        <li><a href="https://blog.ni18.in/fix-remote-permission-to-repository-denied-url-returned-error-403-in-git/">Fix “remote: Permission to repository denied. URL returned error: 403” in Git</a></li>
+                        <li><a href="https://blog.ni18.in/waiting-for-a-runner-to-pick-up-this-job/">How to Fix “Waiting for a Runner to Pick Up This Job” Error in GitHub Actions</a></li>
+                        <li><a href="https://blog.ni18.in/how-to-fix-unable-to-push-branch-main-to-origin-error-in-git/">How to Fix “Unable to Push Branch ‘main’ to Origin” Error in Git</a></li>
+                        <li><a href="https://blog.ni18.in/how-to-fix-the-github-gh006-protected-branch-update-failed-error/">How to Fix the GitHub GH006 Protected Branch Update Failed Error</a></li>
+                        <li><a href="https://blog.ni18.in/how-to-fix-the-authenticator-provider-ssh_sk_provider-did-not-resolve-error-for-github-ssh-connections/">How to Fix the “Authenticator Provider $SSH_SK_PROVIDER Did Not Resolve” Error for GitHub SSH Connections</a></li>
+                        <li><a href="https://blog.ni18.in/warning-remote-host-identification-has-changed/">GitHub SSH Connections Show “Warning: Remote Host Identification Has Changed”</a></li>
+                    </ul>
+                </details>
+            </section>
+        </div>
                 <p class="text-on-surface-variant text-lg font-light mt-4">Full content index and directory of all categories, tags, and articles.</p>
             </header>
             
@@ -608,88 +851,62 @@
                         <li><a href="https://blog.ni18.in/javascript-and-deployment/">Deployment Apps on Vercel and Netlify 2025</a></li>
                         <li><a href="https://blog.ni18.in/javascript-and-linters/">JavaScript and Linters: ESLint and JSHint</a></li>
                     </ul>
-                </details>
-            </section>
-        </nav>
-    </div>
+                </div>
+            </details>
+        </article>
+    </div> <!-- .vertical.gap -->
+</div> <!-- max-width: 800px div -->
 </main>
 
-<footer class="bg-dark text-on-surface-variant border-t border-outline-variant/20 py-16">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
-            <!-- Brand Overview -->
-            <div>
-                <h3 class="text-2xl font-display font-bold text-white mb-4 tracking-tight">NI18</h3>
-                <p class="text-sm text-gray-400 leading-relaxed max-w-sm">
-                    Innovative technology solutions for a digital-first world. We empower businesses to grow, optimize, and succeed through cutting-edge software engineering and digital transformation.
-                </p>
-            </div>
-            
-            <!-- Quick Links -->
-            <div>
-                <h3 class="text-lg font-display font-semibold text-white mb-4">Quick Links</h3>
-                <ul class="space-y-3">
-                    <li><a href="index.html" class="text-sm text-gray-400 hover:text-primary hover:underline transition-all">Home</a></li>
-                    <li><a href="index.html#services" class="text-sm text-gray-400 hover:text-primary hover:underline transition-all">Services</a></li>
-                    <li><a href="blogs.html" class="text-sm text-gray-400 hover:text-primary hover:underline transition-all">Blogs</a></li>
-                    <li><a href="about.html" class="text-sm text-gray-400 hover:text-primary hover:underline transition-all">About Us</a></li>
-                    <li><a href="contact.html" class="text-sm text-gray-400 hover:text-primary hover:underline transition-all">Contact</a></li>
-                    <li><a href="privacy-policy.html" class="text-sm text-gray-400 hover:text-primary hover:underline transition-all">Privacy Policy</a></li>
-                    <li><a href="terms-of-service.html" class="text-sm text-gray-400 hover:text-primary hover:underline transition-all">Terms of Service</a></li>
-                </ul>
-            </div>
-            
-            <!-- Social Connect -->
-            <div>
-                <h3 class="text-lg font-display font-semibold text-white mb-4">Connect With Us</h3>
-                <div class="flex flex-wrap gap-3 mb-6">
-                    <a href="https://www.linkedin.com/company/ni18" aria-label="NI18 LinkedIn Profile" target="_blank"
-                        rel="noopener noreferrer" class="flex items-center justify-center w-10 height-10 h-10 rounded-full border border-gray-700 text-gray-400 hover:text-primary hover:bg-white/10 hover:border-white transition-all"><i
-                            class="ri-linkedin-box-fill text-xl"></i></a>
-                    <a href="https://x.com/ni18_in" aria-label="NI18 Twitter Profile" target="_blank"
-                        rel="noopener noreferrer" class="flex items-center justify-center w-10 height-10 h-10 rounded-full border border-gray-700 text-gray-400 hover:text-primary hover:bg-white/10 hover:border-white transition-all"><i
-                            class="ri-twitter-x-fill text-xl"></i></a>
-                    <a href="https://github.com/ni18-in" aria-label="NI18 GitHub Profile" target="_blank"
-                        rel="noopener noreferrer" class="flex items-center justify-center w-10 height-10 h-10 rounded-full border border-gray-700 text-gray-400 hover:text-primary hover:bg-white/10 hover:border-white transition-all"><i
-                            class="ri-github-fill text-xl"></i></a>
-                    <a href="https://www.facebook.com/ni18.in" aria-label="NI18 Facebook Page" target="_blank"
-                        rel="noopener noreferrer" class="flex items-center justify-center w-10 height-10 h-10 rounded-full border border-gray-700 text-gray-400 hover:text-primary hover:bg-white/10 hover:border-white transition-all"><i
-                            class="ri-facebook-circle-fill text-xl"></i></a>
-                    <a href="https://www.instagram.com/ni18.in/" aria-label="NI18 Instagram Profile" target="_blank"
-                        rel="noopener noreferrer" class="flex items-center justify-center w-10 height-10 h-10 rounded-full border border-gray-700 text-gray-400 hover:text-primary hover:bg-white/10 hover:border-white transition-all"><i
-                            class="ri-instagram-line text-xl"></i></a>
-                    <a href="#" aria-label="NI18 YouTube Channel" target="_blank" rel="noopener noreferrer"
-                        class="flex items-center justify-center w-10 height-10 h-10 rounded-full border border-gray-700 text-gray-400 hover:text-primary hover:bg-white/10 hover:border-white transition-all"><i
-                            class="ri-youtube-fill text-xl"></i></a>
-                </div>
-                <p class="text-sm text-gray-400">Email: <a href="mailto:info@ni18.in" class="text-primary hover:underline font-medium">info@ni18.in</a></p>
-            </div>
+<!-- Footer Placeholder -->
+<footer class="padding primary-container margin-top">
+    <div class="grid">
+        <div class="s12 m4">
+            <h5 class="bold font-display">NI18</h5>
+            <p class="margin-top">Innovative technology solutions for a digital-first world. We empower businesses to grow, optimize, and succeed through cutting-edge software engineering and digital transformation.</p>
         </div>
-        
-        <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row items-center justify-between text-center md:text-left gap-4">
-            <p class="text-xs text-gray-500">&copy; <span id="currentYear"></span> NI18. All Rights Reserved. Crafted with <i
-                    class="ri-heart-fill text-red-500 animate-pulse"></i> by NI18.</p>
-            <p class="text-xs text-gray-600">For optimal experience, please ensure JavaScript is enabled.</p>
+        <div class="s12 m4">
+            <h6 class="bold font-display">Quick Links</h6>
+            <nav class="vertical margin-top">
+                <a href="index.html" class="row gap"><i>home</i> <span>Home</span></a>
+                <a href="index.html#services" class="row gap"><i>dns</i> <span>Services</span></a>
+                <a href="blogs.html" class="row gap"><i>article</i> <span>Blogs</span></a>
+                <a href="about.html" class="row gap"><i>info</i> <span>About Us</span></a>
+                <a href="contact.html" class="row gap"><i>mail</i> <span>Contact</span></a>
+                <a href="privacy-policy.html" class="row gap"><i>security</i> <span>Privacy Policy</span></a>
+                <a href="terms-of-service.html" class="row gap"><i>gavel</i> <span>Terms of Service</span></a>
+            </nav>
         </div>
+        <div class="s12 m4">
+            <h6 class="bold font-display">Connect With Us</h6>
+            <div class="row gap margin-top">
+                <a href="https://www.linkedin.com/company/ni18" aria-label="NI18 LinkedIn Profile" target="_blank" rel="noopener noreferrer" class="button circle transparent large"><i>link</i></a>
+                <a href="https://x.com/ni18_in" aria-label="NI18 Twitter Profile" target="_blank" rel="noopener noreferrer" class="button circle transparent large"><i>chat</i></a>
+                <a href="https://github.com/ni18-in" aria-label="NI18 GitHub Profile" target="_blank" rel="noopener noreferrer" class="button circle transparent large"><i>folder</i></a>
+            </div>
+            <p class="margin-top">Email: <a href="mailto:info@ni18.in" class="bold">info@ni18.in</a></p>
+        </div>
+    </div>
+    <hr class="margin-vertical">
+    <div class="row align-center justify-between">
+        <p class="text-sm">© <span id="currentYear"></span> NI18. All Rights Reserved. Crafted with <i>favorite</i> by NI18.</p>
+        <p class="text-sm">For optimal experience, please ensure JavaScript is enabled.</p>
     </div>
 </footer>
 
-<!-- Back to Top M3 Floating Action Button (FAB) -->
 
 
-<!-- Back to Top M3 Floating Action Button (FAB) -->
 
 
-<!-- Back to Top M3 Floating Action Button (FAB) -->
 
 
-<!-- Back to Top M3 Floating Action Button (FAB) -->
 
 
-<!-- Back to Top M3 Floating Action Button (FAB) -->
 
 
-<!-- Back to Top M3 Floating Action Button (FAB) -->
+
+
+
 
 
 <script src="script.js" defer></script>

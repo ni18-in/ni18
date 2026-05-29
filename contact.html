@@ -25,302 +25,181 @@
     <link rel="icon" href="favicon.ico" type="image/x-icon">
 
     <!-- Google Fonts -->
+    <!-- DNS Preconnect / Prefetch Hints -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
-    <!-- Tailwind CSS -->
-    
-    <!-- Remixicon -->
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet">
+    <!-- Material Symbols Outlined icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
 
-    <!-- Custom Tailwind Configuration -->
-    
+    <!-- BeerCSS stylesheet and javascript module -->
+    <link href="https://cdn.jsdelivr.net/npm/beercss@3.5.1/dist/cdn/beer.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/beercss@3.5.1/dist/cdn/beer.min.js" type="module"></script>
 
-    <style>
-        body {
-            font-family: 'Roboto', 'Inter', sans-serif;
-            color: #1a1c1e;
-            line-height: 1.7;
-        }
-
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Outfit', sans-serif;
-        }
-
-        .gradient-overlay {
-            background: linear-gradient(135deg, #005db3, #6b577b);
-        }
-
-        .form-input {
-            width: 100%;
-            padding: 0.85rem 1rem;
-            border: 1px solid #c5c6d0;
-            border-radius: 12px;
-            background-color: #fdfcff;
-            color: #1a1c1e;
-            transition: all 0.2s ease-in-out;
-        }
-
-        .form-input:focus {
-            border-color: #005db3;
-            outline: none;
-            box-shadow: 0 0 0 3px rgba(0, 93, 179, 0.15);
-            background-color: #ffffff;
-        }
-
-        #mainNavbar {
-            transition: all 0.3s ease-in-out;
-        }
-
-        .navbar-scrolled {
-            background-color: rgba(253, 252, 255, 0.9) !important;
-            box-shadow: 0 1px 12px rgba(0, 0, 0, 0.05);
-            border-color: rgba(195, 198, 207, 0.5);
-        }
-        
-        .navbar-scrolled span {
-            color: #005db3 !important;
-        }
-        
-        .navbar-scrolled a.nav-link {
-            color: #43474e !important;
-        }
-        
-        .navbar-scrolled a.nav-link:hover {
-            color: #005db3 !important;
-            background-color: rgba(0, 93, 179, 0.05);
-        }
-        
-        .navbar-scrolled button {
-            color: #1a1c1e !important;
-        }
-    </style>
+    <!-- Custom Styles -->
     <link rel="stylesheet" href="style.css">
+    
+    <meta name="theme-color" content="#0f52ba">
 </head>
 
-<body class="bg-gray-50 flex flex-col min-h-screen">
+<body>
 
-    <nav id="mainNavbar" class="fixed top-0 left-0 right-0 z-50 py-3 bg-surface/80 backdrop-blur-lg border-b border-outline-variant/30 transition-all duration-300">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex items-center justify-between h-16">
-            <!-- Brand Logo -->
-            <div class="flex-shrink-0">
-                <a href="index.html" class="flex items-center gap-2 group">
-                    <img src="images/ni18_logo.png" alt="NI18 Logo" width="36" height="36" fetchpriority="high" class="h-9 w-9 bg-white rounded-lg p-1 border border-outline-variant/30">
-                    <span class="text-2xl font-display font-black tracking-tight text-primary hover:text-secondary transition-colors">NI18</span>
-                </a>
-            </div>
-
-            <!-- Desktop Menu (M3 Navigation Bar style buttons) -->
-            <div class="hidden md:block">
-                <ul class="flex items-center space-x-2">
-                    <li><a href="index.html"
-                            class="nav-link text-on-surface-variant hover:bg-primary/5 hover:text-primary px-4 py-2 rounded-full text-sm font-medium transition-all duration-200">Home</a>
-                    </li>
-                    <li><a href="index.html#services"
-                            class="nav-link text-on-surface-variant hover:bg-primary/5 hover:text-primary px-4 py-2 rounded-full text-sm font-medium transition-all duration-200">Services</a>
-                    </li>
-                    <li><a href="blogs.html"
-                            class="nav-link text-on-surface-variant hover:bg-primary/5 hover:text-primary px-4 py-2 rounded-full text-sm font-medium transition-all duration-200">Blogs</a>
-                    </li>
-                    <li><a href="about.html"
-                            class="nav-link text-on-surface-variant hover:bg-primary/5 hover:text-primary px-4 py-2 rounded-full text-sm font-medium transition-all duration-200">About</a>
-                    </li>
-                    <li><a href="contact.html"
-                            class="nav-link text-on-surface-variant hover:bg-primary/5 hover:text-primary px-4 py-2 rounded-full text-sm font-medium transition-all duration-200">Contact</a>
-                    </li>
-                    <li><a href="c-dac-center-finder.html"
-                            class="nav-link text-on-surface-variant hover:bg-primary/5 hover:text-primary px-4 py-2 rounded-full text-sm font-medium transition-all duration-200">C-DAC
-                            Finder</a></li>
-                    <li><a href="simple-javascript-compiler.html"
-                            class="nav-link text-on-surface-variant hover:bg-primary/5 hover:text-primary px-4 py-2 rounded-full text-sm font-medium transition-all duration-200">JS
-                            Compiler</a></li>
-                </ul>
-            </div>
-
-            <!-- Mobile Menu Toggle Button (M3 Icon Button) -->
-            <div class="md:hidden">
-                <button id="mobileMenuButton" type="button"
-                    class="inline-flex items-center justify-center p-3 rounded-full text-on-surface hover:bg-primary/5 focus:outline-none transition-all duration-200"
-                    aria-controls="mobile-menu" aria-expanded="false" aria-label="Open main menu">
-                    <span class="sr-only">Open main menu</span>
-                    <i class="ri-menu-line text-2xl block animate-fade-in" id="menuIconOpen"></i>
-                    <i class="ri-close-line text-2xl hidden animate-fade-in" id="menuIconClose"></i>
-                </button>
-            </div>
+    <!-- Navbar Placeholder -->
+    <!-- Top App Bar -->
+<header class="fixed top surface elev-1 z-50">
+    <nav class="responsive">
+        <!-- Mobile menu toggle -->
+        <button class="circle transparent large md:hidden" onclick="ui('#mobile-menu')" aria-label="Toggle Navigation Menu">
+            <i>menu</i>
+        </button>
+        
+        <!-- Brand Title & Logo -->
+        <a href="index.html" class="row items-center gap">
+            <img src="images/ni18_logo.png" alt="NI18 Logo" width="36" height="36" fetchpriority="high" class="circle bg-white p-1 border border-outline-variant/30">
+            <h5 class="bold font-display max">NI18</h5>
+        </a>
+        
+        <div class="max"></div>
+        
+        <!-- Desktop Nav Bar -->
+        <div class="hidden md:flex row gap">
+            <a href="index.html" class="button transparent nav-link">Home</a>
+            <a href="index.html#services" class="button transparent nav-link">Services</a>
+            <a href="blogs.html" class="button transparent nav-link">Blogs</a>
+            <a href="about.html" class="button transparent nav-link">About</a>
+            <a href="contact.html" class="button transparent nav-link">Contact</a>
+            <a href="c-dac-center-finder.html" class="button transparent nav-link">C-DAC Finder</a>
+            <a href="simple-javascript-compiler.html" class="button transparent nav-link">JS Compiler</a>
         </div>
-    </div>
+    </nav>
+</header>
 
-    <!-- Mobile Menu Drawer (M3 Navigation Drawer Style) -->
-    <div class="md:hidden hidden bg-surface border-t border-outline-variant/30 shadow-2xl transition-all duration-300" id="mobile-menu">
-        <ul class="px-4 pt-2 pb-6 space-y-2">
-            <li><a href="index.html"
-                    class="mobile-nav-link text-on-surface-variant hover:bg-primary/5 hover:text-primary block px-4 py-3 rounded-xl text-base font-medium transition-all">Home</a>
-            </li>
-            <li><a href="index.html#services"
-                    class="mobile-nav-link text-on-surface-variant hover:bg-primary/5 hover:text-primary block px-4 py-3 rounded-xl text-base font-medium transition-all">Services</a>
-            </li>
-            <li><a href="blogs.html"
-                    class="mobile-nav-link text-on-surface-variant hover:bg-primary/5 hover:text-primary block px-4 py-3 rounded-xl text-base font-medium transition-all">Blogs</a>
-            </li>
-            <li><a href="about.html"
-                    class="mobile-nav-link text-on-surface-variant hover:bg-primary/5 hover:text-primary block px-4 py-3 rounded-xl text-base font-medium transition-all">About</a>
-            </li>
-            <li><a href="contact.html"
-                    class="mobile-nav-link text-on-surface-variant hover:bg-primary/5 hover:text-primary block px-4 py-3 rounded-xl text-base font-medium transition-all">Contact</a>
-            </li>
-            <li><a href="c-dac-center-finder.html"
-                    class="mobile-nav-link text-on-surface-variant hover:bg-primary/5 hover:text-primary block px-4 py-3 rounded-xl text-base font-medium transition-all">C-DAC
-                    Finder</a></li>
-            <li><a href="simple-javascript-compiler.html"
-                    class="mobile-nav-link text-on-surface-variant hover:bg-primary/5 hover:text-primary block px-4 py-3 rounded-xl text-base font-medium transition-all">JS
-                    Compiler</a></li>
-        </ul>
-    </div>
+<!-- Mobile Navigation Drawer -->
+<nav class="left drawer" id="mobile-menu">
+    <header class="row items-center gap">
+        <img src="images/ni18_logo.png" alt="NI18 Logo" width="36" height="36" class="circle">
+        <h5 class="bold font-display">NI18</h5>
+        <div class="max"></div>
+        <button class="circle transparent" onclick="ui('#mobile-menu')"><i>close</i></button>
+    </header>
+    <a href="index.html" class="row gap mobile-nav-link"><i>home</i> <div>Home</div></a>
+    <a href="index.html#services" class="row gap mobile-nav-link"><i>dns</i> <div>Services</div></a>
+    <a href="blogs.html" class="row gap mobile-nav-link"><i>article</i> <div>Blogs</div></a>
+    <a href="about.html" class="row gap mobile-nav-link"><i>info</i> <div>About</div></a>
+    <a href="contact.html" class="row gap mobile-nav-link"><i>mail</i> <div>Contact</div></a>
+    <a href="c-dac-center-finder.html" class="row gap mobile-nav-link"><i>search</i> <div>C-DAC Finder</div></a>
+    <a href="simple-javascript-compiler.html" class="row gap mobile-nav-link"><i>code</i> <div>JS Compiler</div></a>
 </nav>
 
-    <main class="flex-grow">
+    <main class="responsive">
         <!-- Hero Section -->
-        <section class="gradient-overlay text-white py-24 text-center relative overflow-hidden">
-            <div class="absolute w-80 h-80 rounded-full bg-white/10 blur-3xl -top-20 -left-20 pointer-events-none"></div>
-            <div class="max-w-4xl mx-auto px-4 relative z-10">
-                <h1 class="text-4xl sm:text-6xl font-display font-black mb-4 tracking-tight">Get in Touch</h1>
-                <p class="text-lg sm:text-xl opacity-90 font-light">We'd love to hear from you. Let's create something amazing together.</p>
+        <section class="gradient-overlay-m3 padding round-extra-large margin-bottom text-center">
+            <div class="container">
+                <h1 class="bold font-display max-w-4xl mx-auto text-5xl">Get in Touch</h1>
+                <p class="margin-top max-w-3xl mx-auto text-lg">We'd love to hear from you. Let's create something amazing together.</p>
             </div>
         </section>
 
         <!-- Contact Form Section -->
-        <section class="py-20 -mt-16 relative z-20">
-            <div class="container mx-auto px-4">
-                <div class="max-w-2xl mx-auto bg-surface border border-outline-variant/30 rounded-3xl shadow-xl p-8 sm:p-12">
-                    <h2 class="text-3xl font-display font-bold text-center text-on-surface mb-10">Send us a Message</h2>
+        <section class="padding">
+            <div class="container">
+                <div class="grid center-align">
+                    <div class="s12 m8 l6">
+                        <article class="padding border round-extra-large">
+                            <h4 class="bold font-display text-center margin-bottom">Send us a Message</h4>
 
-                    <form action="https://formspree.io/f/xbjnqqlg" method="POST" class="space-y-6">
-                        <div>
-                            <label for="name" class="block text-sm font-medium text-on-surface-variant mb-2">Name</label>
-                            <input type="text" id="name" name="name" required class="form-input"
-                                placeholder="Your Name">
-                        </div>
+                            <form action="https://formspree.io/f/xbjnqqlg" method="POST" class="vertical gap">
+                                <div class="field label outline">
+                                    <input type="text" id="name" name="name" required placeholder=" ">
+                                    <label for="name">Name</label>
+                                </div>
 
-                        <div>
-                            <label for="email" class="block text-sm font-medium text-on-surface-variant mb-2">Email address</label>
-                            <input type="email" id="email" name="email" required class="form-input"
-                                placeholder="name@example.com">
-                        </div>
+                                <div class="field label outline">
+                                    <input type="email" id="email" name="email" required placeholder=" ">
+                                    <label for="email">Email Address</label>
+                                </div>
 
-                        <div>
-                            <label for="subject" class="block text-sm font-medium text-on-surface-variant mb-2">Subject</label>
-                            <input type="text" id="subject" name="subject" required class="form-input"
-                                placeholder="How can we help?">
-                        </div>
+                                <div class="field label outline">
+                                    <input type="text" id="subject" name="subject" required placeholder=" ">
+                                    <label for="subject">Subject</label>
+                                </div>
 
-                        <div>
-                            <label for="message" class="block text-sm font-medium text-on-surface-variant mb-2">Message</label>
-                            <textarea id="message" name="message" rows="5" required class="form-input resize-y"
-                                placeholder="Tell us about your project..."></textarea>
-                        </div>
+                                <div class="field label outline">
+                                    <textarea id="message" name="message" rows="5" required placeholder=" "></textarea>
+                                    <label for="message">Message</label>
+                                </div>
 
-                        <div class="text-center pt-4">
-                            <button type="submit"
-                                class="w-full sm:w-auto px-10 py-3.5 bg-primary text-white font-display font-bold rounded-full hover:bg-blue-800 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-0.5">
-                                Send Message
-                            </button>
-                        </div>
-                    </form>
+                                <nav class="center-align margin-top">
+                                    <button type="submit" class="button large round responsive">
+                                        <span>Send Message</span>
+                                        <i>send</i>
+                                    </button>
+                                </nav>
+                            </form>
 
-                    <p class="text-center mt-6 text-gray-400 text-sm">
-                        Powered by <a href="https://formspree.io" target="_blank"
-                            class="hover:text-primary transition">Formspree</a>
-                    </p>
+                            <p class="center-align margin-top text-sm">
+                                Powered by <a href="https://formspree.io" target="_blank" rel="noopener noreferrer" class="bold text-primary">Formspree</a>
+                            </p>
+                        </article>
+                    </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer class="bg-dark text-on-surface-variant border-t border-outline-variant/20 py-16">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
-            <!-- Brand Overview -->
-            <div>
-                <h3 class="text-2xl font-display font-bold text-white mb-4 tracking-tight">NI18</h3>
-                <p class="text-sm text-gray-400 leading-relaxed max-w-sm">
-                    Innovative technology solutions for a digital-first world. We empower businesses to grow, optimize, and succeed through cutting-edge software engineering and digital transformation.
-                </p>
-            </div>
-            
-            <!-- Quick Links -->
-            <div>
-                <h3 class="text-lg font-display font-semibold text-white mb-4">Quick Links</h3>
-                <ul class="space-y-3">
-                    <li><a href="index.html" class="text-sm text-gray-400 hover:text-primary hover:underline transition-all">Home</a></li>
-                    <li><a href="index.html#services" class="text-sm text-gray-400 hover:text-primary hover:underline transition-all">Services</a></li>
-                    <li><a href="blogs.html" class="text-sm text-gray-400 hover:text-primary hover:underline transition-all">Blogs</a></li>
-                    <li><a href="about.html" class="text-sm text-gray-400 hover:text-primary hover:underline transition-all">About Us</a></li>
-                    <li><a href="contact.html" class="text-sm text-gray-400 hover:text-primary hover:underline transition-all">Contact</a></li>
-                    <li><a href="privacy-policy.html" class="text-sm text-gray-400 hover:text-primary hover:underline transition-all">Privacy Policy</a></li>
-                    <li><a href="terms-of-service.html" class="text-sm text-gray-400 hover:text-primary hover:underline transition-all">Terms of Service</a></li>
-                </ul>
-            </div>
-            
-            <!-- Social Connect -->
-            <div>
-                <h3 class="text-lg font-display font-semibold text-white mb-4">Connect With Us</h3>
-                <div class="flex flex-wrap gap-3 mb-6">
-                    <a href="https://www.linkedin.com/company/ni18" aria-label="NI18 LinkedIn Profile" target="_blank"
-                        rel="noopener noreferrer" class="flex items-center justify-center w-10 height-10 h-10 rounded-full border border-gray-700 text-gray-400 hover:text-primary hover:bg-white/10 hover:border-white transition-all"><i
-                            class="ri-linkedin-box-fill text-xl"></i></a>
-                    <a href="https://x.com/ni18_in" aria-label="NI18 Twitter Profile" target="_blank"
-                        rel="noopener noreferrer" class="flex items-center justify-center w-10 height-10 h-10 rounded-full border border-gray-700 text-gray-400 hover:text-primary hover:bg-white/10 hover:border-white transition-all"><i
-                            class="ri-twitter-x-fill text-xl"></i></a>
-                    <a href="https://github.com/ni18-in" aria-label="NI18 GitHub Profile" target="_blank"
-                        rel="noopener noreferrer" class="flex items-center justify-center w-10 height-10 h-10 rounded-full border border-gray-700 text-gray-400 hover:text-primary hover:bg-white/10 hover:border-white transition-all"><i
-                            class="ri-github-fill text-xl"></i></a>
-                    <a href="https://www.facebook.com/ni18.in" aria-label="NI18 Facebook Page" target="_blank"
-                        rel="noopener noreferrer" class="flex items-center justify-center w-10 height-10 h-10 rounded-full border border-gray-700 text-gray-400 hover:text-primary hover:bg-white/10 hover:border-white transition-all"><i
-                            class="ri-facebook-circle-fill text-xl"></i></a>
-                    <a href="https://www.instagram.com/ni18.in/" aria-label="NI18 Instagram Profile" target="_blank"
-                        rel="noopener noreferrer" class="flex items-center justify-center w-10 height-10 h-10 rounded-full border border-gray-700 text-gray-400 hover:text-primary hover:bg-white/10 hover:border-white transition-all"><i
-                            class="ri-instagram-line text-xl"></i></a>
-                    <a href="#" aria-label="NI18 YouTube Channel" target="_blank" rel="noopener noreferrer"
-                        class="flex items-center justify-center w-10 height-10 h-10 rounded-full border border-gray-700 text-gray-400 hover:text-primary hover:bg-white/10 hover:border-white transition-all"><i
-                            class="ri-youtube-fill text-xl"></i></a>
-                </div>
-                <p class="text-sm text-gray-400">Email: <a href="mailto:info@ni18.in" class="text-primary hover:underline font-medium">info@ni18.in</a></p>
-            </div>
+    <!-- Footer Placeholder -->
+    <footer class="padding primary-container margin-top">
+    <div class="grid">
+        <div class="s12 m4">
+            <h5 class="bold font-display">NI18</h5>
+            <p class="margin-top">Innovative technology solutions for a digital-first world. We empower businesses to grow, optimize, and succeed through cutting-edge software engineering and digital transformation.</p>
         </div>
-        
-        <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row items-center justify-between text-center md:text-left gap-4">
-            <p class="text-xs text-gray-500">&copy; <span id="currentYear"></span> NI18. All Rights Reserved. Crafted with <i
-                    class="ri-heart-fill text-red-500 animate-pulse"></i> by NI18.</p>
-            <p class="text-xs text-gray-600">For optimal experience, please ensure JavaScript is enabled.</p>
+        <div class="s12 m4">
+            <h6 class="bold font-display">Quick Links</h6>
+            <nav class="vertical margin-top">
+                <a href="index.html" class="row gap"><i>home</i> <span>Home</span></a>
+                <a href="index.html#services" class="row gap"><i>dns</i> <span>Services</span></a>
+                <a href="blogs.html" class="row gap"><i>article</i> <span>Blogs</span></a>
+                <a href="about.html" class="row gap"><i>info</i> <span>About Us</span></a>
+                <a href="contact.html" class="row gap"><i>mail</i> <span>Contact</span></a>
+                <a href="privacy-policy.html" class="row gap"><i>security</i> <span>Privacy Policy</span></a>
+                <a href="terms-of-service.html" class="row gap"><i>gavel</i> <span>Terms of Service</span></a>
+            </nav>
         </div>
+        <div class="s12 m4">
+            <h6 class="bold font-display">Connect With Us</h6>
+            <div class="row gap margin-top">
+                <a href="https://www.linkedin.com/company/ni18" aria-label="NI18 LinkedIn Profile" target="_blank" rel="noopener noreferrer" class="button circle transparent large"><i>link</i></a>
+                <a href="https://x.com/ni18_in" aria-label="NI18 Twitter Profile" target="_blank" rel="noopener noreferrer" class="button circle transparent large"><i>chat</i></a>
+                <a href="https://github.com/ni18-in" aria-label="NI18 GitHub Profile" target="_blank" rel="noopener noreferrer" class="button circle transparent large"><i>folder</i></a>
+            </div>
+            <p class="margin-top">Email: <a href="mailto:info@ni18.in" class="bold">info@ni18.in</a></p>
+        </div>
+    </div>
+    <hr class="margin-vertical">
+    <div class="row align-center justify-between">
+        <p class="text-sm">© <span id="currentYear"></span> NI18. All Rights Reserved. Crafted with <i>favorite</i> by NI18.</p>
+        <p class="text-sm">For optimal experience, please ensure JavaScript is enabled.</p>
     </div>
 </footer>
 
-<!-- Back to Top M3 Floating Action Button (FAB) -->
 
 
-<!-- Back to Top M3 Floating Action Button (FAB) -->
 
 
-<!-- Back to Top M3 Floating Action Button (FAB) -->
 
 
-<!-- Back to Top M3 Floating Action Button (FAB) -->
 
 
-<!-- Back to Top M3 Floating Action Button (FAB) -->
 
 
-<!-- Back to Top M3 Floating Action Button (FAB) -->
 
 
-<!-- Back to Top Button -->
-<button id="backToTopBtn" title="Go to top"
-    class="fixed bottom-5 right-5 p-3 rounded-full bg-primary text-white shadow-lg hover:bg-blue-700 transition-all duration-300 opacity-0 invisible z-50">
-    <i class="ri-arrow-up-s-line text-2xl"></i>
-</button>
+
+
 
     <script src="script.js" defer></script>
 </body>
