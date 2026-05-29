@@ -65,7 +65,7 @@ files.forEach(file => {
 
     <!-- BeerCSS stylesheet and javascript module -->
     <link href="https://cdn.jsdelivr.net/npm/beercss@3.5.1/dist/cdn/beer.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/beercss@3.5.1/dist/cdn/beer.min.js" type="module"></script>
+    <script src="https://cdn.jsdelivr.net/npm/beercss@3.5.1/dist/cdn/beer.min.js"></script>
 
     <!-- Custom Styles -->
     <link rel="stylesheet" href="../style.css">

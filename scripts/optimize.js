@@ -103,6 +103,9 @@ function optimizeFile(filePath, isBlog = false) {
         content = content.replace(/src="https:\/\/blog\.ni18\.in\/feeds\/posts\/summary[^"]*"(?!\s+defer)/gi, '$& defer');
     }
 
+    // H. Fix BeerCSS script tag to not be a module (exposing global ui function)
+    content = content.replace(/<script[^>]*beercss[^>]*type="module"[^>]*><\/script>/gi, '<script src="https://cdn.jsdelivr.net/npm/beercss@3.5.1/dist/cdn/beer.min.js"></script>');
+
     if (content !== original) {
         fs.writeFileSync(filePath, content, 'utf8');
         console.log(`Optimized: ${path.basename(filePath)}`);
@@ -120,7 +123,6 @@ try {
         'blogs.html',
         'contact.html',
         'c-dac-center-finder.html',
-        'simple-javascript-compiler.html',
         'best-blogs.html'
     ];
 
