@@ -88,7 +88,6 @@ try {
         'blogs.html',
         'contact.html',
         'c-dac-center-finder.html',
-        'simple-javascript-compiler.html',
         'best-blogs.html'
     ];
 

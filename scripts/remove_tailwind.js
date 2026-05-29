@@ -5,13 +5,12 @@ const rootDir = path.resolve(__dirname, '..');
 const blogsDir = path.join(rootDir, 'blogs');
 
 // Root pages list (updated to lowercase)
-const rootFiles = [
+const filesToProcess = [
     'index.html',
     'about.html',
     'blogs.html',
     'contact.html',
     'c-dac-center-finder.html',
-    'simple-javascript-compiler.html',
     'best-blogs.html'
 ];
 
