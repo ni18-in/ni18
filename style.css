@@ -55,6 +55,56 @@ footer a:hover {
     .md\:flex {
         display: none !important;
     }
+
+    /* Force the navigation drawer to act as a sliding modal overlay (prevents squeezing main layout) */
+    nav.drawer {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        height: 100vh !important;
+        z-index: 1000 !important;
+        width: 280px !important;
+        transform: translateX(-105%) !important;
+        transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
+        box-shadow: 4px 0 16px rgba(0, 0, 0, 0.15) !important;
+        display: flex !important;
+    }
+    
+    nav.drawer.active {
+        transform: translateX(0) !important;
+    }
+
+    /* Semi-transparent dimmed backdrop mask when the drawer is open */
+    .overlay {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100vw !important;
+        height: 100vh !important;
+        background-color: rgba(0, 0, 0, 0.5) !important;
+        z-index: 999 !important;
+        display: none !important;
+        opacity: 0 !important;
+        transition: opacity 0.25s ease !important;
+    }
+    
+    body:has(nav.drawer.active) .overlay {
+        display: block !important;
+        opacity: 1 !important;
+    }
+
+    /* Disable background body scrolling while drawer is active */
+    body:has(nav.drawer.active) {
+        overflow: hidden !important;
+    }
+
+    /* Enforce zero-margin main body to prevent layout compression */
+    body:has(nav.drawer.active) main,
+    body:has(nav.drawer) main,
+    main {
+        margin-left: 0 !important;
+        padding-left: 0 !important;
+    }
 }
 @media (min-width: 993px) {
     .md\:hidden {
