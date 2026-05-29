@@ -1,78 +1,45 @@
-<nav id="mainNavbar" class="fixed top-0 left-0 right-0 z-50 py-3 bg-surface/80 backdrop-blur-lg border-b border-outline-variant/30 transition-all duration-300">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex items-center justify-between h-16">
-            <!-- Brand Logo -->
-            <div class="flex-shrink-0">
-                <a href="index.html" class="flex items-center gap-2 group">
-                    <img src="images/ni18_logo.png" alt="NI18 Logo" width="36" height="36" fetchpriority="high" class="h-9 w-9 bg-white rounded-lg p-1 border border-outline-variant/30">
-                    <span class="text-2xl font-display font-black tracking-tight text-primary hover:text-secondary transition-colors">NI18</span>
-                </a>
-            </div>
-
-            <!-- Desktop Menu (M3 Navigation Bar style buttons) -->
-            <div class="hidden md:block">
-                <ul class="flex items-center space-x-2">
-                    <li><a href="index.html"
-                            class="nav-link text-on-surface-variant hover:bg-primary/5 hover:text-primary px-4 py-2 rounded-full text-sm font-medium transition-all duration-200">Home</a>
-                    </li>
-                    <li><a href="index.html#services"
-                            class="nav-link text-on-surface-variant hover:bg-primary/5 hover:text-primary px-4 py-2 rounded-full text-sm font-medium transition-all duration-200">Services</a>
-                    </li>
-                    <li><a href="blogs.html"
-                            class="nav-link text-on-surface-variant hover:bg-primary/5 hover:text-primary px-4 py-2 rounded-full text-sm font-medium transition-all duration-200">Blogs</a>
-                    </li>
-                    <li><a href="about.html"
-                            class="nav-link text-on-surface-variant hover:bg-primary/5 hover:text-primary px-4 py-2 rounded-full text-sm font-medium transition-all duration-200">About</a>
-                    </li>
-                    <li><a href="contact.html"
-                            class="nav-link text-on-surface-variant hover:bg-primary/5 hover:text-primary px-4 py-2 rounded-full text-sm font-medium transition-all duration-200">Contact</a>
-                    </li>
-                    <li><a href="c-dac-center-finder.html"
-                            class="nav-link text-on-surface-variant hover:bg-primary/5 hover:text-primary px-4 py-2 rounded-full text-sm font-medium transition-all duration-200">C-DAC
-                            Finder</a></li>
-                    <li><a href="simple-javascript-compiler.html"
-                            class="nav-link text-on-surface-variant hover:bg-primary/5 hover:text-primary px-4 py-2 rounded-full text-sm font-medium transition-all duration-200">JS
-                            Compiler</a></li>
-                </ul>
-            </div>
-
-            <!-- Mobile Menu Toggle Button (M3 Icon Button) -->
-            <div class="md:hidden">
-                <button id="mobileMenuButton" type="button"
-                    class="inline-flex items-center justify-center p-3 rounded-full text-on-surface hover:bg-primary/5 focus:outline-none transition-all duration-200"
-                    aria-controls="mobile-menu" aria-expanded="false" aria-label="Open main menu">
-                    <span class="sr-only">Open main menu</span>
-                    <i class="ri-menu-line text-2xl block animate-fade-in" id="menuIconOpen"></i>
-                    <i class="ri-close-line text-2xl hidden animate-fade-in" id="menuIconClose"></i>
-                </button>
-            </div>
+<!-- Top App Bar -->
+<header class="fixed top surface elev-1 z-50">
+    <nav class="responsive">
+        <!-- Mobile menu toggle -->
+        <button class="circle transparent large md:hidden" onclick="ui('#mobile-menu')" aria-label="Toggle Navigation Menu">
+            <i>menu</i>
+        </button>
+        
+        <!-- Brand Title & Logo -->
+        <a href="index.html" class="row items-center gap">
+            <img src="images/ni18_logo.png" alt="NI18 Logo" width="36" height="36" fetchpriority="high" class="circle bg-white p-1 border border-outline-variant/30">
+            <h5 class="bold font-display max">NI18</h5>
+        </a>
+        
+        <div class="max"></div>
+        
+        <!-- Desktop Nav Bar -->
+        <div class="hidden md:flex row gap">
+            <a href="index.html" class="button transparent nav-link">Home</a>
+            <a href="index.html#services" class="button transparent nav-link">Services</a>
+            <a href="blogs.html" class="button transparent nav-link">Blogs</a>
+            <a href="about.html" class="button transparent nav-link">About</a>
+            <a href="contact.html" class="button transparent nav-link">Contact</a>
+            <a href="c-dac-center-finder.html" class="button transparent nav-link">C-DAC Finder</a>
+            <a href="simple-javascript-compiler.html" class="button transparent nav-link">JS Compiler</a>
         </div>
-    </div>
+    </nav>
+</header>
 
-    <!-- Mobile Menu Drawer (M3 Navigation Drawer Style) -->
-    <div class="md:hidden hidden bg-surface border-t border-outline-variant/30 shadow-2xl transition-all duration-300" id="mobile-menu">
-        <ul class="px-4 pt-2 pb-6 space-y-2">
-            <li><a href="index.html"
-                    class="mobile-nav-link text-on-surface-variant hover:bg-primary/5 hover:text-primary block px-4 py-3 rounded-xl text-base font-medium transition-all">Home</a>
-            </li>
-            <li><a href="index.html#services"
-                    class="mobile-nav-link text-on-surface-variant hover:bg-primary/5 hover:text-primary block px-4 py-3 rounded-xl text-base font-medium transition-all">Services</a>
-            </li>
-            <li><a href="blogs.html"
-                    class="mobile-nav-link text-on-surface-variant hover:bg-primary/5 hover:text-primary block px-4 py-3 rounded-xl text-base font-medium transition-all">Blogs</a>
-            </li>
-            <li><a href="about.html"
-                    class="mobile-nav-link text-on-surface-variant hover:bg-primary/5 hover:text-primary block px-4 py-3 rounded-xl text-base font-medium transition-all">About</a>
-            </li>
-            <li><a href="contact.html"
-                    class="mobile-nav-link text-on-surface-variant hover:bg-primary/5 hover:text-primary block px-4 py-3 rounded-xl text-base font-medium transition-all">Contact</a>
-            </li>
-            <li><a href="c-dac-center-finder.html"
-                    class="mobile-nav-link text-on-surface-variant hover:bg-primary/5 hover:text-primary block px-4 py-3 rounded-xl text-base font-medium transition-all">C-DAC
-                    Finder</a></li>
-            <li><a href="simple-javascript-compiler.html"
-                    class="mobile-nav-link text-on-surface-variant hover:bg-primary/5 hover:text-primary block px-4 py-3 rounded-xl text-base font-medium transition-all">JS
-                    Compiler</a></li>
-        </ul>
-    </div>
+<!-- Mobile Navigation Drawer -->
+<nav class="left drawer" id="mobile-menu">
+    <header class="row items-center gap">
+        <img src="images/ni18_logo.png" alt="NI18 Logo" width="36" height="36" class="circle">
+        <h5 class="bold font-display">NI18</h5>
+        <div class="max"></div>
+        <button class="circle transparent" onclick="ui('#mobile-menu')"><i>close</i></button>
+    </header>
+    <a href="index.html" class="row gap mobile-nav-link"><i>home</i> <div>Home</div></a>
+    <a href="index.html#services" class="row gap mobile-nav-link"><i>dns</i> <div>Services</div></a>
+    <a href="blogs.html" class="row gap mobile-nav-link"><i>article</i> <div>Blogs</div></a>
+    <a href="about.html" class="row gap mobile-nav-link"><i>info</i> <div>About</div></a>
+    <a href="contact.html" class="row gap mobile-nav-link"><i>mail</i> <div>Contact</div></a>
+    <a href="c-dac-center-finder.html" class="row gap mobile-nav-link"><i>search</i> <div>C-DAC Finder</div></a>
+    <a href="simple-javascript-compiler.html" class="row gap mobile-nav-link"><i>code</i> <div>JS Compiler</div></a>
 </nav>

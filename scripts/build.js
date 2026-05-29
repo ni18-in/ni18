@@ -44,7 +44,11 @@ function processFile(filePath, isBlog = false) {
     } else if (content.includes('<nav id="mainNavbar"')) {
         // If navbar already exists, replace it with updated version
         content = content.replace(/<nav id="mainNavbar"[\s\S]*?<\/nav>/, localHeader);
-        console.log(`Updated existing header in ${path.basename(filePath)}`);
+        console.log(`Updated existing legacy header in ${path.basename(filePath)}`);
+        changed = true;
+    } else if (/(?:<!-- Top App Bar -->\s*)?<header class="fixed top[\s\S]*?<nav class="left drawer" id="mobile-menu">[\s\S]*?<\/nav>/.test(content)) {
+        content = content.replace(/(?:<!-- Top App Bar -->\s*)?<header class="fixed top[\s\S]*?<nav class="left drawer" id="mobile-menu">[\s\S]*?<\/nav>/, localHeader);
+        console.log(`Updated existing BeerCSS header in ${path.basename(filePath)}`);
         changed = true;
     }
 
@@ -61,9 +65,10 @@ function processFile(filePath, isBlog = false) {
     }
 
     // 3. Update Back to Top button if present in older files
-    if (content.includes('<button id="backToTopBtn"')) {
+    if (content.includes('backToTopBtn')) {
         // Let's strip any duplicated backToTopBtn outside the footer, since footer.html contains it
-        content = content.replace(/<button id="backToTopBtn"[\s\S]*?<\/button>/, '');
+        content = content.replace(/<button[^>]*id="backToTopBtn"[\s\S]*?<\/button>/g, '');
+        content = content.replace(/<!-- Back to Top (?:M3 Floating Action Button \(FAB\)|FAB) -->/gi, '');
         changed = true;
     }
 

@@ -33,12 +33,20 @@ files.forEach(file => {
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
-    <!-- Material Design 3 Styling and Icons -->
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet">
+    <!-- Material Symbols Outlined icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+
+    <!-- BeerCSS stylesheet and javascript module -->
+    <link href="https://cdn.jsdelivr.net/npm/beercss@3.5.1/dist/cdn/beer.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/beercss@3.5.1/dist/cdn/beer.min.js" type="module"></script>
+
+    <!-- Custom Styles -->
     <link rel="stylesheet" href="../style.css">
+    
+    <meta name="theme-color" content="#0f52ba">
     `;
 
-    if (!content.includes('style.css')) {
+    if (!content.includes('beer.min.css')) {
         content = content.replace('</head>', headInjection + '\n</head>');
     }
 
@@ -94,13 +102,7 @@ files.forEach(file => {
     }
 
     // 7. Ensure body has cleaner classes if needed
-    // remove bootstrap classes from body if any
-    // content = content.replace(/<body class=".*?">/, '<body class="bg-gray-50 text-gray-800 antialiased">'); 
-    // ^ This is risky if simpler replace matches partially. better to just add class if missing.
-
-    if (content.includes('<body>')) {
-        content = content.replace('<body>', '<body class="bg-gray-50 text-gray-800 antialiased">');
-    }
+    content = content.replace(/<body[^>]*>/gi, '<body>');
 
     fs.writeFileSync(filePath, content);
     console.log(`Updated ${file}`);
