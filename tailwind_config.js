@@ -2,15 +2,42 @@ window.tailwind.config = {
     theme: {
         extend: {
             colors: {
-                primary: '#0f172a', // Deep Slate Blue
-                secondary: '#3b82f6', // Vibrant Blue
-                accent: '#10b981', // Emerald
-                dark: '#1e293b', // Slate 800
-                light: '#f1f5f9', // Slate 100
-                'light-bg': '#f8fafc', // Slate 50
+                // Google Material Design 3 color palette
+                primary: '#005db3',              // Primary
+                'on-primary': '#ffffff',         // On Primary
+                'primary-container': '#d5e3ff',  // Primary Container
+                'on-primary-container': '#001c3b', // On Primary Container
+                
+                secondary: '#535f70',            // Secondary
+                'on-secondary': '#ffffff',       // On Secondary
+                'secondary-container': '#d7e3f8', // Secondary Container
+                'on-secondary-container': '#101c2b', // On Secondary Container
+                
+                tertiary: '#6b577b',             // Tertiary
+                'on-tertiary': '#ffffff',        // On Tertiary
+                'tertiary-container': '#f3daff',  // Tertiary Container
+                'on-tertiary-container': '#251431', // On Tertiary Container
+                
+                background: '#fdfcff',           // Background
+                'on-background': '#1a1c1e',      // On Background
+                
+                surface: '#fdfcff',              // Surface
+                'on-surface': '#1a1c1e',         // On Surface
+                'surface-container': '#f3f4f9',  // M3 Surface Container (light grey/blue tone)
+                'surface-variant': '#dfe2eb',    // Surface Variant
+                'on-surface-variant': '#43474e',  // On Surface Variant
+                
+                outline: '#73777f',              // Outline
+                'outline-variant': '#c3c6cf',    // Outline Variant
+                
+                // Compatibility mapping
+                dark: '#1a1c1e',
+                light: '#f3f4f9',
+                'light-bg': '#fdfcff'
             },
             fontFamily: {
-                sans: ['Inter', 'sans-serif'],
+                sans: ['Roboto', 'Inter', 'sans-serif'],
+                display: ['Outfit', 'sans-serif'],
             },
             animation: {
                 'fade-in-down': 'fadeInDown 0.8s ease-out',

@@ -88,27 +88,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function highlightActiveLink() {
         const currentPath = window.location.pathname;
-        const navLinks = document.querySelectorAll('nav a'); // targets specific structure
+        const navLinks = document.querySelectorAll('.nav-link, .mobile-nav-link');
 
         navLinks.forEach(link => {
             const href = link.getAttribute('href');
-            // Logic to match current page
-            // If href is "index.html" and we are at "/", match it.
             if (!href) return;
+
+            // Normalize names to match pages accurately
+            const pageName = currentPath.split('/').pop() || 'index.html';
+            const linkPage = href.split('#')[0].split('/').pop();
 
             let isActive = false;
 
-            if (href === currentPath) isActive = true;
-            if (currentPath.endsWith('/') && href === 'index.html') isActive = true;
-            if (currentPath.endsWith(href)) isActive = true;
+            if (linkPage === pageName) {
+                isActive = true;
+            } else if ((pageName === '' || pageName === 'ni18') && linkPage === 'index.html') {
+                isActive = true;
+            }
 
             if (isActive) {
-                // Add active styles (Tailwind: often simplified text color or background)
-                // The header HTML uses specific classes for active state? 
-                // It seems to hardcode 'text-gray-300' for inactive.
-                // Let's add 'bg-gray-900' and 'text-white' for active.
-                link.classList.remove('text-gray-300', 'hover:bg-gray-700', 'hover:text-white');
-                link.classList.add('bg-gray-900', 'text-white');
+                // Apply Material 3 Tonal container active styling
+                link.classList.remove('text-on-surface-variant', 'hover:bg-primary/5', 'hover:text-primary');
+                link.classList.add('bg-primary-container', 'text-on-primary-container', 'font-semibold');
             }
         });
     }
