@@ -16,8 +16,9 @@ files.forEach(file => {
     const filePath = path.join(BLOGS_DIR, file);
     let content = fs.readFileSync(filePath, 'utf8');
 
-    // 1. Remove Bootstrap CSS
+    // 1. Remove Bootstrap CSS and JS
     content = content.replace(/<link.*bootstrap.*?>/g, '');
+    content = content.replace(/<script.*bootstrap.*?>\s*<\/script>/g, '');
 
     // 2. Remove old custom style.css link if present (or update it, but we are moving to tailwind)
     // We might keep it if it has custom article specific styles, but main layout is Tailwind.
@@ -25,14 +26,20 @@ files.forEach(file => {
     content = content.replace(/<link.*style\.css.*?>/g, '');
 
 
-    // 3. Inject Tailwind and Config
+    // 3. Inject Tailwind, Fonts, and Config
     const headInjection = `
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet">
     <script src="../tailwind_config.js"></script>
     <style>
-        body { font-family: 'Inter', sans-serif; }
+        body { font-family: 'Roboto', 'Inter', sans-serif; }
+        h1, h2, h3, h4, h5, h6 { font-family: 'Outfit', sans-serif; }
     </style>
     `;
 
@@ -46,8 +53,12 @@ files.forEach(file => {
     // Also check for older bootstrap navs if any
     content = content.replace(/<nav class="navbar[\s\S]*?<\/nav>/, '<div id="navbar-placeholder"></div>');
 
-    // Replace Footer
-    content = content.replace(/<footer[\s\S]*?<\/footer>/, '<div id="footer-placeholder"></div>');
+    // Replace Footer - globally strip all existing footer blocks first
+    content = content.replace(/<footer[\s\S]*?<\/footer>/g, '');
+    content = content.replace(/<div id="footer-placeholder"><\/div>/g, '');
+    if (!content.includes('id="footer-placeholder"')) {
+        content = content.replace('</body>', '    <div id="footer-placeholder"></div>\n</body>');
+    }
 
     // 5. Add Script
     if (!content.includes('script.js')) {

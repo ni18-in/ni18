@@ -11,52 +11,10 @@ document.addEventListener('DOMContentLoaded', () => {
     /* 
        Dynamic Loading Logic
     */
-    function loadComponent(id, path, callback) {
-        // Path resolving logic
-        const cssLink = document.querySelector('link[href*="style.css"]');
-        // If standard linking isn't found (because we removed style.css in favor of tailwind), 
-        // fallback to checking usage of internal scripts or just try relative.
-
-        let relativeRoot = '';
-        // Heuristic: count how many levels deep we are by looking at the script src if possible?
-        // Or simpler: We know we are in 'blogs/' if pathname contains it.
-        if (window.location.pathname.includes('/blogs/')) {
-            relativeRoot = '../';
-        }
-
-        // However, the simplest robust way for this specific project structure:
-        // Components are always in /components/ relative to root.
-        // We can try to fetch from relativeRoot + 'components/' + path
-
-        const fullPath = relativeRoot + 'components/' + path;
-
-        fetch(fullPath)
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-                return response.text();
-            })
-            .then(data => {
-                document.getElementById(id).innerHTML = data;
-                if (callback) callback();
-            })
-            .catch(error => {
-                console.error(`Error loading ${path}:`, error);
-                // Don't show alert for now to avoid annoyance if it's just a minor path issue we can retry?
-                // But do show if it fails completely.
-                document.getElementById(id).innerHTML = `<div class="p-4 bg-red-100 text-red-700">Failed to load ${path}. Check console.</div>`;
-            });
-    }
-
-    loadComponent('navbar-placeholder', 'header.html', () => {
-        initNavbar();
-        highlightActiveLink();
-    });
-
-    loadComponent('footer-placeholder', 'footer.html', () => {
-        initFooter();
-    });
+    // Initialize UI components directly since they are now statically injected
+    initNavbar();
+    initFooter();
+    highlightActiveLink();
 
 
     // --- UI Initialization Logic ---
@@ -130,27 +88,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function highlightActiveLink() {
         const currentPath = window.location.pathname;
-        const navLinks = document.querySelectorAll('nav a'); // targets specific structure
+        const navLinks = document.querySelectorAll('.nav-link, .mobile-nav-link');
 
         navLinks.forEach(link => {
             const href = link.getAttribute('href');
-            // Logic to match current page
-            // If href is "index.html" and we are at "/", match it.
             if (!href) return;
+
+            // Normalize names to match pages accurately
+            const pageName = currentPath.split('/').pop() || 'index.html';
+            const linkPage = href.split('#')[0].split('/').pop();
 
             let isActive = false;
 
-            if (href === currentPath) isActive = true;
-            if (currentPath.endsWith('/') && href === 'index.html') isActive = true;
-            if (currentPath.endsWith(href)) isActive = true;
+            if (linkPage === pageName) {
+                isActive = true;
+            } else if ((pageName === '' || pageName === 'ni18') && linkPage === 'index.html') {
+                isActive = true;
+            }
 
             if (isActive) {
-                // Add active styles (Tailwind: often simplified text color or background)
-                // The header HTML uses specific classes for active state? 
-                // It seems to hardcode 'text-gray-300' for inactive.
-                // Let's add 'bg-gray-900' and 'text-white' for active.
-                link.classList.remove('text-gray-300', 'hover:bg-gray-700', 'hover:text-white');
-                link.classList.add('bg-gray-900', 'text-white');
+                // Apply Material 3 Tonal container active styling
+                link.classList.remove('text-on-surface-variant', 'hover:bg-primary/5', 'hover:text-primary');
+                link.classList.add('bg-primary-container', 'text-on-primary-container', 'font-semibold');
             }
         });
     }
