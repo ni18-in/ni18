@@ -88,7 +88,9 @@ try {
         'blogs.html',
         'contact.html',
         'c-dac-center-finder.html',
-        'best-blogs.html'
+        'best-blogs.html',
+        'privacy-policy.html',
+        'terms-of-service.html'
     ];
 
     rootFiles.forEach(file => {

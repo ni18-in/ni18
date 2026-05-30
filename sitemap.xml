@@ -2,32 +2,32 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
         <loc>https://ni18-in.github.io/ni18/about.html</loc>
-        <lastmod>2026-05-29</lastmod>
+        <lastmod>2026-05-30</lastmod>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://ni18-in.github.io/ni18/best-blogs.html</loc>
-        <lastmod>2026-05-29</lastmod>
+        <lastmod>2026-05-30</lastmod>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://ni18-in.github.io/ni18/blogs/all-english-grammar-in-marathi.html</loc>
-        <lastmod>2026-05-29</lastmod>
+        <lastmod>2026-05-30</lastmod>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://ni18-in.github.io/ni18/blogs/best-ai-beauty-test.html</loc>
-        <lastmod>2026-05-29</lastmod>
+        <lastmod>2026-05-30</lastmod>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://ni18-in.github.io/ni18/blogs/bible-quiz-app.html</loc>
-        <lastmod>2026-05-29</lastmod>
+        <lastmod>2026-05-30</lastmod>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://ni18-in.github.io/ni18/blogs/blog-template.html</loc>
-        <lastmod>2026-05-29</lastmod>
+        <lastmod>2026-05-30</lastmod>
         <priority>0.8</priority>
     </url>
     <url>
@@ -37,37 +37,47 @@
     </url>
     <url>
         <loc>https://ni18-in.github.io/ni18/blogs/how-to-choose-the-right-technology-stack-for-your-project.html</loc>
-        <lastmod>2026-05-29</lastmod>
+        <lastmod>2026-05-30</lastmod>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://ni18-in.github.io/ni18/blogs/javascript-roadmap.html</loc>
-        <lastmod>2026-05-29</lastmod>
+        <lastmod>2026-05-30</lastmod>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://ni18-in.github.io/ni18/blogs/typescript-vs-javascript-comprehensive-comparison.html</loc>
-        <lastmod>2026-05-29</lastmod>
+        <lastmod>2026-05-30</lastmod>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://ni18-in.github.io/ni18/blogs.html</loc>
-        <lastmod>2026-05-29</lastmod>
+        <lastmod>2026-05-30</lastmod>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://ni18-in.github.io/ni18/c-dac-center-finder.html</loc>
-        <lastmod>2026-05-29</lastmod>
+        <lastmod>2026-05-30</lastmod>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://ni18-in.github.io/ni18/contact.html</loc>
-        <lastmod>2026-05-29</lastmod>
+        <lastmod>2026-05-30</lastmod>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://ni18-in.github.io/ni18/index.html</loc>
-        <lastmod>2026-05-29</lastmod>
+        <lastmod>2026-05-30</lastmod>
         <priority>1.0</priority>
+    </url>
+    <url>
+        <loc>https://ni18-in.github.io/ni18/privacy-policy.html</loc>
+        <lastmod>2026-05-30</lastmod>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://ni18-in.github.io/ni18/terms-of-service.html</loc>
+        <lastmod>2026-05-30</lastmod>
+        <priority>0.8</priority>
     </url>
 </urlset>

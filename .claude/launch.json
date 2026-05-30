@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "ni18",
+      "runtimeExecutable": "node",
+      "runtimeArgs": ["start_server.js"],
+      "port": 3000
+    }
+  ]
+}
